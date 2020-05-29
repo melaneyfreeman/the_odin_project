@@ -1,0 +1,150 @@
+#grid-icon{
+    width: 4%;
+    height: 100%;
+    padding: 10px;
+    filter: invert(50%);
+
+}
+
+#nav-bar{
+    display: relative;
+    margin: .4em;
+    padding: -10px;
+}
+
+#nav-left, #nav-right{
+    display: flex;
+    list-style-type: none;
+    list-style: none;
+    padding-left: .1em;
+    padding-right: .1em;
+}
+
+#nav-left{
+    text-align: left;
+    float: left;
+    
+}
+#nav-right{
+    text-align: right;
+    float: right;
+    margin-left: auto;
+    margin-right: 0;
+    justify-content: right;
+}
+
+#middle{
+    display: block;
+    padding: 10%;
+}
+
+#logo-img{
+    width: 17%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a{
+    padding: 10px;
+    font-family: arial,sans-serif;
+    text-decoration: none;
+    color: gray;
+    font-size: .9em;
+    padding-top: 1em;
+}
+
+#sign-in-btn{
+    border-radius: 3%;
+    border-style: none;
+    background-color: #4c8bf5;
+    font-family: arial;
+    color: white;
+    text-decoration: bold;
+    width: 10%;
+    height: 2.5em;
+    margin-top: 10px;
+}
+
+.search-box-div{
+    position: relative;
+    margin: auto;
+    padding-top: 2em;
+    text-align: center;
+}
+
+.search-box-div input{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    height: 5%;
+    display: block;
+    border: none;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: .1em;
+    border-radius: 33px;
+    padding-left: 2.7em;
+    border-color: lightgray;
+}
+
+#mag-img{
+    position: absolute;
+    top: 2.7em;
+    margin: auto;
+    width: 1.2em;
+    left: 34.5em;
+    filter: invert(70%);
+}
+
+#mic-img{
+    position: absolute;
+    top: 2.7em;
+    margin: auto;
+    width: .7em;
+    right: 35em;
+}
+
+.search-btns{
+    color: lightgray;
+    padding-top: 2em;
+    text-align: center;
+    margin-left: auto;
+}
+
+.search-btns button{
+    color: gray;
+    background-color: #F0F0F0;
+    border-style: none;
+    height: 3em;
+    border-radius: 4%;
+    margin: .4em;
+    padding: .9em;
+    padding-top: .8em;
+}
+
+footer{
+    background-color: #F0F0F0;
+    position: fixed;
+    bottom: 0px;
+    width: 99%;
+    height: 1.5em;
+    display: inline-block;
+    line-height: 40px;  
+    padding-bottom: .6em;
+    border-top: 1px solid gainsboro;
+    
+}
+
+#footer-left{
+    text-align: left;
+    float: left;
+}
+#footer-right{
+    text-align: right;
+    float: right;
+    margin-left: auto;
+    margin-right: 0;
+    justify-content: right;
+}
+
