@@ -1,0 +1,85 @@
+@font-face {
+    font-family: earwig_factory_rg;
+    src: url(../fonts/earwig_factory_rg-webfont.woff2);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: p5;
+    src: url(../fonts/p5.ttf);
+    font-style: normal;
+}
+@media (max-width: 500px){
+
+}
+body{ 
+    background-image: url(../images/bg.png);
+    z-index: -1;
+}
+h1{
+  font-family: earwig_factory_rg;
+  font-size: 4em;
+  color: white;
+  text-shadow: 10px 0 black, -4px 0 black, -4px 0 black, 4px 0 black;
+  text-align: center;
+}
+
+h2{
+    font-family: p5;
+    font-size:3em;
+    color: white;
+    text-shadow: 3px 0 black, -3px 0 black, -3px 0 black, 3px 0 black;
+    transform: rotate(-5deg);
+    text-align: center;
+}
+
+.percentage{
+    font-family: p5;
+    font-size: 3em;
+    text-align: center;
+    transform: rotate(-6deg);
+    color: orange;
+    text-shadow: 4px 0 black, -4px 0 black, -4px 0 black, 4px 0 black;
+    
+
+}
+.questionbar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    position: relative;
+    align-items: center;
+    
+}
+.blackbox{
+   position: absolute;
+   align-items: center;
+   transform: rotate(-3deg);
+   background-color: black;
+   max-width: 100%;
+   max-height: auto;
+   height: 57%;
+   width: 90%;
+   top: 27%;
+}
+.redbox{
+    position: absolute;
+    align-items: center;
+    left: 2%;
+    transform: rotate(-4deg);
+    background-color: red;
+    max-width: 90%;
+    max-height: auto;
+    height: 30%;
+    width: 60%;
+    top: 45%;
+}
+.barimage{
+    position: relative;
+    align-items: center;
+    transform: rotate(-2deg);
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
