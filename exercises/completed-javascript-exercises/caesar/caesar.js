@@ -10,7 +10,13 @@ function caesar(str, shift) {
     //check for each letter in str
     for(let i = 0; i < str.length; i++){
       var char = str.charCodeAt(i);
-    
+   
+    //checks for large shift factors that are greater than the size of the alphabet
+    if(shift > 26){
+        //finds the remainder and sets shift to the proper amount to move
+        shift = shift%26;
+    }
+
     //if str(i) is lowercase
         if(char >= charA && char <= charZ){
             //create var for the char value plus the shift value
@@ -81,7 +87,8 @@ function caesar(str, shift) {
     }
 
     console.log(newArr.join(""));
+    return newArr.join("");
 }
 
-caesar('Mjqqt, Btwqi!', -5);
+caesar('Hello, World!', 75);
 module.exports = caesar
