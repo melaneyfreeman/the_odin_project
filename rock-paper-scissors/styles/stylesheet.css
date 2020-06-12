@@ -1,0 +1,100 @@
+h1{
+    position: block;
+    text-align: center;
+    color: #e19999;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 0 0 10px #fab7b7;
+}
+
+h2{
+    position: block;
+    text-align: center;
+    color: #fab7b7;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+h3{
+    position: block;
+    text-align: center;
+    color: slategray;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#rounds{
+    font-size: 40px;
+}
+h4{
+    position: block;
+    text-align: center;
+    color: slategray;
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: #dddddd;
+}
+
+#playerDiv{
+    background-color: slategray;
+    border-radius: 33px;
+}
+
+#selectionDiv{
+    display: inline-flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#rock, #paper, #scissors{
+    background-color: #fab7b7;
+    padding: 3.4em;
+    border-radius: 50%;
+    display: block;
+    margin-left: 3em;
+    margin-right: 3em;
+    border-style: outset;
+    border-color: #e19999;
+    border-width: 10px;
+}
+
+#rock:hover, #paper:hover, #scissors:hover{
+    background-color: darkgray;
+    border-style: outset;
+    border-color: slategray;
+    border-width: 10px;
+
+
+}
+
+#compDiv{
+    display: inline-flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#pcRock, #pcPaper, #pcScissors, #pcBlank{
+    margin-top: 4em;
+    margin-bottom: 100px;
+    background-color: #fab7b7;
+    padding: 1.5em;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    border-style: outset;
+    border-color: slategray;
+    border-width: 10px;
+}
+
+#resultDiv{
+    padding-top: 7em;
+}
+
+#computerMove{
+    background-color: #e19999;
+    width: 100%;
+    border-radius: 33px;
+
+}

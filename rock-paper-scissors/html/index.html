@@ -1,97 +1,40 @@
-<script>
-var selections = ["rock", "paper", "scissors"];
-let wins = 0;
-let loses = 0; 
-let ties = 0;
-game();
-
-function playRound(playerSelection, computerSelection){
-    playerSelection = playerSelection.toLowerCase();
-    //computerSelection = computerPlay();
-    
-    if(playerSelection === "rock"){
-        if(computerSelection === "paper"){
-            loses++;
-
-            console.log("You picked: " + playerSelection +  ". Computer picked: " + computerSelection + ". You lose! Paper beats rock!");
-        }
-        if(computerSelection === "scissors"){
-            wins++;
-
-            console.log ("You picked: " + playerSelection +  ". Computer picked: " + computerSelection + ". You win! Rock beats scissors!");
-        }
-        if(computerSelection === playerSelection){
-            ties++;
-
-            console.log ("You picked: " + playerSelection +  ". Computer picked: " + computerSelection + ". Tie! Play again.");
-        }
-    }
-
-    if(playerSelection === "paper"){
-        if(computerSelection === "scissors"){
-            loses++;
-
-            console.log("You picked: " + playerSelection +  ". Computer picked: " + computerSelection + ". You lose! Scissors beats paper!");
-        }
-        if(computerSelection === "rock"){
-            wins++;
-
-            console.log ("You picked: " + playerSelection +  ". Computer picked: " + computerSelection + ". You win! Paper beats rock!");
-        }
-        if(computerSelection === playerSelection){
-            ties++;
-
-            console.log("You picked: " + playerSelection +  ". Computer picked: " + computerSelection + ". Tie! Play again.");
-        }
-    }
-
-    if(playerSelection === "scissors"){
-        if(computerSelection === "rock"){
-            loses++;
-
-            console.log ("You picked: " + playerSelection +  ". Computer picked: " + computerSelection + ". You lose! Rock beats scissors!");
-        }
-        if(computerSelection === "paper"){
-            wins++;
-
-            console.log ("You picked: " + playerSelection +  ". Computer picked: " + computerSelection + ". You win! Scissors beats paper!");
-        }
-        if(computerSelection === playerSelection){
-            ties++;
-
-            console.log ("You picked: " + playerSelection +  ". Computer picked: " + computerSelection + ". Tie! Play again!");
-        }
-    }
-
-    if(selections.indexOf(playerSelection) === -1){
-        alert("Please select rock, paper or scissors");
-        return;
-    }
-    console.log("Current Wins: " + wins + " Current Loses: " + loses + " Current Ties: " + ties);
-
-    game();
-
-}
-
-function computerPlay(){
-    computerSelection = selections[Math.floor(Math.random() * selections.length)];
-    return computerSelection;
-}
-
-function game(){
-    let answer = window.prompt("Would you like to play? Y/N?");
-    answer = answer.toLowerCase();
-    if(answer === "y"){
-        playerSelection = window.prompt("enter rock/paper/scissors");
-        computerSelection = computerPlay();
-        playRound(playerSelection, computerSelection);
-    }
-    else if(answer !== "y"){
-        console.log("Good game! Wins: " + wins + " Loses: " + loses + " Ties: " + ties);
-    }
-}
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../styles/stylesheet.css">
 
 
+<body>
+    <head><h1>Rock, Paper, Scissors</h1></head>
 
+    <div id="playerDiv"><h2>Choose Your Weapon:</h2></div>
+    <div><h3 id="rounds">Rounds: 1</h3></div>
 
-</script>
+    <div id="selectionDiv">
+        <div><img id="rock" src="https://img.icons8.com/ios/50/000000/angry-fist.png"/></div>
+        <div><img id="paper" src="https://img.icons8.com/ios/50/000000/hand.png"/></div>
+        <div><img id="scissors" src="https://img.icons8.com/ios/50/000000/hand-scissors.png"/></div>
+    </div>
+
+    <div id= "compDiv">
+        <h3 id="computerMove">Computer Choice: </h3>
+        <img id="pcRock" src="https://img.icons8.com/ios/50/000000/angry-fist.png"/>
+        <img id="pcPaper" src="https://img.icons8.com/ios/50/000000/hand.png"/>
+        <img id="pcScissors" src="https://img.icons8.com/ios/50/000000/hand-scissors.png"/>
+        <img id="pcBlank" src="https://img.icons8.com/dotty/80/000000/question-mark.png"/>    
+    </div>
+
+    <div id="resultDiv">
+        <h4 id="result"></h2>
+    </div>
+
+    <div>
+        <div><h3 id="wins">Wins: 0</h3></div>
+        <div><h3 id="loses">Loses: 0</h3></div>
+        <div><h3 id="ties">Ties: 0</h3></div>
+    </div>
+    <script src="../scripts/rock-paper-scissors.js"></script>
+
+</body>
+
+</html>
