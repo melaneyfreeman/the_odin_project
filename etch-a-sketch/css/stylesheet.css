@@ -1,0 +1,60 @@
+body{
+    background-color: #f6eec7;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    display: block;
+    text-align: center;
+    font-family: 'Londrina Sketch', cursive;
+    font-size: 80px;
+    color: #eb6383;
+    text-decoration: underline;
+    line-height: 0em;
+}
+
+h2{
+    display: block;
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 50px;
+    color: #f76a8c;
+}
+#btnDiv{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    margin: auto;
+}
+#sizeBtn, #clearBtn, #blackPenBtn, #rainbowPenBtn{
+    display: block;
+    background-color: #beebe9;
+    border-radius: 66%;
+    border-style: none;
+    height: 4em;
+    width: 8em;
+    font-family: 'Patrick Hand SC', cursive;    
+    font-size: 20px;
+    color: darkslategrey;
+    margin: 10px;
+
+}
+
+#container{
+   display: grid;
+    width: 600px;
+    height: 600px;
+    border: 5px solid #ccf0e1;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:green;
+}
+
+.frame-box{
+    background-color: gainsboro;
+  
+    
+}
