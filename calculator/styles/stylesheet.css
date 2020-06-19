@@ -1,0 +1,61 @@
+body{
+    margin: 40px;
+    width: 30em;
+}
+    
+#calcDiv{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, [col] 100px);
+    grid-template-rows: repeat(6, [row] auto);
+    background-color: teal;
+    color: wheat;
+    padding: 20px;
+    width: 27em;
+    
+}
+
+#numBtn, #opBtn, #funcBtn{
+    background-color: white;
+    color: tomato;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 2px;
+    font-size: 20px;
+    
+}
+
+#textArea{
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 29.5em;
+}
+
+#inputText, #calculationText{
+    width: 12em;
+    padding: 10px;
+    text-align: right;
+    background-color: tomato;
+    color: white;
+    font-size: 30px;
+}
+
+.inputText{
+    width: 100%;
+}
+.clear{
+    grid-row: row 4 / span 2;
+    grid-column: col 4;
+}
+
+.enter{
+    grid-row: 2 /span 2;
+    grid-column:  col 4;
+}
+
+.zero{
+    grid-row: 5;
+    grid-column: 1/ span 2;
+}
