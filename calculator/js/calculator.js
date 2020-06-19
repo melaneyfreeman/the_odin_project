@@ -21,8 +21,7 @@ buttons.forEach(btn => {
 
 function enterNumber(btn){
     //pushes new btn to log each button press
-    btnLog.push(btn);
-    console.log(btnLog);
+    
 
     //clears input and calculation if there is
     //already a calculation there
@@ -33,6 +32,8 @@ function enterNumber(btn){
 
     //0-9
     if(btn < 10){ 
+        btnLog.push(btn);
+        console.log(btnLog);
             text.textContent+= btn; 
             //use regex to remove repeated operators like *** or ...
             text.textContent = text.textContent.replace(regex, '$1');
@@ -41,11 +42,27 @@ function enterNumber(btn){
 
     // /,*,-,+,.
     if(btn === "/" || btn === "*" || btn === "-" || btn === "+" || btn === "."){
-        text.textContent+= btn;
-        if(btnLog.indexOf(btnLog.length-1) === "/"){
-            text.textContent = text.textContent.indexOf(text.textContent.length-1).replace(btn);
+        console.log(btnLog);
+        //checks if the last input in the btnLog
+        //is an operator and skip if it is
+        if(btnLog[btnLog.length-1] === "/" ||
+            btnLog[btnLog.length-1] === "*" ||
+            btnLog[btnLog.length-1] === "+" ||
+            btnLog[btnLog.length-1] === "-" ||
+            btnLog[btnLog.length-1] === "." ||
+            text.textContent === ""){
+            return;
+        }
+        else{
+            btnLog.push(btn);
+            text.textContent+= btn; 
         }
 
+    }
+
+    //removes last character for backspace
+    if(btn === "backspace"){
+        text.textContent = text.textContent.slice(0,-1);
     }
 
     //clears input/calculation
@@ -57,10 +74,25 @@ function enterNumber(btn){
 
     //calculates
     if(btn === "enter"){
-    
-        
-        text.textContent = text.textContent.replace(regex, '$1');
-        calculate(text.textContent);
+        console.log("last: " + text.textContent.charAt(text.textContent.length-1));
+        //check if there is an operator at the end of the string
+        if(text.textContent.charAt(text.textContent.length-1) === "/" ||
+            text.textContent.charAt(text.textContent.length-1) === "*" ||
+            text.textContent.charAt(text.textContent.length-1) === "+" ||
+            text.textContent.charAt(text.textContent.length-1) === "-" ||
+            text.textContent.charAt(text.textContent.length-1) === "."){
+            
+            text.textContent = text.textContent.slice(0,-1);
+            text.textContent = text.textContent.replace(regex, '$1');
+
+            calculate(text.textContent);
+
+        }
+        else{
+            text.textContent = text.textContent.replace(regex, '$1');
+            calculate(text.textContent);
+        }
+       
     }
 }
 
