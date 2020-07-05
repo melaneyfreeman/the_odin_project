@@ -1,0 +1,62 @@
+body{
+    background-color: black;
+    display: inline-block;
+    width: 95%;
+    overflow: hidden;
+}
+header{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 10em;
+    background-color: darkgray;
+}
+
+h1{
+    color: darkcyan;
+    font-family: fantasy;
+    font-size: 3em;
+    display: inline-block;
+    padding-left: .2em;
+
+}
+
+#addBookBtn{
+    margin-left: 1em;
+    background-color: darkcyan;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.5em;
+    border: 2px solid white;
+
+}
+
+#wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 17em);
+    grid-gap: .1em;
+    width: 70%;
+    float: left;
+
+}
+
+#book{
+    background-color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 10em;
+    height: 15em;
+    border-radius: 5px;
+    padding: 1em;
+    font-size: 125%;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+#newBookFormContainer{
+    background: slategray;
+    float: right;
+    width: 28%;
+    height: 500px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4em;
+}

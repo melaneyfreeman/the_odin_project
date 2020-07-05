@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+        
+    </head>
+        <h1>Library</h1> 
+        <button id="addBookBtn">+ book</button>
+    <header>
+
+    </header>
+
+    <body>
+
+        <div id="wrapper">
+        
+        <div id="book">
+            <h2>Lord of the Rings</h2>
+            <h3>JRR Tolkien</h3>
+            <h4>500</h4>
+            <h5>read</h5>
+        </div>
+
+        <div id="book">
+            <h2>Hunger Games</h2>
+            <h3>Suzanne Collins</h3>
+            <h4>345</h4>
+            <h5>read</h5>
+        </div>
+
+        <div id="book">
+            <h2>Looking for Alaska</h2>
+            <h3>John Green</h3>
+            <h4>200</h4>
+            <h5>not read</h5>
+        </div>
+
+        <div id="book">
+            <h2>Looking for Alaska</h2>
+            <h3>John Green</h3>
+            <h4>200</h4>
+            <h5>not read</h5>
+        </div>
+
+        <div id="book">
+            <h2>Looking for Alaska</h2>
+            <h3>John Green</h3>
+            <h4>200</h4>
+            <h5>not read</h5>
+        </div>
+
+        <div id="book">
+            <h2>Looking for Alaska</h2>
+            <h3>John Green</h3>
+            <h4>200</h4>
+            <h5>not read</h5>
+        </div>
+
+    </div>
+
+
+    <div id="newBookFormContainer">
+
+<form>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="bookTitle" placeholder="book title...">
+<br>
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="bookAuthor" placeholder="author...">
+<br>
+    <label for="pages">Pages:</label>
+    <input type="number" id="pages" name="bookPages" placeholder="pages..." min="10" max="10000">
+<br>
+    <input type="radio" id="read" name="bookStatus" value="read">
+    <label for="read">Read</label>
+<br>
+    <input type="radio" id="unread" name="bookStatus" value="unread">
+    <label for="unread">Unread</label>
+ <br>
+    <input type="radio" id="reading" name="bookStatus" value="reading">
+    <label for="reading">Reading</label>
+</form>
+
+    </div>
+
+        <script src="../js/library.js">
+        </script>
+    </body>
+    
+</html>
