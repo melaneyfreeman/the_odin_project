@@ -32,7 +32,7 @@ h1{
 #wrapper{
     display: grid;
     grid-template-columns: repeat(auto-fit, 17em);
-    grid-gap: .1em;
+    grid-gap: .6em;
     width: 95%;
     float: left;
 
@@ -48,11 +48,22 @@ h1{
     font-size: 125%;
     margin-top: 1em;
     margin-left: 5em;
-    margin-right: 3em;
+    margin-right: 10em;
     transform:  rotate(-1.5deg);
-    border-left: white 10px solid;
-
+    border-left: white 20px solid;
+    opacity: 0.85;
+   
 }
+
+#book:hover{
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1) rotate(2deg);
+    border-left: darkslategrey 20px solid;
+   
+}
+
 
 #deleteBookBtn{
     color: black;
@@ -74,13 +85,16 @@ h1{
     background: slategray;
     width: 40%;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 3em;
+    font-size: 2em;
     color: white;
     position: absolute;
     left: 30%;
     right: 50%;
     display: none;
-    padding: .2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+    padding-bottom: 2.5em;
     border-right: white 50px solid;
     text-align: center;
 
@@ -88,13 +102,25 @@ h1{
 
 #title, #author, #pages{
     width: 60%;
-    height: 2em;
+    height: 1.5em;
     font-size: 1em;
     margin-bottom: .5em;
 }
 
 #read, #reading, #unread{
     padding-right: .1em;
+}
+
+h5{
+    background-color: white;
+    width: 50%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: large;
+    padding: 5px;
+}
+h5:hover{
+    scale: 1.2;
 }
 
 #formLabel{
@@ -122,5 +148,4 @@ h1{
     width: 1em;
     line-height: 0em;
     position: relative;
-  
 }   
