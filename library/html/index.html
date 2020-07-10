@@ -20,7 +20,7 @@
             <h2></h2>
             <h3></h3>
             <h4></h4>
-            <h5 class="statusBtn"></h5>
+            <button class="changeStatusBtn">TOGGLE READ</button>
         </div> 
 
     </div>
@@ -39,10 +39,10 @@
                 <label id="formLabel" for="pages">Pages:</label>
                 <input type="number" id="pages" name="bookPages" placeholder="pages..." min="10" max="10000">
             <br>
-                <input type="radio" id="status" name="bookStatus" value="read" required>
+                <input type="radio" id="status" class="status" name="bookStatus" value="read" required>
                 <label id="formLabel" for="read">Read</label>
          
-                <input type="radio" id="status" name="bookStatus" value="unread">
+                <input type="radio" id="status" class="status" name="bookStatus" value="unread">
                 <label id="formLabel" for="unread">Unread</label>
             <br>
                 <input id="submitBtn" type="submit" value="send">

@@ -14,7 +14,8 @@ let formTitle = document.getElementById("title");
 let formAuthor = document.getElementById("author");
 let formPages = document.getElementById("pages");
 
-let statusBtn = document.getElementsByClassName("statusBtn");
+let changeStatusBtn = document.getElementsByClassName("changeStatusBtn");
+let statusText = document.getElementById("statusText");
 
 //opening the menu to add a new book
 newBookBtn.onclick = function(){
@@ -24,6 +25,7 @@ newBookBtn.onclick = function(){
 closeFormBtn.onclick = function(){
     newBookForm.style.display = "none";
 }
+
 init();
 
 function init(){
@@ -34,6 +36,8 @@ function init(){
     addBookToLibrary("Catching Fire", "Suzanne Collins", "391", "read");
     addBookToLibrary("Mockingjay", "Suzanne Collins", "390", "read");
 }
+
+
 
 addBookBtn.onclick = function(){
     let title = document.getElementById("title").value;
@@ -57,19 +61,31 @@ addBookBtn.onclick = function(){
 
 }
 
-//functionality to delete books by clicking on the "x" button
-for (var i = 0; i < deleteBookBtns.length; i++){
-    deleteBookBtns[i].addEventListener('click', function(e){
-        myLibrary.splice(i, 1);
-        e.currentTarget.parentNode.remove();
-        console.log(myLibrary);
-    }, true);
+libraryWrapper.addEventListener('click', deleteOrToggle);
+
+function deleteOrToggle(e){
+    //functionality to delete books by clicking on the "x" button
+    const del = Array.from(document.getElementsByClassName("deleteBookBtn"));
+    del.forEach(function(button, index){
+        button.addEventListener("click", function(e){
+            myLibrary.splice(index-1, 1);
+            e.currentTarget.parentNode.remove();
+        });
+    });
+
+    const change = Array.from(document.getElementsByClassName("changeStatusBtn"));
+    change.forEach(function(button, index){
+        button.addEventListener("click", function(e){
+            if(e.target.innerHTML === "read"){
+                button.innerHTML = "unread";
+            }
+            else{
+                button.innerHTML = "read";
+            }
+      });
+    });
 }
 
-
-statusBtn.onclick = function(e){
-    
-}
 
 function Book(title, author, pages, status){
     this.title = title;
@@ -77,7 +93,6 @@ function Book(title, author, pages, status){
     this.pages = pages;
     this.status = status;
 }
-
 
 function addBookToLibrary(title, author, pages, status){
     let book = new Book(title, author, pages, status);
@@ -92,15 +107,31 @@ function addBookToLibrary(title, author, pages, status){
     clone.querySelector('H2').textContent = title;
     clone.querySelector('H3').textContent = author;
     clone.querySelector('H4').textContent = pages;
-    clone.querySelector('H5').textContent = status;
+    clone.querySelector('.changeStatusBtn').textContent = status;
 
 
-    for (var i = 0; i < deleteBookBtns.length; i++){
-        deleteBookBtns[i].addEventListener('click', function(e){
+  //functionality to delete books by clicking on the "x" button
+    const del = Array.from(document.getElementsByClassName("deleteBookBtn"));
+    del.forEach(function(button, index){
+        button.addEventListener("click", function(e){
+            myLibrary.splice(index-1, 1);
             e.currentTarget.parentNode.remove();
-            
-        }, true);
-    }
+        });
+    });
+
+    const change = Array.from(document.getElementsByClassName("changeStatusBtn"));
+    change.forEach(function(button, index){
+        button.addEventListener("click", function(e){
+            if(button.innerHTML === "read"){
+                button.innerHTML = "unread";
+                myLibrary[index].status = "unread";
+            }
+            else{
+                button.innerHTML = "read";
+                myLibrary[index].status = "read";
+            }
+      });
+    });
 
     //reset form values
     formTitle.value = "";

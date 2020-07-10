@@ -19,6 +19,16 @@ h1{
 
 }
 
+h2{
+    font-size: xx-large;
+}
+h3{
+    font-size: larger;
+}
+h4{
+    font-size: medium;
+}
+
 #addBookBtn{
     margin-left: 1em;
     background-color: darkcyan;
@@ -116,12 +126,11 @@ h5{
     width: 50%;
     text-align: center;
     border-radius: 5px;
-    font-size: large;
+    font-size: medium;
     padding: 5px;
+    margin: 5px;
 }
-h5:hover{
-    color: seagreen;
-}
+
 
 :required{
     background-color: rebeccapurple;
