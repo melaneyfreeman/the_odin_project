@@ -120,7 +120,11 @@ h5{
     padding: 5px;
 }
 h5:hover{
-    scale: 1.2;
+    color: seagreen;
+}
+
+:required{
+    background-color: rebeccapurple;
 }
 
 #formLabel{

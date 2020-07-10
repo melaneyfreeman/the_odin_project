@@ -9,7 +9,6 @@ let deleteBookBtns = document.getElementsByClassName('deleteBookBtn');
 let addBookBtn = document.getElementById("submitBtn");
 
 ///
-let myLibraryBtns = document.getElementsByClassName('deleteBookBtn');
 
 let formTitle = document.getElementById("title");
 let formAuthor = document.getElementById("author");
@@ -25,8 +24,16 @@ newBookBtn.onclick = function(){
 closeFormBtn.onclick = function(){
     newBookForm.style.display = "none";
 }
+init();
 
-
+function init(){
+    addBookToLibrary("The Fellowship of the Ring", "J.R.R. Tolkien", "423", "read");
+    addBookToLibrary("The Two Towers", "J.R.R. Tolkien", "352", "unread");
+    addBookToLibrary("The Return of the King", "J.R.R. Tolkien", "416", "unread");
+    addBookToLibrary("The Hunger Games", "Suzanne Collins", "374", "read");
+    addBookToLibrary("Catching Fire", "Suzanne Collins", "391", "read");
+    addBookToLibrary("Mockingjay", "Suzanne Collins", "390", "read");
+}
 
 addBookBtn.onclick = function(){
     let title = document.getElementById("title").value;
@@ -51,14 +58,16 @@ addBookBtn.onclick = function(){
 }
 
 //functionality to delete books by clicking on the "x" button
-for (var i = 0; i < myLibraryBtns.length; i++){
+for (var i = 0; i < deleteBookBtns.length; i++){
     deleteBookBtns[i].addEventListener('click', function(e){
+        myLibrary.splice(i, 1);
         e.currentTarget.parentNode.remove();
+        console.log(myLibrary);
     }, true);
 }
 
 
-statusBtn.onclick = function(){
+statusBtn.onclick = function(e){
     
 }
 
@@ -72,7 +81,8 @@ function Book(title, author, pages, status){
 
 function addBookToLibrary(title, author, pages, status){
     let book = new Book(title, author, pages, status);
-    
+    myLibrary.push(book);
+    console.log(myLibrary);
 
     let clone = document.querySelector('#book').cloneNode(true);
     clone.setAttribute('id', 'book');
@@ -85,9 +95,10 @@ function addBookToLibrary(title, author, pages, status){
     clone.querySelector('H5').textContent = status;
 
 
-    for (var i = 0; i < myLibraryBtns.length; i++){
+    for (var i = 0; i < deleteBookBtns.length; i++){
         deleteBookBtns[i].addEventListener('click', function(e){
             e.currentTarget.parentNode.remove();
+            
         }, true);
     }
 
