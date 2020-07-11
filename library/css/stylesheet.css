@@ -84,6 +84,7 @@ h4{
     margin: 0px;
     height: .1em;
     line-height: .1em;
+   
 }
 
 #formWrapper{
@@ -148,6 +149,10 @@ h5{
     font-size: .6em;
     margin: 4px;
     cursor: pointer;
+}
+
+.changeStatusBtn{
+    float: right;
 }
 
 #closeFormBtn{
