@@ -1,32 +1,46 @@
 body{
-    background-color: black;
+    background-color: gainsboro;
     width: 100%;
 }
-head{
+header{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     position: relative;
-    width: 10em;
-    background-color: darkgray;
+    width: 100%;
+    float: left;
 }
 
 h1{
     color: darkcyan;
-    font-family: fantasy;
-    font-size: 3em;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 4em;
     display: inline-block;
     padding-left: .2em;
-
 }
 
 h2{
-    font-size: xx-large;
+    font-size: 1.7em;
+    word-wrap: break-word;
+    font-family: 'Raleway', sans-serif;
 }
 h3{
     font-size: larger;
+    word-wrap: break-word;
 }
 h4{
     font-size: medium;
+    word-wrap: break-word;
+}
+
+h5{
+    background-color: white;
+    width: 50%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: medium;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
 }
 
 #addBookBtn{
@@ -36,6 +50,16 @@ h4{
     border-radius: 5px;
     font-size: 1.5em;
     border: 2px solid white;
+    height: 3em;
+    width: 100px;
+    align-self: center;
+}
+
+#addBookBtn:hover{
+    border: 2px dotted white;
+    color: black;
+    background: darkcyan;
+    cursor: pointer;
 
 }
 
@@ -45,7 +69,6 @@ h4{
     grid-gap: .6em;
     width: 95%;
     float: left;
-
 }
 
 #book{
@@ -60,9 +83,8 @@ h4{
     margin-left: 5em;
     margin-right: 10em;
     transform:  rotate(-1.5deg);
-    border-left: white 20px solid;
+    border-left: darkslategray 20px solid;
     opacity: 0.85;
-   
 }
 
 #book:hover{
@@ -70,10 +92,8 @@ h4{
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1) rotate(2deg);
-    border-left: darkslategrey 20px solid;
-   
+    border-left: tomato 20px solid;
 }
-
 
 #deleteBookBtn{
     color: black;
@@ -84,30 +104,33 @@ h4{
     margin: 0px;
     height: .1em;
     line-height: .1em;
-   
+    cursor: pointer;
+
 }
 
 #formWrapper{
     position: relative;
     z-index: 100;
-    
 }
+
 #newBookFormContainer{
-    background: slategray;
-    width: 40%;
+    background: tomato;
+    width: 30%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2em;
     color: white;
     position: absolute;
     left: 30%;
-    right: 50%;
+    right: 40%;
     display: none;
     padding-left: 1em;
-    padding-right: 1em;
-    padding-top: .5em;
-    padding-bottom: 2.5em;
-    border-right: white 50px solid;
+    padding-right: .2em;
+    padding-top: .2em;
+    padding-bottom: 1.5em;
+    border-right: black 50px solid;
     text-align: center;
+    border-radius: 10px;
+    margin-top: 5em;
 
 }
 
@@ -116,31 +139,23 @@ h4{
     height: 1.5em;
     font-size: 1em;
     margin-bottom: .5em;
+    padding-left: .5em;
+    border-radius: 9px;
+    font-family: 'Raleway', sans-serif;
 }
 
-#read, #reading, #unread{
+#read, #unread{
     padding-right: .1em;
-}
-
-h5{
-    background-color: white;
-    width: 50%;
-    text-align: center;
-    border-radius: 5px;
-    font-size: medium;
-    padding: 5px;
-    margin: 5px;
-}
-
-
-:required{
-    background-color: rebeccapurple;
+    font-family: 'Raleway', sans-serif;
 }
 
 #formLabel{
     display: inline-block;
     width: 3em;
     text-align: right;
+    padding-right: .3em;
+    padding-top: 1em;
+    font-family: 'Raleway', sans-serif;
 }
 
 #submitBtn{
@@ -149,21 +164,41 @@ h5{
     font-size: .6em;
     margin: 4px;
     cursor: pointer;
+    margin-top: 2em;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+#submitBtn:hover{
+    background-color: gainsboro;
 }
 
 .changeStatusBtn{
     float: right;
 }
 
+.changeStatusBtn:hover{
+    background-color: gainsboro;
+}
+
 #closeFormBtn{
     float: right;
     text-decoration: none;
     cursor: pointer;
-    background-color: slategray;
+    background-color: tomato;
     border: none;
-    font-size: 1em;
+    font-size: 2em;
     height: 1em;
     width: 1em;
     line-height: 0em;
     position: relative;
+    color: white;
 }   
+
+#newBookFormHeader{
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+    left: auto;
+    right: auto;
+}
