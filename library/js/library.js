@@ -7,12 +7,19 @@ let closeFormBtn = document.getElementById("closeFormBtn");
 
 let deleteBookBtns = document.getElementsByClassName('deleteBookBtn');
 let addBookBtn = document.getElementById("submitBtn");
+let clearBtn = document.getElementById("clearBtn");
 
 let formTitle = document.getElementById("title");
 let formAuthor = document.getElementById("author");
 let formPages = document.getElementById("pages");
 
 let statusText = document.getElementById("statusText");
+
+
+if(!localStorage.getItem('library')){
+    setLocalStorage();
+}
+
 
 //opening the menu to add a new book
 newBookBtn.onclick = function(){
@@ -21,6 +28,12 @@ newBookBtn.onclick = function(){
 //closing the menu to add a new book
 closeFormBtn.onclick = function(){
     newBookForm.style.display = "none";
+}
+
+clearBtn.onclick = function(){
+    localStorage.clear();
+    myLibrary = [];
+    render();
 }
 
 //start with some books
@@ -32,8 +45,6 @@ function init(){
     addBookToLibrary("Catching Fire", "Suzanne Collins", "391", "read");
     addBookToLibrary("Mockingjay", "Suzanne Collins", "390", "read");
 }
-
-init();
 
 //+book btn functionality
 addBookBtn.onclick = function(){
@@ -60,7 +71,7 @@ addBookBtn.onclick = function(){
 }
 
 //book object
-function Book(title, author, pages, status, id){
+function Book(title, author, pages, status){
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -72,11 +83,33 @@ function addBookToLibrary(title, author, pages, status){
     let book = new Book(title, author, pages, status);
     myLibrary.push(book);
     console.log(myLibrary);
+    setLocalStorage();
+    render();
+}
+
+//remove specific book from array
+function deleteBook(index){
+    myLibrary.splice(index, 1);
+    console.log(myLibrary);
+    setLocalStorage();
+    render();
+}
+
+function render(){
+    if(!localStorage.getItem('library')){
+        setLocalStorage();
+    }
 
     //wrapper
     let wrapper = document.getElementById("wrapper");
     wrapper.className = "wrapper";
+    wrapper.innerHTML = "";
 
+    getLocalStorage();
+    
+    console.log(myLibrary);
+
+    for(let i = 0; i < myLibrary.length; i++){
     //create book
     let bookElem = document.createElement("div");
     bookElem.id = "book";
@@ -93,20 +126,39 @@ function addBookToLibrary(title, author, pages, status){
     let toggleBtn = document.createElement("h5");
     toggleBtn.id = "toggleBtn";
     toggleBtn.className = "changeStatusBtn";
-    toggleBtn.innerHTML = book.status;
+    toggleBtn.innerHTML = myLibrary[i].status;
     bookElem.appendChild(toggleBtn);
+
+    //create author h2
+    let bookTitle = document.createElement("h2");
+    bookTitle.innerHTML = myLibrary[i].title;
+    bookElem.appendChild(bookTitle);
+
+    //create author h3
+    let bookAuthor = document.createElement("h3");
+    bookAuthor.innerText = myLibrary[i].author;
+    bookElem.appendChild(bookAuthor);
+
+    //create page h4
+    let bookPages = document.createElement("h4");
+    bookPages.innerText = myLibrary[i].pages;
+    bookElem.appendChild(bookPages);
 
     //event listeners
     //toggle funtionality
     toggleBtn.onclick = function(){
         if(toggleBtn.innerHTML === "read"){
             toggleBtn.innerText = "unread";
-            book.status = "unread";
+            myLibrary[i].status = "unread";
+            setLocalStorage();
         }
         else if(toggleBtn.innerHTML === "unread"){
             toggleBtn.innerText = "read";
-            book.status = "read";
+            myLibrary[i].status = "read";
+            setLocalStorage();
+
         }
+
     }
 
     //if the user didnt select radio button
@@ -120,38 +172,56 @@ function addBookToLibrary(title, author, pages, status){
         //remove actual element
         e.currentTarget.parentNode.remove();
         //find specific book
-        e.currentTarget.dataset.index = myLibrary.indexOf(book);
+
+        //e.currentTarget.dataset.index = myLibrary.indexOf(book);
+        e.currentTarget.dataset.index = myLibrary[i];
         let index = e.target.dataset.index;
         //delete book of specific index
-        deleteBook(index);
+        deleteBook(i);
+    }
+    }
+}
+
+function storageAvailable(type){
+    var storage;
+    try{
+        storage = window[type];
+        var x = '__storage_test__';
+        storage.setItem(x,x);
+        storage.removeItem(x);
+        return true;
     }
 
-    //create title h2
-    let bookTitle = document.createElement("h2");
-    bookTitle.innerHTML = book.title;
-    bookElem.appendChild(bookTitle);
-
-    //create author h3
-    let bookAuthor = document.createElement("h3");
-    bookAuthor.innerText = book.author;
-    bookElem.appendChild(bookAuthor);
-
-    //create page h4
-    let bookPages = document.createElement("h4");
-    bookPages.innerText = book.pages;
-    bookElem.appendChild(bookPages);
-
-    //reset form values
-    formTitle.value = "";
-    formAuthor.value = "";
-    formPages.value = ""; 
+    catch(e){
+        return e instanceof DOMException &&(
+            //everything except firefox
+            e.code === 22 ||
+            //firefox
+            e.code === 1014 ||
+            //test name field too bc code might not be present
+            //everything except firefox
+            e.name === 'QuotaExceededError' ||
+            //firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            //acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
 }
 
-//remove specific book from array
-function deleteBook(index){
-    myLibrary.splice(index, 1);
-    console.log(myLibrary);
+if(storageAvailable('localStorage')){
+    console.log("local storage available");
+}
+else{
+    console.log("no local storage available");
 }
 
+function setLocalStorage(){
+    localStorage.setItem('library', JSON.stringify(myLibrary));
+}
 
+function getLocalStorage(){
+    myLibrary = JSON.parse(localStorage.getItem('library'));
+}
 
+//console.log(JSON.parse(localStorage.getItem('library')));
+render();

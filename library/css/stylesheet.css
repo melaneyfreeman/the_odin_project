@@ -43,7 +43,7 @@ h5{
     cursor: pointer;
 }
 
-#addBookBtn{
+#addBookBtn, #clearBtn{
     margin-left: 1em;
     background-color: darkcyan;
     color: white;
