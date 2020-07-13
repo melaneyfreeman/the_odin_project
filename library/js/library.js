@@ -16,21 +16,6 @@ let formStatus = document.getElementsByName("bookStatus");
 
 let statusText = document.getElementById("statusText");
 
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBARo142kCo-GhnHmHLIWkUvTzoY4TM3fk",
-    authDomain: "library-77eb0.firebaseapp.com",
-    databaseURL: "https://library-77eb0.firebaseio.com",
-    projectId: "library-77eb0",
-    storageBucket: "library-77eb0.appspot.com",
-    messagingSenderId: "358974151429",
-    appId: "1:358974151429:web:ecdd72526a47413908b56c",
-    measurementId: "G-PR32YT9PHG"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
 //if there is no library or saved items
 if(!localStorage.getItem('library')){
     setLocalStorage();
