@@ -1,0 +1,32 @@
+body{
+    margin: 40px;
+}
+h1{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    grid-gap: 10px;
+    background-color:teal;
+    color: white;
+    width: 620px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+
+}
+
+.box{
+    background-color: tomato;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 700%;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 150px;
+    margin: 10px;
+}
