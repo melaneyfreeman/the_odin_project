@@ -30,3 +30,19 @@ h1{
     line-height: 150px;
     margin: 10px;
 }
+
+.choose{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.xScoreLabel{
+    float: left;
+    text-align: center;
+    padding-left: 100px;
+}
+.oScoreLabel{
+    float: right;
+    text-align: center;
+    padding-right: 100px;
+}
