@@ -1,48 +1,64 @@
 let gameBoardTiles = document.getElementsByClassName("box");
-let xBtn = document.getElementById("x-btn");
-let oBtn = document.getElementById("o-btn");
 
 let xWins = document.getElementById("xScore");
 let oWins = document.getElementById("oScore");
 let xScore = 0;
 let oScore = 0;
 
+let turnText = document.getElementById("turn");
+let turn = "";
+
+let clearBtn = document.getElementById("clearBtn");
+
+let startBtn = document.getElementById("startBtn");
+
+let xNameWins = document.getElementById("xNameWins");
+let oNameWins = document.getElementById("oNameWins");
+
 //starts off with x going first
 let isPlayer1Turn = true;
 
-function Player (name, marker){
-    return{
-        name: name,
-        marker: marker
-    }
+const Player = function (name, marker){
+    this.name = name;
+    this.marker = marker;
+}
+
+function preGame(){
+    console.log("here2")
+    let player1 = document.getElementById("player1").value;
+    let player2 = document.getElementById("player2").value;   
+
+    let p1 = new Player(player1, "x");
+    let p2 = new Player(player2, "o");
+
+    xNameWins.innerHTML = p1.name;
+    oNameWins.innerHTML = p2.name;
+
 }
 
 const game = (() => {
-    
+    turnText.innerHTML = "X's turn";
+
+    //start off clearing the board
     const clearBoard = function(){
         for(let i = 0; i < gameBoardTiles.length; i++){
             gameBoardTiles[i].innerHTML = "";
         }
 
-         gameBoard = ["-", "-", "-",
-        "-", "-", "-",
-        "-", "-", "-"];
+        gameBoard = ["-", "-", "-",
+                     "-", "-", "-",
+                     "-", "-", "-"];
 
         console.log(gameBoard)
         return;
     }
-    xBtn.onclick = function(){
-        let player = Player("name", "x");
-        let AI = Player("Computer", "o");
-        console.log(player.marker);
-        addTileListener();
 
-    }
-    oBtn.onclick = function(){
-        let player = Player("name", "o");
-        let AI = Player("Computer", "x");
-        console.log(player.marker);
-        addTileListener();
+    clearBtn.onclick = function(){
+        clearBoard();
+        isPlayer1Turn = true;
+        xScore = 0; 
+        oScore = 0;
+        turnText.innerHTML = "X's turn";
     }
 
     //event listener for the tiles
@@ -53,16 +69,19 @@ const game = (() => {
             })
         }
     }
+    addTileListener();
 
     //game board as an array
     //uses "-" as placeholders so the regex works properly
-    //instead of just ""
+    //instead of just "" or " "
     let gameBoard = ["-", "-", "-",
                      "-", "-", "-",
                      "-", "-", "-"];
 
     const placeMarker = function (i, index){
+        //check that the square isn't already marked
         if(isPlayer1Turn && gameBoard[index] === "-"){
+            turnText.innerHTML = "O's turn";
             gameBoard[index] = "x";
             console.log(gameBoard);
             i.innerHTML = "x";
@@ -71,6 +90,8 @@ const game = (() => {
         }
         else if (!isPlayer1Turn && gameBoard[index] === "-"){
             gameBoard[index] = "o";
+            turnText.innerHTML = "X's turn";
+
             console.log(gameBoard);
             i.innerHTML = "o";
             isPlayer1Turn = true;
@@ -96,14 +117,17 @@ const game = (() => {
         else if(/o..o..o|...ooo...|ooo......|......ooo|o...o...o|..o.o.o../gi.test(str)){
             alert("o win");
             oScore++;
-            oScore.innerHTML + oScore;
+            oWins.innerHTML = oScore;
             clearBoard();
 
         }
-                    
-        else{
-            console.log("tie");
-        }         
+              
+        //if there aren't anymore "-" empty spaces
+        //aka all spaces have been played but there is no winner
+        else if(!gameBoard.includes("-")){
+            alert("tie");
+            clearBoard();
+        }      
     }
 
     

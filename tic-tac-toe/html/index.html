@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="../css/stylesheet.css">
-<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600&display=swap" rel="stylesheet"> 
 <head>
     <meta charset="utf-8">
 </head>
     <body>
 
         <h1>tic-tac-toe</h1>
+        <div id="names">
+            <form id="nameForm" action="" method="get">
+                <label id="nameLabel" for="p1Name">X :</label>
+                <input type="text" id="player1" placeholder="player 1" name="p1Name">
+          
+                <label id="nameLabel" for="p2Name">O :</label>
+                <input type="text" id="player2" placeholder="player 2" name="p2Name">
+                <button id="startBtn" type="button" form="nameForm" value="Submit" onclick="return preGame()">start</button>
+            </form>
+    
+        </div>
+
+
 
         <div class="xScoreLabel">
-            <h3>X Wins</h3>
+            <h3 id="xNameWins">x wins</h3>
             <p id="xScore">0</p>
         </div>
 
         <div class="oScoreLabel">
-            <h3>O Wins</h3>
+            <h3 id="oNameWins">o wins</h3>
             <p id="oScore">0</p>
         </div>
-            
-           
-        <div class="choose"><h2>Choose Character:</h2>
-            <button id="x-btn">x</button>
-            <button id="o-btn">o</button>
-        </div>
+
+        <h4 id="turn"></h4>
 
         <div class="wrapper">
             <div class="box a"></div>
@@ -37,6 +46,10 @@
             <div class="box g"></div>
             <div class="box h"></div>
             <div class="box i"></div>
+        </div>
+
+        <div id="clearBtnWrapper">
+            <button id="clearBtn">clear</button>
         </div>
         
         <script src="../js/tic-tac-toe.js"></script>

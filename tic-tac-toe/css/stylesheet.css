@@ -1,48 +1,113 @@
 body{
     margin: 40px;
+    background-color: #016179;
 }
 h1{
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;    
+    color: #8CD3E2;
+    font-size: 300%;
+    margin: 0;
 }
 .wrapper{
     display: grid;
-    grid-template-columns: 200px 200px 200px;
-    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
     grid-gap: 10px;
-    background-color:teal;
+    background-color:#1493ae;
     color: white;
-    width: 620px;
+    width: 470px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 20px;
-
 }
 
 .box{
-    background-color: tomato;
+    background-color: #f26a2f;
     color: white;
     border-radius: 5px;
     padding: 20px;
     font-size: 700%;
     vertical-align: middle;
     text-align: center;
-    line-height: 150px;
+    line-height: 75px;
     margin: 10px;
-}
-
-.choose{
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 .xScoreLabel{
     float: left;
     text-align: center;
     padding-left: 100px;
+    color: white;
+    font-family: 'Montserrat Alternates', sans-serif;    
+    font-size: large; 
+    padding-left: 500px;
+
 }
 .oScoreLabel{
     float: right;
     text-align: center;
     padding-right: 100px;
+    color: white;
+    font-family: 'Montserrat Alternates', sans-serif;   
+    font-size: large; 
+    padding-right: 500px;
+}
+
+#turn{
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat Alternates', sans-serif;    
+    height: 30px;
+    font-size: 150%; 
+    
+}
+
+#clearBtn{  
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: #c9450c;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Montserrat Alternates', sans-serif;    
+    font-size: large;
+}
+
+#clearBtnWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#names{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-right: 20px;
+   padding-left: 20px;
+}
+
+#startBtn{
+    background-color: #c9450c;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Montserrat Alternates', sans-serif;    
+    font-size: large;
+    display: block;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+#nameLabel{
+    margin-left: 10px;
+    font-family: 'Montserrat Alternates', sans-serif; 
+    font-size: large;
+    color: orange;   
+}
+
+#oNameWins, #xNameWins{
+    color: #f27f4d;
 }
