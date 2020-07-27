@@ -11,6 +11,7 @@ let turn = "";
 let clearBtn = document.getElementById("clearBtn");
 
 let startBtn = document.getElementById("startBtn");
+let computerStartBtn = document.getElementById("computerStartBtn");
 
 let xNameWins = document.getElementById("xNameWins");
 let oNameWins = document.getElementById("oNameWins");
@@ -93,24 +94,70 @@ var game = (choice) => {
                      "-", "-", "-"];
 
     const placeMarker = function (i, index){
+        if(choice === "players"){
         //check that the square isn't already marked
-        if(isPlayer1Turn && gameBoard[index] === "-"){
-            turnText.innerHTML = "O's turn";
-            gameBoard[index] = "x";
-            console.log(gameBoard);
-            i.innerHTML = "x";
-            isPlayer1Turn = false;
-                        
-        }
-        else if (!isPlayer1Turn && gameBoard[index] === "-"){
-            gameBoard[index] = "o";
-            turnText.innerHTML = "X's turn";
 
-            console.log(gameBoard);
-            i.innerHTML = "o";
-            isPlayer1Turn = true;
+            if(isPlayer1Turn && gameBoard[index] === "-"){
+                turnText.innerHTML = "O's turn";
+                gameBoard[index] = "x";
+                console.log(gameBoard);
+                i.innerHTML = "x";
+                isPlayer1Turn = false;       
+            }
+    
+            if (!isPlayer1Turn && gameBoard[index] === "-"){
+                gameBoard[index] = "o";
+                turnText.innerHTML = "X's turn";
+                console.log(gameBoard);
+                i.innerHTML = "o";
+                isPlayer1Turn = true;
+            }
         }
+
+        
+
+        //computer
+        if(choice === "computer"){
+            //player turn
+            if(isPlayer1Turn && gameBoard[index] === "-"){
+                turnText.innerHTML = "O's turn";
+                gameBoard[index] = "x";
+                console.log(gameBoard);
+                i.innerHTML = "x";
+                isPlayer1Turn = false;         
+            }
+
+            //computer turn
+            if(!isPlayer1Turn){
+                console.log("here2")
+                const randNum = function(){
+                    console.log("generating random num...");
+                    let randomSpace = Math.floor(Math.random() * gameBoard.length);
+                    //reset random number
+                    if(gameBoard[randomSpace] !== "-"){
+                        randNum();
+                    }
+
+                    else if(gameBoard[randomSpace] === "-"){
+                        console.log("computer here")
+                        gameBoard[randomSpace] = "o";
+                        turnText.innerHTML = "X's turn";
+                        gameBoardTiles[randomSpace].innerHTML = "o";
+                        isPlayer1Turn = true;
+                        
                     
+                    }
+                    return;
+                    
+                }
+                randNum();
+
+
+            }
+        }
+           
+      
+
         winner();
     }
                     
