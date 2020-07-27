@@ -23,20 +23,34 @@ const Player = function (name, marker){
     this.marker = marker;
 }
 
-function preGame(){
-    console.log("here2")
-    let player1 = document.getElementById("player1").value;
-    let player2 = document.getElementById("player2").value;   
+function preGame(choice){
+    //if player vs player
+    if(choice === "players"){
+        let player1 = document.getElementById("player1").value;
+        let player2 = document.getElementById("player2").value;   
 
-    let p1 = new Player(player1, "x");
-    let p2 = new Player(player2, "o");
+        let p1 = new Player(player1, "x");
+        let p2 = new Player(player2, "o");
 
-    xNameWins.innerHTML = p1.name;
-    oNameWins.innerHTML = p2.name;
+        xNameWins.innerHTML = p1.name;
+        oNameWins.innerHTML = p2.name;
+    }
 
+    //player vs computer
+    else{
+        let player1 = document.getElementById("player1").value;
+
+        let p1 = new Player(player1, "x");
+        let computer = new Player("computer", "o");
+
+        xNameWins.innerHTML = p1.name;
+        oNameWins.innerHTML = computer.name;
+    }
+
+    let newgame = game(choice);
 }
 
-const game = (() => {
+var game = (choice) => {
     turnText.innerHTML = "X's turn";
 
     //start off clearing the board
@@ -133,4 +147,4 @@ const game = (() => {
     
 
     
-    })()
+    };

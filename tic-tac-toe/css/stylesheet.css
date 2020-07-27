@@ -1,11 +1,11 @@
 body{
-    margin: 40px;
+    margin: 10px;
     background-color: #016179;
 }
 h1{
     text-align: center;
     font-family: 'Montserrat Alternates', sans-serif;    
-    color: #8CD3E2;
+    color: #f8af90;
     font-size: 300%;
     margin: 0;
 }
@@ -37,21 +37,23 @@ h1{
 .xScoreLabel{
     float: left;
     text-align: center;
-    padding-left: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
     color: white;
     font-family: 'Montserrat Alternates', sans-serif;    
     font-size: large; 
-    padding-left: 500px;
-
+    margin-left: 550px;
 }
 .oScoreLabel{
     float: right;
     text-align: center;
-    padding-right: 100px;
+    padding-right: 20px;
+    padding-left: 20px;
     color: white;
     font-family: 'Montserrat Alternates', sans-serif;   
     font-size: large; 
-    padding-right: 500px;
+    margin-right: 550px;
+
 }
 
 #turn{
@@ -84,10 +86,20 @@ h1{
    display: flex;
    justify-content: center;
    align-items: center;
-   padding-right: 20px;
-   padding-left: 20px;
+   padding-right: 30px;
+   padding-left: 30px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   background-color: #a1dbe7;
+   width: 30%;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius: 40px;
 }
 
+#btnWrapper{
+   text-align: center;
+}
 #startBtn{
     background-color: #c9450c;
     border-radius: 20px;
@@ -99,15 +111,43 @@ h1{
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    display: inline-flex
 }
 
 #nameLabel{
     margin-left: 10px;
     font-family: 'Montserrat Alternates', sans-serif; 
     font-size: large;
-    color: orange;   
+    color: #c9450c;   
 }
 
 #oNameWins, #xNameWins{
     color: #f27f4d;
+}
+
+#resultWindow{
+    background: orange;
+    width: 25%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    color: white;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1em;
+    padding-right: .2em;
+    padding-top: .2em;
+    padding-bottom: 1.5em;
+    border-right: black 50px solid;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: -20em;
+    margin-bottom: 2em;
+
+    display:none;
+}
+
+#resultWrapper{
+    position: relative;
+    z-index: 100;
 }

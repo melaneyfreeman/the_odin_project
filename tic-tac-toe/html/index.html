@@ -15,7 +15,11 @@
           
                 <label id="nameLabel" for="p2Name">O :</label>
                 <input type="text" id="player2" placeholder="player 2" name="p2Name">
-                <button id="startBtn" type="button" form="nameForm" value="Submit" onclick="return preGame()">start</button>
+                <br>
+                <div id="btnWrapper">
+                    <button id="startBtn" type="button" form="nameForm" value="players" onclick="return preGame(this.value)">2 player</button>
+                    <button id="computerStartBtn" type="button" form="nameForm" value="computer" onclick="return preGame(this.value)">computer</button>
+                </div>
             </form>
     
         </div>
@@ -50,6 +54,16 @@
 
         <div id="clearBtnWrapper">
             <button id="clearBtn">clear</button>
+        </div>
+
+        <div id="resultWrapper">
+            <div id="resultWindow">
+                <p>x</p>
+                <h1 id="result">Winner!</h1>
+                <h2>Player 1 (x) wins!</h2>
+                <button>play again</button>
+                <button>reset</button>
+            </div>
         </div>
         
         <script src="../js/tic-tac-toe.js"></script>
