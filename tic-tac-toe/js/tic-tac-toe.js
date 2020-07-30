@@ -127,38 +127,39 @@ var game = (choice) => {
                 isPlayer1Turn = false;         
             }
 
+            //gen ran num
+            const rand = function(){
+                console.log("generating random num...");
+                let randomSpace = Math.floor(Math.random() * gameBoard.length);
+                return randomSpace;
+            }
+
             //computer turn
             if(!isPlayer1Turn){
-                console.log("here2")
-                const randNum = function(){
-                    console.log("generating random num...");
-                    let randomSpace = Math.floor(Math.random() * gameBoard.length);
-                    //reset random number
-                    if(gameBoard[randomSpace] !== "-"){
-                        randNum();
-                    }
+                let num = rand();
+                console.log(num);
 
-                    else if(gameBoard[randomSpace] === "-"){
-                        console.log("computer here")
-                        gameBoard[randomSpace] = "o";
-                        turnText.innerHTML = "X's turn";
-                        gameBoardTiles[randomSpace].innerHTML = "o";
-                        isPlayer1Turn = true;
-                        
-                    
-                    }
-                    return;
-                    
+                while(gameBoard[num] !== "-"){
+                    num = rand();
                 }
-                randNum();
+                //if the space is not free, reset rand num
+                //if(gameBoard[num] !== "-"){
+                //    return;
+                //}
 
-
+                //if space is free
+                 //if(gameBoard[num] === "-"){
+                    gameBoard[num] = "o";
+                    turnText.innerHTML = "X's turn";
+                    gameBoardTiles[num].innerHTML = "o";
+                    isPlayer1Turn = true;
+                    winner();
+                //}
+                
             }
-        }
-           
-      
 
-        winner();
+        }
+
     }
                     
     const winner = function (){
