@@ -7,6 +7,7 @@ let oScore = 0;
 
 let turnText = document.getElementById("turn");
 let turn = "";
+let turnCount = 0;
 
 let clearBtn = document.getElementById("clearBtn");
 
@@ -142,12 +143,18 @@ var game = (choice) => {
                     turnText.innerHTML = "X's turn";
                     gameBoardTiles[num].innerHTML = "o";
                     isPlayer1Turn = true;
+                    turnCount++;
+                 
+
+                    //check winner needed to make sure it doesn't keep
+                    //generating random number
+                    winner();
                 }
                 
             }
 
                //player turn
-                if(isPlayer1Turn && gameBoard[index] === "-"){
+                else if(isPlayer1Turn && gameBoard[index] === "-"){
                 console.log("is player's turn");
                 turnText.innerHT
                 turnText.innerHTML = "O's turn";
@@ -155,6 +162,16 @@ var game = (choice) => {
                 console.log(gameBoard);
                 i.innerHTML = "x";
                 isPlayer1Turn = false;
+                turnCount++;
+
+                //check winner needed to make sure it doesn't keep
+                //generating random number
+                winner();
+
+                //call placeMarker so it instantly places O marker as the computer
+                //otherwise it needs another click to trigger the computer's turn
+                placeMarker();
+
             }
 
             winner();
