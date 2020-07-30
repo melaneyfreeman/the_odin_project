@@ -114,50 +114,50 @@ var game = (choice) => {
             }
         }
 
-        
-
         //computer
         if(choice === "computer"){
-            //player turn
-            if(isPlayer1Turn && gameBoard[index] === "-"){
-                turnText.innerHTML = "O's turn";
-                gameBoard[index] = "x";
-                console.log(gameBoard);
-                i.innerHTML = "x";
-                isPlayer1Turn = false;         
-            }
+             
+             //computer turn
+             if(!isPlayer1Turn){
+                //gen rand num
+                function rand(){
+                    console.log("generating random num...");
+                    let randomSpace = Math.floor(Math.random() * gameBoard.length);
+                    return randomSpace;
+                }
 
-            //gen ran num
-            const rand = function(){
-                console.log("generating random num...");
-                let randomSpace = Math.floor(Math.random() * gameBoard.length);
-                return randomSpace;
-            }
-
-            //computer turn
-            if(!isPlayer1Turn){
+                //create rand num
                 let num = rand();
                 console.log(num);
 
+                //while the space is not free, reset rand num until it is
                 while(gameBoard[num] !== "-"){
                     num = rand();
                 }
-                //if the space is not free, reset rand num
-                //if(gameBoard[num] !== "-"){
-                //    return;
-                //}
-
+    
                 //if space is free
-                 //if(gameBoard[num] === "-"){
+                if(gameBoard[num] === "-"){
+                    console.log("is computer's turn");
                     gameBoard[num] = "o";
                     turnText.innerHTML = "X's turn";
                     gameBoardTiles[num].innerHTML = "o";
                     isPlayer1Turn = true;
-                    winner();
-                //}
+                }
                 
             }
 
+               //player turn
+                if(isPlayer1Turn && gameBoard[index] === "-"){
+                console.log("is player's turn");
+                turnText.innerHT
+                turnText.innerHTML = "O's turn";
+                gameBoard[index] = "x";
+                console.log(gameBoard);
+                i.innerHTML = "x";
+                isPlayer1Turn = false;
+            }
+
+            winner();
         }
 
     }
