@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="../css/stylesheet.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600&display=swap" rel="stylesheet"> 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat+Alternates:wght@600&display=swap" rel="stylesheet">    
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 </head>
     <body>
-
-        <h1>tic-tac-toe</h1>
+        <h1 class="animate__animated animate__bounceInDown">tic-tac-toe</h1>
         <div id="names">
             <form id="nameForm" action="" method="get">
                 <label id="nameLabel" for="p1Name">X :</label>
                 <input type="text" id="player1" placeholder="player 1" name="p1Name">
-          
+                <br>
                 <label id="nameLabel" for="p2Name">O :</label>
                 <input type="text" id="player2" placeholder="player 2" name="p2Name">
                 <br>
                 <div id="btnWrapper">
-                    <p id="methodText">choose a method of gameplay:</p>
                     <button id="startBtn" type="button" form="nameForm" value="players" onclick="return preGame(this.value)">2 player</button>
                     <button id="computerStartBtn" type="button" form="nameForm" value="computer" onclick="return preGame(this.value)">computer</button>
                 </div>
             </form>
     
         </div>
-
-
 
         <div class="xScoreLabel">
             <h3 id="xNameWins">x wins</h3>
@@ -39,18 +36,18 @@
 
         <h4 id="turn"></h4>
 
-        <div class="wrapper">
-            <div class="box a"></div>
-            <div class="box b"></div>
-            <div class="box c"></div>
+        <div id="wrapper">
+            <div class="box a animate__animated animate__pulse"></div>
+            <div class="box b animate__animated animate__pulse"></div>
+            <div class="box c animate__animated animate__pulse"></div>
 
-            <div class="box d"></div>
-            <div class="box e"></div>
-            <div class="box f"></div>
+            <div class="box d animate__animated animate__pulse"></div>
+            <div class="box e animate__animated animate__pulse"></div>
+            <div class="box f animate__animated animate__pulse"></div>
 
-            <div class="box g"></div>
-            <div class="box h"></div>
-            <div class="box i"></div>
+            <div class="box g animate__animated animate__pulse"></div>
+            <div class="box h animate__animated animate__pulse"></div>
+            <div class="box i animate__animated animate__pulse"></div>
         </div>
 
         <div id="clearBtnWrapper">
@@ -59,11 +56,10 @@
 
         <div id="resultWrapper">
             <div id="resultWindow">
-                <p>x</p>
-                <h1 id="result">Winner!</h1>
-                <h2>Player 1 (x) wins!</h2>
-                <button>play again</button>
-                <button>reset</button>
+                <h2 id="result">Winner!</h1>
+                <h3 id="whoWon">Player 1 (x) wins!</h2>
+                <button id="playAgainBtn">play again</button>
+                <button id="resetBtn">reset</button>
             </div>
         </div>
         

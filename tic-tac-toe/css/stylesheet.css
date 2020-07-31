@@ -1,19 +1,30 @@
 body{
     margin: 10px;
     background-color: #016179;
+    transform: scale(.9);
 }
+
 h1{
     text-align: center;
     font-family: 'Montserrat Alternates', sans-serif;    
-    color: #f8af90;
-    font-size: 300%;
+    color: tomato;
+    font-size: 500%;
     margin: 0;
 }
 
 h2{
-    color: teal;
+    color: tomato;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 160%;
 }
-.wrapper{
+
+h3{
+    color: teal;
+    font-family: 'Montserrat Alternates', sans-serif;    
+    font-size: 120%;
+}
+
+#wrapper{
     display: grid;
     grid-template-columns: 150px 150px 150px;
     grid-template-rows: 150px 150px 150px;
@@ -36,6 +47,17 @@ h2{
     text-align: center;
     line-height: 75px;
     margin: 10px;
+    cursor: pointer;
+}
+
+.box:hover{
+    background:#47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+    color: white;
+}
+
+.box:active{
+    background-color:#292d3e;
+    background-size: 100%;
 }
 
 .xScoreLabel{
@@ -78,43 +100,37 @@ h2{
     color: white;
     font-family: 'Montserrat Alternates', sans-serif;    
     font-size: large;
+    cursor: pointer;
+
 }
 
 #clearBtnWrapper{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+
 }
 
 #names{
-   display: flex;
+   display: block;
    justify-content: center;
    align-items: center;
-   padding-right: 30px;
-   padding-left: 30px;
-   padding-top: 20px;
-   padding-bottom: 20px;
+   padding-top: 50px;
+   padding-bottom: 50px;
    background-color: #a1dbe7;
    width: 30%;
    margin-left: auto;
    margin-right: auto;
    border-radius: 40px;
+   margin-top: 2vw;
 }
 
 #btnWrapper{
    text-align: center;
 }
 
-#methodText{
-    color:#016179;
-    font-size: medium;
-    font-family: 'Montserrat Alternates', sans-serif;    
-    padding: 5px;
-    margin: 5px;
-
-}
-
-#startBtn, #computerStartBtn{
+#startBtn, #computerStartBtn, #playAgainBtn, #resetBtn{
     background-color: #c9450c;
     border-radius: 20px;
     color: white;
@@ -125,14 +141,26 @@ h2{
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-    display: inline-flex
+    display: inline-flex;
+    cursor: pointer;
 }
 
 #nameLabel{
-    margin-left: 10px;
-    font-family: 'Montserrat Alternates', sans-serif; 
-    font-size: large;
+    font-family: 'Lato', sans-serif;    font-size: large;
     color: #c9450c;   
+    font-size: 40px;
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+    line-height: 40px;
+    vertical-align: middle;
+    margin-bottom: 15px;
+}
+
+#player1, #player2{
+    font-size: 25px;
+    border-radius: 5px;
+    color: teal;
 }
 
 #oNameWins, #xNameWins{
@@ -141,24 +169,27 @@ h2{
 
 #resultWindow{
     background: white;
-    width: 25%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
+    width: 30%;
+    height: 350px;
+    font-family: 'Lato', sans-serif;    font-size: 2em;
     color: white;
     position: absolute;
-    margin-left: 37%;
+    margin-left: 34.3%;
     padding-left: 1em;
     padding-right: .2em;
-    padding-top: .2em;
-    padding-bottom: 1.5em;
     text-align: center;
     border-radius: 10px;
-    margin-top:-35%;
-    margin-bottom: 2em;
-    display:none;
+    margin-top:-28.4vw;
+    display:block;
+}
+
+#methodText{
+    font-family: 'Montserrat Alternates', sans-serif;    
+    color:darkorange;
 }
 
 #resultWrapper{
     position: relative;
     z-index: 100;
+    background-color: lightgray;
 }
