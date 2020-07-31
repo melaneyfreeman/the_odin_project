@@ -17,6 +17,8 @@ let computerStartBtn = document.getElementById("computerStartBtn");
 let xNameWins = document.getElementById("xNameWins");
 let oNameWins = document.getElementById("oNameWins");
 
+let resultWindow = document.getElementById("resultWrapper");
+
 //starts off with x going first
 let isPlayer1Turn = true;
 
@@ -34,8 +36,20 @@ function preGame(choice){
         let p1 = new Player(player1, "x");
         let p2 = new Player(player2, "o");
 
+        //if there is not a name entered, use default
+        if(p1.name === ""){
+            p1.name = "player 1";
+        }
+        if(p2.name === ""){
+            p2.name = "player 2";
+        }
+
         xNameWins.innerHTML = p1.name;
         oNameWins.innerHTML = p2.name;
+
+        startBtn.style.display = "none";
+        computerStartBtn.style.display = "none";   
+        
     }
 
     //player vs computer
@@ -45,8 +59,14 @@ function preGame(choice){
         let p1 = new Player(player1, "x");
         let computer = new Player("computer", "o");
 
+        if(p1.name === ""){
+            p1.name = "player 1";
+        }
+        
         xNameWins.innerHTML = p1.name;
         oNameWins.innerHTML = computer.name;
+        console.log(p1.name);
+      
     }
 
     let newgame = game(choice);
@@ -55,7 +75,8 @@ function preGame(choice){
 var game = (choice) => {
     turnText.innerHTML = "X's turn";
 
-    //start off clearing the board
+    //start off by clearing the board
+    //and resetting scores
     const clearBoard = function(){
         for(let i = 0; i < gameBoardTiles.length; i++){
             gameBoardTiles[i].innerHTML = "";
@@ -64,17 +85,14 @@ var game = (choice) => {
         gameBoard = ["-", "-", "-",
                      "-", "-", "-",
                      "-", "-", "-"];
-
         console.log(gameBoard)
         return;
     }
 
+    //clear button functionality
     clearBtn.onclick = function(){
         clearBoard();
-        isPlayer1Turn = true;
-        xScore = 0; 
-        oScore = 0;
-        turnText.innerHTML = "X's turn";
+        window.location.reload();
     }
 
     //event listener for the tiles
@@ -85,6 +103,7 @@ var game = (choice) => {
             })
         }
     }
+
     addTileListener();
 
     //game board as an array
@@ -95,15 +114,16 @@ var game = (choice) => {
                      "-", "-", "-"];
 
     const placeMarker = function (i, index){
+        //if playing against another player
         if(choice === "players"){
-        //check that the square isn't already marked
-
+            //check that the square isn't already marked
             if(isPlayer1Turn && gameBoard[index] === "-"){
                 turnText.innerHTML = "O's turn";
                 gameBoard[index] = "x";
                 console.log(gameBoard);
                 i.innerHTML = "x";
-                isPlayer1Turn = false;       
+                isPlayer1Turn = false;     
+                winner();  
             }
     
             if (!isPlayer1Turn && gameBoard[index] === "-"){
@@ -112,10 +132,11 @@ var game = (choice) => {
                 console.log(gameBoard);
                 i.innerHTML = "o";
                 isPlayer1Turn = true;
+                winner();
             }
         }
 
-        //computer
+        // if playing against computer
         if(choice === "computer"){
              
              //computer turn
@@ -135,7 +156,8 @@ var game = (choice) => {
                 while(gameBoard[num] !== "-"){
                     num = rand();
                 }
-    
+                
+              
                 //if space is free
                 if(gameBoard[num] === "-"){
                     console.log("is computer's turn");
@@ -143,27 +165,21 @@ var game = (choice) => {
                     turnText.innerHTML = "X's turn";
                     gameBoardTiles[num].innerHTML = "o";
                     isPlayer1Turn = true;
-                    turnCount++;
-                 
-
                     //check winner needed to make sure it doesn't keep
                     //generating random number
                     winner();
                 }
-                
             }
 
-               //player turn
-                else if(isPlayer1Turn && gameBoard[index] === "-"){
+            //player turn
+            else if(isPlayer1Turn && gameBoard[index] === "-"){
                 console.log("is player's turn");
-                turnText.innerHT
-                turnText.innerHTML = "O's turn";
                 gameBoard[index] = "x";
+                turnText.innerHTML = "O's turn";
                 console.log(gameBoard);
                 i.innerHTML = "x";
                 isPlayer1Turn = false;
-                turnCount++;
-
+                
                 //check winner needed to make sure it doesn't keep
                 //generating random number
                 winner();
@@ -186,7 +202,8 @@ var game = (choice) => {
                     
         //regex, checking for all possible combinations to win
         if(/x..x..x|...xxx...|xxx......|......xxx|x...x...x|..x.x.x../gi.test(str)){
-            alert("x win");
+            resultWindow.style.display = "block";
+            //alert("x win");
             xScore++;
             xWins.innerHTML = xScore;
             clearBoard();
@@ -194,7 +211,9 @@ var game = (choice) => {
         }
                     
         else if(/o..o..o|...ooo...|ooo......|......ooo|o...o...o|..o.o.o../gi.test(str)){
-            alert("o win");
+            resultWindow.style.display = "block";
+s
+            //alert("o win");
             oScore++;
             oWins.innerHTML = oScore;
             clearBoard();
@@ -204,7 +223,7 @@ var game = (choice) => {
         //if there aren't anymore "-" empty spaces
         //aka all spaces have been played but there is no winner
         else if(!gameBoard.includes("-")){
-            alert("tie");
+            //alert("tie");
             clearBoard();
         }      
     }

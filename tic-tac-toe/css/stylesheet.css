@@ -9,6 +9,10 @@ h1{
     font-size: 300%;
     margin: 0;
 }
+
+h2{
+    color: teal;
+}
 .wrapper{
     display: grid;
     grid-template-columns: 150px 150px 150px;
@@ -100,7 +104,17 @@ h1{
 #btnWrapper{
    text-align: center;
 }
-#startBtn{
+
+#methodText{
+    color:#016179;
+    font-size: medium;
+    font-family: 'Montserrat Alternates', sans-serif;    
+    padding: 5px;
+    margin: 5px;
+
+}
+
+#startBtn, #computerStartBtn{
     background-color: #c9450c;
     border-radius: 20px;
     color: white;
@@ -126,24 +140,21 @@ h1{
 }
 
 #resultWindow{
-    background: orange;
+    background: white;
     width: 25%;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
+    font-size: 1em;
     color: white;
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 37%;
     padding-left: 1em;
     padding-right: .2em;
     padding-top: .2em;
     padding-bottom: 1.5em;
-    border-right: black 50px solid;
     text-align: center;
     border-radius: 10px;
-    margin-top: -20em;
+    margin-top:-35%;
     margin-bottom: 2em;
-
     display:none;
 }
 
