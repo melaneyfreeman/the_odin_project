@@ -1,0 +1,49 @@
+body{
+    background-color: #ffcf5b;
+}
+
+#content{
+    width: 100%;
+    text-align: center;
+
+}
+
+#slogan{
+    color:#e62d2e;
+    font-family: 'Days One', sans-serif;    
+    font-size: 300%;
+}
+
+#logo{
+    width: auto;
+    height: auto;
+    max-width: 30vw;
+}
+
+#nav-bar{
+    font-family: 'Days One', sans-serif;    
+    font-size: 200%;
+    width: 50%;
+    background-color: #e62d2e;
+    border-radius: 50px;
+    top: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.listItem{
+    padding-left: 20px;
+    padding-right: 20px;
+    color: black;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.selected{
+    background-color: teal;
+    border-radius: 50px;
+    
+}
