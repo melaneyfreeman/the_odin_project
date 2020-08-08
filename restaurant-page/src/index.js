@@ -1,8 +1,9 @@
-let contentWrapper = document.getElementById("content");
+import {setUpHome} from './homepage.js';
+import {createSlideShow} from './slideshow.js';
+import {start} from './showSlideShow.js';
 
+//let contentWrapper = document.getElementById("content");
 
-let home = document.getElementById("home");
-
-home.onclick = function(){
-
-}
+setUpHome();
+createSlideShow();
+start();

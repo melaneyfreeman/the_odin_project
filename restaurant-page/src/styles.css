@@ -8,22 +8,23 @@ body{
 
 }
 
-#slogan{
+.slogan{
     color:#e62d2e;
     font-family: 'Days One', sans-serif;    
     font-size: 300%;
 }
 
-#logo{
+.logo{
     width: auto;
     height: auto;
     max-width: 30vw;
 }
 
-#nav-bar{
+.nav-bar{
     font-family: 'Days One', sans-serif;    
-    font-size: 200%;
-    width: 50%;
+    font-size: 2vw;
+    
+    width: auto;
     background-color: #e62d2e;
     border-radius: 50px;
     top: 0;
