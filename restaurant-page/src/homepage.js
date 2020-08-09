@@ -36,6 +36,9 @@ function setUpHome(){
     slogan.innerHTML = "DO YOU HAVE THE GUTS?";
     contentWrapper.appendChild(slogan);
 
+    let logo = document.createElement('img');
+    logo.classList.add("logo");
+    logo.src = "../src/images/logo_2.png";
     
 }
 

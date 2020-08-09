@@ -7,6 +7,7 @@
     max-width: 1000px;
     position: relative;
     margin: auto;
+
 }
 
 /* hide images by default */
@@ -14,8 +15,9 @@
     display: none;
 }
 img{
-    max-width: 700px;
-    max-height: 400px;
+    max-width: 1200px;
+    max-height: 600px;
+    border-radius: 3px;
 }
 /* next and previous buttons */
 .prev, .next{

@@ -4,6 +4,8 @@ function start(){
     showSlides();
 
     function showSlides(){
+        var dots = document.getElementsByClassName('dot');
+
         var i;
         var slides = document.getElementsByClassName("mySlides");
         for(i = 0; i < slides.length; i++){
@@ -15,8 +17,13 @@ function start(){
             index = 1;
         }
 
+        for (i = 0; i < dots.length; i++){
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
         slides[index-1].style.display = "block";
-        setTimeout(showSlides, 3000); //change image every 2 seconds
+        dots[index-1].className += " active";
+        setTimeout(showSlides, 1000); //change image every 2 seconds
     }
 
 }
