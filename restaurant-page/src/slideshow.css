@@ -4,10 +4,10 @@
 
 /*slideshow container*/
 .slideshow-container{
-    max-width: 1000px;    
+    max-width: 100%;    
     float:left;
-    padding-top: 1%;
-    margin-left: 4%;
+    padding: 2%;
+    margin-left: 10%;
 }
 
 /* hide images by default */
@@ -15,8 +15,8 @@
     display: none;
 }
 img{
-    max-width: 70vw;
-    max-height: 70vh;
+    max-width: 60vw;
+    max-height: 80vh;
     border-radius: 3px;
     
 }
@@ -35,7 +35,6 @@ img{
     border-radius: 10px;
     user-select: none;
 }
-
 /*postion the next button to the right */
 .next{
     right: 0;

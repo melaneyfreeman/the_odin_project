@@ -15,7 +15,7 @@ function setUpHome(){
     //logo details
     let description = document.createElement('p');
     description.classList.add("description");
-    description.innerHTML = "A restaurant based in Shibuya, we serve our burgers BIG with a BANG!";
+    description.innerHTML = "A quality eating house based in Shibuya, we serve our burgers BIG with a BANG!";
     logoWrapper.appendChild(description);
 
     //nav bar
@@ -35,15 +35,6 @@ function setUpHome(){
     navBar.appendChild(menuLink);
     menuLink.innerHTML = "MENU";
 
-    let aboutLink = document.createElement('a');
-    aboutLink.classList.add("listItem");
-    navBar.appendChild(aboutLink);
-    aboutLink.innerHTML = "ABOUT";
-
-    let reviewLink = document.createElement('a');
-    reviewLink.classList.add("listItem");
-    navBar.appendChild(reviewLink);
-    reviewLink.innerHTML = "REVIEWS";
 
     let contactLink = document.createElement('a');
     contactLink.classList.add("listItem");

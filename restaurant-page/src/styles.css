@@ -1,5 +1,5 @@
 body{
-    background-color: #ffcf5b;
+    background-color: white;
 }
 
 #content{
@@ -10,16 +10,18 @@ body{
 }
 
 .sloganWrapper{
+    font-size: 2vw;
+    top: -2vw;
+    text-align: center;
     vertical-align: top;
-    padding: 0;
-    margin: 0;
-    left: 0;
-    margin-left: 25;
-    z-index: 0;
-    height: 10%;
-    max-height: 10%;
-    top: 12%;
+    z-index: 100;
+    padding-top: 20%;
+    padding-left: 2%;
+    padding-right: 2%;
     position: fixed;
+
+    
+
 }
 
 .slogan{
@@ -29,16 +31,18 @@ body{
     background-color: black;
     border-radius: 0px 0px 50px 50px ;
     display: inline-block;
-    width: 100%;
-    margin-top: -20%;
+    width: 20%;
     z-index: 0;
-    margin-left: 100%;
+    padding-top: 0%;
+    position: fixed;
+    margin-bottom: 1%;
+
 }  
 
 .sloganLink{
     font-family: 'Days One', sans-serif;  
     font-size: .75vw;
-    color: wheat;
+    color: white;
 }
 
 .star{
@@ -53,7 +57,6 @@ body{
 }
 
 .logoWrapper{
-    background-color: teal;
     width: 15%;
     display: block;
 
@@ -67,9 +70,8 @@ body{
 
 .description{
     font-family: 'Days One', sans-serif;  
-
+font-size: 1vw;
     float: left;
-    background-color: teal;
     display: block;
     height: 70vh;
     width: 80%;
@@ -89,7 +91,7 @@ body{
     padding-left: 2%;
     padding-right: 2%;
     position: fixed;
-    margin-left: 15%;
+    margin-left: 30%;
 
 }
 
@@ -114,4 +116,5 @@ a:hover{
     font-family: 'Days One', sans-serif;  
     color:#e62d2e;
     margin-top: -.5%;
+    font-size: 1vw;
 }
