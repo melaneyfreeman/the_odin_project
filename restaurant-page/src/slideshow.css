@@ -4,10 +4,10 @@
 
 /*slideshow container*/
 .slideshow-container{
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-
+    max-width: 1000px;    
+    float:left;
+    padding-top: 1%;
+    margin-left: 4%;
 }
 
 /* hide images by default */
@@ -15,9 +15,10 @@
     display: none;
 }
 img{
-    max-width: 1200px;
-    max-height: 600px;
+    max-width: 70vw;
+    max-height: 70vh;
     border-radius: 3px;
+    
 }
 /* next and previous buttons */
 .prev, .next{
@@ -46,30 +47,20 @@ img{
     background-color: rgba(0,0,0,0.8);
 }
 
-/*caption text */
-.text{
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8x 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-}
 
 .dot{
     cursor: pointer;
     height: 15px;
     width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
+    background-color: white;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
+    margin-left: 2%;
 }
 
 .active, .dot:hover{
-    background-color: #717171;
+    background-color: #e62d2e;
 }
 
 /*fading animation*/

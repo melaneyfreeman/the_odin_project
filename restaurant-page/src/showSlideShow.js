@@ -23,7 +23,7 @@ function start(){
 
         slides[index-1].style.display = "block";
         dots[index-1].className += " active";
-        setTimeout(showSlides, 1000); //change image every 2 seconds
+        setTimeout(showSlides, 3000); //change image every 2 seconds
     }
 
 }

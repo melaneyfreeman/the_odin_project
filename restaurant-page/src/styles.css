@@ -3,49 +3,100 @@ body{
 }
 
 #content{
-    width: 100%;
     text-align: center;
+    display: inline-block;
+    width: 100%;
 
+}
+
+.sloganWrapper{
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    margin-left: 25;
+    z-index: 0;
+    height: 10%;
+    max-height: 10%;
+    top: 12%;
+    position: fixed;
 }
 
 .slogan{
     color:#e62d2e;
-    font-family: 'Days One', sans-serif;    
-    font-size: 300%;
+    font-family: 'Pacifico', cursive;    
+    font-size: 1.5vw;
+    background-color: black;
+    border-radius: 0px 0px 50px 50px ;
     display: inline-block;
-    vertical-align: top;
-    line-height: 0em;
-    float: left;
-    padding-left: 20px;
+    width: 100%;
+    margin-top: -20%;
+    z-index: 0;
+    margin-left: 100%;
+}  
+
+.sloganLink{
+    font-family: 'Days One', sans-serif;  
+    font-size: .75vw;
+    color: wheat;
 }
 
-.logo{
-    width: 10%;
-    height: 20%;
-    max-width: 30vw;
-    display: inline-block;
+.star{
+    width: 50px;
     float: left;
+    left: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin: 2%;
+    vertical-align: middle;
+    
+}
+
+.logoWrapper{
+    background-color: teal;
+    width: 15%;
+    display: block;
+
+}
+.logo{
+    width: 80%;
+    max-width: 80%;
+    float: left;
+    display: block;
+}
+
+.description{
+    font-family: 'Days One', sans-serif;  
+
+    float: left;
+    background-color: teal;
+    display: block;
+    height: 70vh;
+    width: 80%;
+
 }
 
 .nav-bar{
-    font-family: 'Days One', sans-serif;    
+    font-family: 'Days One', sans-serif;  
     font-size: 2vw;
-    display: inline-block;
-    width: auto;
     background-color: #e62d2e;
-    border-radius: 50px;
+    border-radius: 0px 0px 50px 50px ;
     top: 0;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
     vertical-align: top;
-    float: left;
+    z-index: 100;
+    padding-top: -5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    position: fixed;
+    margin-left: 15%;
+
 }
 
 .listItem{
     padding-left: 20px;
     padding-right: 20px;
-    color: black;
+    color: white;
 }
 
 a:hover{
@@ -56,4 +107,11 @@ a:hover{
     background-color: teal;
     border-radius: 50px;
     
+}
+
+.location{
+    float: right;
+    font-family: 'Days One', sans-serif;  
+    color:#e62d2e;
+    margin-top: -.5%;
 }
