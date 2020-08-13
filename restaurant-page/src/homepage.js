@@ -1,22 +1,24 @@
 function setUpHome(){
     let contentWrapper = document.getElementById("content");
 
-    //logo wrapper
-    let logoWrapper = document.createElement('div');
-    logoWrapper.classList.add("logoWrapper");
-    contentWrapper.appendChild(logoWrapper);
+//side bar
+let sideBar = document.createElement('div');
+sideBar.classList.add("sideBar");
+contentWrapper.appendChild(sideBar);
+
+
 
     //logo
     let logo = document.createElement('img');
     logo.classList.add("logo");
     logo.src = "../src/images/bigbangburger_logo.png";
-    logoWrapper.appendChild(logo);
+    sideBar.appendChild(logo);
 
     //logo details
     let description = document.createElement('p');
     description.classList.add("description");
     description.innerHTML = "A quality eating house based in Shibuya, we serve our burgers BIG with a BANG!";
-    logoWrapper.appendChild(description);
+    sideBar.appendChild(description);
 
     //nav bar
     let navBar = document.createElement('div');
@@ -59,10 +61,13 @@ function setUpHome(){
 
     let sloganWrapper = document.createElement('div');
     sloganWrapper.classList.add("sloganWrapper");
-    contentWrapper.appendChild(sloganWrapper);
+
+    description.appendChild(sloganWrapper);
     slogan.appendChild(bigStar);
     sloganWrapper.appendChild(slogan);
     slogan.appendChild(sloganLink);
+
+    sideBar.appendChild(description);
   
     
 }

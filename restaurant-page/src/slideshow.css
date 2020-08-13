@@ -5,9 +5,7 @@
 /*slideshow container*/
 .slideshow-container{
     max-width: 100%;    
-    float:left;
-    padding: 2%;
-    margin-left: 10%;
+    padding: 5%;
 }
 
 /* hide images by default */

@@ -1,5 +1,5 @@
 body{
-    background-color: white;
+    background-color: black;
 }
 
 #content{
@@ -9,18 +9,19 @@ body{
 
 }
 
+.sideBar{
+    width: 99vw;
+    height: 20vh;
+    background-color: #ffcf5b;
+    display: block;
+    margin: 0;
+
+}
+
 .sloganWrapper{
     font-size: 2vw;
-    top: -2vw;
-    text-align: center;
-    vertical-align: top;
     z-index: 100;
-    padding-top: 20%;
-    padding-left: 2%;
-    padding-right: 2%;
-    position: fixed;
-
-    
+width: 100%;
 
 }
 
@@ -28,14 +29,9 @@ body{
     color:#e62d2e;
     font-family: 'Pacifico', cursive;    
     font-size: 1.5vw;
-    background-color: black;
     border-radius: 0px 0px 50px 50px ;
-    display: inline-block;
-    width: 20%;
+    width: 90%;
     z-index: 0;
-    padding-top: 0%;
-    position: fixed;
-    margin-bottom: 1%;
 
 }  
 
@@ -46,35 +42,24 @@ body{
 }
 
 .star{
-    width: 50px;
-    float: left;
-    left: 200px;
-    margin-top: auto;
-    margin-bottom: auto;
+    width: 1%;
     margin: 2%;
-    vertical-align: middle;
     
 }
 
-.logoWrapper{
-    width: 15%;
-    display: block;
-
-}
 .logo{
-    width: 80%;
-    max-width: 80%;
-    float: left;
-    display: block;
+align-content: center;
+max-height: 100%;
+max-width: 100%;
+    
 }
 
 .description{
     font-family: 'Days One', sans-serif;  
-font-size: 1vw;
-    float: left;
-    display: block;
-    height: 70vh;
-    width: 80%;
+ font-size: 1vw;
+    width: 100%;
+
+
 
 }
 
