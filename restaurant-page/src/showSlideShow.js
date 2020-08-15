@@ -9,6 +9,7 @@ function start(){
     var index = 0;
     showSlides();
 
+    
     function showSlides(){
         var dots = document.getElementsByClassName('dot');
 
@@ -29,10 +30,16 @@ function start(){
 
         slides[index-1].style.display = "block";
         dots[index-1].className += " active";
-        setTimeout(showSlides, 3000); //change image every 2 seconds
+        setTimeout(showSlides, 500); //change image every 2 seconds
+    
+    
     }
 }
-else{ return}
+
+else{ 
+    return;
+}
+
 }
 
 

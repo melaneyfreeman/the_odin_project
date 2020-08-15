@@ -120,12 +120,60 @@ dotDiv.appendChild(span5);
 wrapper.appendChild(slideShowContainer);
 slideShowContainer.appendChild(dotDiv);
 
+start();
+
 }
 
 function removeSlideShow(){
-    let slideShowContainer = document.getElementById("slideshowContainer");
+    
     let wrapper = document.getElementById("content");
-    wrapper.removeChild(slideShowContainer);
+    wrapper.innerHTML = "";
+    
 }
 
-export {createSlideShow, removeSlideShow};
+
+function start(){
+    
+        
+    
+    var index = 0;
+    showSlides();
+
+    
+    function showSlides(){
+        if(document.body.contains(document.getElementById("slideshowContainer"))){
+            //container exists
+        var dots = document.getElementsByClassName('dot');
+
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for(i = 0; i < slides.length; i++){
+            slides[i].style.display = "none";
+        }
+
+        index++;
+        if(index > slides.length){
+            index = 1;
+        }
+
+        for (i = 0; i < dots.length; i++){
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[index-1].style.display = "block";
+        dots[index-1].className += " active";
+        setTimeout(showSlides, 500); //change image every 2 seconds
+    
+        
+    }
+    else{ 
+        return;
+    }
+
+}
+
+
+
+}
+
+export {createSlideShow, removeSlideShow, start};

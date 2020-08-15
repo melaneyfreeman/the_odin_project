@@ -1,19 +1,19 @@
 import {setUpNav} from './homepage.js';
 import {createSlideShow, removeSlideShow} from './slideshow.js';
-import {start} from './showSlideShow.js';
 import {setUpMenu} from './menu.js';
 
 //setting up basic functions
 //loads homepage and loads/starts slideshow
 
     setUpNav();
-createSlideShow();
 
 let contentWrapper = document.getElementById("content");
+let ssWrapper = document.getElementById("slideshowContainer");
+
+createSlideShow();
 
 if(document.body.contains(document.getElementById("slideshowContainer"))){
     //container exists
-    start();
 
 }
 
@@ -25,6 +25,9 @@ homeLink.style.backgroundColor = "#e62d2e";
     homeLink.style.borderRadius = "50px 50px 0px 0px";
 
 homeLink.onclick = function(){
+    contentWrapper.innerHTML = "";
+    setUpNav();
+    createSlideShow();
 
     console.log("home");
     homeLink.style.backgroundColor = "#e62d2e";
@@ -36,8 +39,8 @@ homeLink.onclick = function(){
 
 menuLink.onclick = function(){
     removeSlideShow();
-    console.log("menu");
     contentWrapper.innerHTML = "";
+    console.log("menu");
 
     menuLink.style.backgroundColor = "#e62d2e";
     menuLink.style.borderRadius = "50px 50px 0px 0px";
