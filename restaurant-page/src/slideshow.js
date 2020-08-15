@@ -1,7 +1,11 @@
+import {checkIfHomePage} from './showSlideShow.js';
+
+
 function createSlideShow(){
 let wrapper = document.getElementById("content");
 let slideShowContainer = document.createElement('div');
 slideShowContainer.classList.add("slideshow-container");
+slideShowContainer.id = "slideshowContainer";
 
 /* //logo img(0th)
 let mySlides0 = document.createElement('div');
@@ -118,4 +122,10 @@ slideShowContainer.appendChild(dotDiv);
 
 }
 
-export {createSlideShow};
+function removeSlideShow(){
+    let slideShowContainer = document.getElementById("slideshowContainer");
+    let wrapper = document.getElementById("content");
+    wrapper.removeChild(slideShowContainer);
+}
+
+export {createSlideShow, removeSlideShow};

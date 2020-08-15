@@ -1,11 +1,13 @@
-*{
-    box-sizing: border-box;
-}
+
 
 /*slideshow container*/
 .slideshow-container{
-    max-width: 100%;    
-    padding: 5%;
+    max-width: 100%; 
+    height: 100vh;   
+    padding: 1%;
+    background-color: #e62d2e;
+    border-radius: 10px;
+
 }
 
 /* hide images by default */
@@ -13,9 +15,10 @@
     display: none;
 }
 img{
-    max-width: 60vw;
-    max-height: 80vh;
+    max-width: 80vw;
+    max-height: 90vh;
     border-radius: 3px;
+    padding-top: 4%;
     
 }
 /* next and previous buttons */
@@ -57,7 +60,7 @@ img{
 }
 
 .active, .dot:hover{
-    background-color: #e62d2e;
+    background-color: black;
 }
 
 /*fading animation*/

@@ -1,5 +1,11 @@
-function start(){
 
+
+
+function start(){
+    if(document.body.contains(document.getElementById("slideshowContainer"))){
+        //container exists
+        
+    
     var index = 0;
     showSlides();
 
@@ -25,7 +31,9 @@ function start(){
         dots[index-1].className += " active";
         setTimeout(showSlides, 3000); //change image every 2 seconds
     }
-
 }
+else{ return}
+}
+
 
 export {start};

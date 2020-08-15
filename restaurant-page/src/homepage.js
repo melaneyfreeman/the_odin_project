@@ -1,4 +1,8 @@
-function setUpHome(){
+import {setUpMenu} from './menu.js';
+
+
+//this sets up the basic navigation for all pages
+function setUpNav(){
     let contentWrapper = document.getElementById("content");
 
 //side bar
@@ -6,8 +10,11 @@ let sideBar = document.createElement('div');
 sideBar.classList.add("sideBar");
 contentWrapper.appendChild(sideBar);
 
-
-
+//location
+let location = document.createElement('h2');
+location.classList.add("location");
+sideBar.appendChild(location);
+location.innerHTML = "SHIBUYA, TOKYO"
     //logo
     let logo = document.createElement('img');
     logo.classList.add("logo");
@@ -17,7 +24,7 @@ contentWrapper.appendChild(sideBar);
     //logo details
     let description = document.createElement('p');
     description.classList.add("description");
-    description.innerHTML = "A quality eating house based in Shibuya, we serve our burgers BIG with a BANG!";
+    description.innerHTML = "A quality eating house based in Shibuya, we serve our burgers BIG with a BANG!!!";
     sideBar.appendChild(description);
 
     //nav bar
@@ -28,18 +35,20 @@ contentWrapper.appendChild(sideBar);
     //nav bar links
     let homeLink = document.createElement('a');
     homeLink.classList.add("listItem")
-    homeLink.classList.add("selectedItem");
+    homeLink.classList.add("home");
     navBar.appendChild(homeLink);
     homeLink.innerHTML = "HOME";
 
     let menuLink = document.createElement('a');
     menuLink.classList.add("listItem"); 
+    menuLink.classList.add("menu");
     navBar.appendChild(menuLink);
     menuLink.innerHTML = "MENU";
 
 
     let contactLink = document.createElement('a');
     contactLink.classList.add("listItem");
+    contactLink.classList.add("contact");
     navBar.appendChild(contactLink);
     contactLink.innerHTML = "CONTACT"
 
@@ -53,10 +62,6 @@ contentWrapper.appendChild(sideBar);
     slogan.classList.add("slogan");
     slogan.innerHTML = "Do you have the guts? Take our challenge!";
 
-    //slogan link
-    let sloganLink = document.createElement('p');
-    sloganLink.classList.add("sloganLink");
-    sloganLink.innerHTML = "CLICK HERE TO LEARN MORE";
 
 
     let sloganWrapper = document.createElement('div');
@@ -65,12 +70,16 @@ contentWrapper.appendChild(sideBar);
     description.appendChild(sloganWrapper);
     slogan.appendChild(bigStar);
     sloganWrapper.appendChild(slogan);
-    slogan.appendChild(sloganLink);
 
     sideBar.appendChild(description);
   
+
+    
+
+
+
     
 }
 
-export {setUpHome};
+export {setUpNav};
 
