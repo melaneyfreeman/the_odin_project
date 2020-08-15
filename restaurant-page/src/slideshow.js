@@ -117,8 +117,13 @@ let span5 = document.createElement('span');
 span5.classList.add("dot");
 dotDiv.appendChild(span5);
 
-wrapper.appendChild(slideShowContainer);
 slideShowContainer.appendChild(dotDiv);
+
+let bigWrapper = document.createElement('div');
+wrapper.appendChild(bigWrapper);
+bigWrapper.appendChild(slideShowContainer);
+bigWrapper.classList.add("big");
+
 
 start();
 
