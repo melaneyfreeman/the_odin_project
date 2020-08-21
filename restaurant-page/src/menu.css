@@ -1,18 +1,41 @@
 /*menu container*/
-.menuWrapper{
+.burgerWrapper{
     height: 100vh;   
     padding: 1%;
     background-color: #e62d2e;
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 10% 10% 10%;
+    grid-template-columns: 5% 5% 5%;
+    grid-gap: 10% 30vw;
 
 }
 
+.menuWrapper{
+    background-color: #e62d2e;
+    border-radius: 10px;
+}
+
+
+
 .box{
     border-radius: 5px;
-    padding: 20px;
-    width: 200%;
-    margin: 200px;
+    padding-right: 1vw;
+    padding-left: 1vw;
+    max-width: 500%;
+    max-height: 200%;
+}
+
+h2{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 3vw;
+    color: white;
+    font-family: 'Pacifico', cursive; 
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+       
+
 }
 
