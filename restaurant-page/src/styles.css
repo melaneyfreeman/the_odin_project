@@ -26,16 +26,14 @@ width: 100%;
 padding: 0;
 max-height: 100px;
 
-
-
 }
 
 .slogan{
     color:#e62d2e;
     font-family: 'Pacifico', cursive;    
     font-size: 1.5vw;
-background-color: black;
-padding-bottom: 1%;
+    background-color: black;
+    padding-bottom: 1%;
 
 }  
 

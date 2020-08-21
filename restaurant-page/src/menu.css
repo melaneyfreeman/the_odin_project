@@ -1,0 +1,18 @@
+/*menu container*/
+.menuWrapper{
+    height: 100vh;   
+    padding: 1%;
+    background-color: #e62d2e;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 10% 10% 10%;
+
+}
+
+.box{
+    border-radius: 5px;
+    padding: 20px;
+    width: 200%;
+    margin: 200px;
+}
+

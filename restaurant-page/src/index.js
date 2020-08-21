@@ -9,6 +9,7 @@ import {setUpContact} from './contact.js';
 
 let contentWrapper = document.getElementById("content");
 let ssWrapper = document.getElementById("slideshowContainer");
+let menuWrapper = document.getElementById("menuWrapper");
 
 let homeLink = document.getElementsByClassName("home")[0];
 let menuLink = document.getElementsByClassName("menu")[0];
@@ -22,8 +23,26 @@ homeLink.style.borderRadius = "50px 50px 0px 0px";
 homeLink.addEventListener("click", loadHome);
 function loadHome(){
 
-    big.innerHTML = "";
-    big.remove();
+    //need to use this so when you click on home agiank, while on home page
+    //it doesnt create another "big" div
+    //check if element exists, before trying to remove
+    if(document.body.contains(document.getElementsByClassName("big")[0])){
+        //if switching from contact to menu, check if element exists
+        let big = document.getElementsByClassName("big")[0];
+        //use big div to remove slideshow container
+        big.innerHTML = "";
+        big.remove();
+    }
+
+    //check if element exists, before trying to remove
+    if(document.body.contains(document.getElementsByClassName("menuWrapper")[0])){
+        //if switching from contact to menu, check if element exists
+        let menuWrapper = document.getElementsByClassName("menuWrapper")[0];
+        //use big div to remove slideshow container
+        menuWrapper.innerHTML = "";
+        menuWrapper.remove();
+    }
+
 
     createSlideShow();
 
@@ -53,6 +72,16 @@ function loadMenu(){
         big.innerHTML = "";
         big.remove();
     }
+
+      //check if element exists, before trying to remove
+      if(document.body.contains(document.getElementsByClassName("menuWrapper")[0])){
+        //if switching from contact to menu, check if element exists
+        let menuWrapper = document.getElementsByClassName("menuWrapper")[0];
+        //use big div to remove slideshow container
+        menuWrapper.innerHTML = "";
+        menuWrapper.remove();
+    }
+
     setUpMenu();
 
     console.log("menu");
@@ -72,7 +101,7 @@ function loadMenu(){
 //contact link click
 contactLink.addEventListener("click", loadContact);
 function loadContact(){
-    
+
     //check if element exists, before trying to remove
     if(document.body.contains(document.getElementsByClassName("big")[0])){
         //if switching from menu to contact, check if element exists
@@ -80,6 +109,15 @@ function loadContact(){
         //use big div to remove slideshow container
         big.innerHTML = "";
         big.remove();
+    }
+
+      //check if element exists, before trying to remove
+      if(document.body.contains(document.getElementsByClassName("menuWrapper")[0])){
+        //if switching from contact to menu, check if element exists
+        let menuWrapper = document.getElementsByClassName("menuWrapper")[0];
+        //use big div to remove slideshow container
+        menuWrapper.innerHTML = "";
+        menuWrapper.remove();
     }
 
     setUpContact();
