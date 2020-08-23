@@ -6,7 +6,6 @@ body{
     text-align: center;
     display: inline-block;
     width: 100%;
-
 }
 
 .sideBar{
@@ -18,14 +17,13 @@ body{
     margin: -.5%;
     padding-top: 0%;
     top: 0;
-
 }
 
 .sloganWrapper{
-width: 100%;
-padding: 0;
-max-height: 100px;
-
+    width: 100%;
+    padding: 0;
+    max-height: 100px;
+    margin-bottom: 5%;
 }
 
 .slogan{
@@ -33,33 +31,27 @@ max-height: 100px;
     font-family: 'Pacifico', cursive;    
     font-size: 1.5vw;
     background-color: black;
-    padding-bottom: 1%;
-
 }  
-
 
 .star{
     width: 1%;
     padding-left: 1%;
-    
 }
 
 .logo{
-align-content: center;
-max-height: 30%;
-max-width: 30%;
-padding-left: 15%;
-    
+    align-content: center;
+    max-height: 30%;
+    max-width: 30%;
+    margin-left: 25%;
+    margin-right: 25%; 
 }
 
 .description{
     font-family: 'Days One', sans-serif;  
- font-size: 1.2vw;
+    font-size: 1.2vw;
     width: 100%;
     color: black;
-margin-bottom: 3%;
-
-
+    margin-bottom: 3%;
 }
 
 .nav-bar{
@@ -70,10 +62,8 @@ margin-bottom: 3%;
     z-index: 100;
     padding-top: -5%;
     margin-top: -2%;
-    width: 80vw;
-    margin-left: auto;
-    margin-right: auto;
-
+    width: 75vw;
+    margin-left: 8%;
 }
 
 .listItem{
@@ -90,14 +80,12 @@ a:hover{
 .selected{
     background-color: teal;
     border-radius: 50px;
-    
 }
 
 .location{
-    float: right;
     font-family: 'Days One', sans-serif;  
     color:#e62d2e;
-    margin-top: 0%;
+    margin-top: -2vw;
     font-size: 1vw;
-    padding-right: 5%;
+    margin-left: 93%;
 }

@@ -1,5 +1,3 @@
-
-
 /*slideshow container*/
 .slideshow-container{
     max-width: 100%; 
@@ -7,20 +5,20 @@
     padding: 1%;
     background-color: #e62d2e;
     border-radius: 10px;
-
 }
 
 /* hide images by default */
 .mySlides{
     display: none;
 }
+
 img{
     max-width: 80vw;
     max-height: 90vh;
     border-radius: 3px;
     padding-top: 4%;
-    
 }
+
 /* next and previous buttons */
 .prev, .next{
     cursor: pointer;
@@ -36,6 +34,7 @@ img{
     border-radius: 10px;
     user-select: none;
 }
+
 /*postion the next button to the right */
 .next{
     right: 0;
@@ -46,7 +45,6 @@ img{
 .prev:hover, .next:hover{
     background-color: rgba(0,0,0,0.8);
 }
-
 
 .dot{
     cursor: pointer;
@@ -79,4 +77,11 @@ img{
 @keyframes fade{
     from{opacity: .4}
     to{opacity: 1}
+}
+
+p{
+    font-size: 1vw;
+    background-color: black;
+    border-radius: 10px;
+    padding: 1vw;
 }

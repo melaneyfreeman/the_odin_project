@@ -1,20 +1,20 @@
 import {setUpMenu} from './menu.js';
 
-
 //this sets up the basic navigation for all pages
 function setUpNav(){
     let contentWrapper = document.getElementById("content");
 
-//side bar
-let sideBar = document.createElement('div');
-sideBar.classList.add("sideBar");
-contentWrapper.appendChild(sideBar);
+    //side bar
+    let sideBar = document.createElement('div');
+    sideBar.classList.add("sideBar");
+    contentWrapper.appendChild(sideBar);
 
-//location
-let location = document.createElement('h2');
-location.classList.add("location");
-sideBar.appendChild(location);
-location.innerHTML = "SHIBUYA, TOKYO"
+    //location
+    let location = document.createElement('h2');
+    location.classList.add("location");
+    sideBar.appendChild(location);
+    location.innerHTML = "SHIBUYA, TOKYO"
+
     //logo
     let logo = document.createElement('img');
     logo.classList.add("logo");
@@ -45,7 +45,6 @@ location.innerHTML = "SHIBUYA, TOKYO"
     navBar.appendChild(menuLink);
     menuLink.innerHTML = "MENU";
 
-
     let contactLink = document.createElement('a');
     contactLink.classList.add("listItem");
     contactLink.classList.add("contact");
@@ -62,23 +61,13 @@ location.innerHTML = "SHIBUYA, TOKYO"
     slogan.classList.add("slogan");
     slogan.innerHTML = "Do you have the guts? Take our challenge!";
 
-
-
-    let sloganWrapper = document.createElement('div');
-    sloganWrapper.classList.add("sloganWrapper");
-
-    description.appendChild(sloganWrapper);
-    slogan.appendChild(bigStar);
-    sloganWrapper.appendChild(slogan);
+    //let sloganWrapper = document.createElement('div');
+    //sloganWrapper.classList.add("sloganWrapper");
+    //description.appendChild(sloganWrapper);
+    //slogan.appendChild(bigStar);
+    //sloganWrapper.appendChild(slogan);
 
     sideBar.appendChild(description);
-  
-
-    
-
-
-
-    
 }
 
 export {setUpNav};

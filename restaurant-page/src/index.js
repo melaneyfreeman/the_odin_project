@@ -1,15 +1,16 @@
 import {setUpNav} from './homepage.js';
-import {createSlideShow, removeSlideShow} from './slideshow.js';
+import {createSlideShow} from './slideshow.js';
 import {setUpMenu} from './menu.js';
 import {setUpContact} from './contact.js';
 
 //initially loads homepage and loads/starts slideshow
-    setUpNav();
-    createSlideShow();
+setUpNav();
+createSlideShow();
 
 let contentWrapper = document.getElementById("content");
 let ssWrapper = document.getElementById("slideshowContainer");
 let menuWrapper = document.getElementById("menuWrapper");
+let contactWrapper = document.getElementById("contactWrapper");
 
 let homeLink = document.getElementsByClassName("home")[0];
 let menuLink = document.getElementsByClassName("menu")[0];
@@ -43,6 +44,14 @@ function loadHome(){
         menuWrapper.remove();
     }
 
+    //check if element exists, before trying to remove
+    if(document.body.contains(document.getElementsByClassName("contactWrapper")[0])){
+        //if switching from home to contact, check if element exists
+        let contactWrapper = document.getElementsByClassName("contactWrapper")[0];
+        //use big div to remove slideshow container
+        contactWrapper.innerHTML = "";
+        contactWrapper.remove();
+    }
 
     createSlideShow();
 
@@ -56,8 +65,6 @@ function loadHome(){
 
     contactLink.addEventListener("click", loadContact);
     menuLink.addEventListener("click", loadMenu);
-
-
 }
 
 //menu link click
@@ -73,13 +80,22 @@ function loadMenu(){
         big.remove();
     }
 
-      //check if element exists, before trying to remove
-      if(document.body.contains(document.getElementsByClassName("menuWrapper")[0])){
+    //check if element exists, before trying to remove
+    if(document.body.contains(document.getElementsByClassName("menuWrapper")[0])){
         //if switching from contact to menu, check if element exists
         let menuWrapper = document.getElementsByClassName("menuWrapper")[0];
         //use big div to remove slideshow container
         menuWrapper.innerHTML = "";
         menuWrapper.remove();
+    }
+
+    //check if element exists, before trying to remove
+    if(document.body.contains(document.getElementsByClassName("contactWrapper")[0])){
+        //if switching from home to contact, check if element exists
+        let contactWrapper = document.getElementsByClassName("contactWrapper")[0];
+        //use big div to remove slideshow container
+        contactWrapper.innerHTML = "";
+        contactWrapper.remove();
     }
 
     setUpMenu();
@@ -94,7 +110,6 @@ function loadMenu(){
 
     contactLink.addEventListener("click", loadContact);
     homeLink.addEventListener("click", loadHome);
-
 
 }
 
@@ -111,13 +126,22 @@ function loadContact(){
         big.remove();
     }
 
-      //check if element exists, before trying to remove
-      if(document.body.contains(document.getElementsByClassName("menuWrapper")[0])){
+    //check if element exists, before trying to remove
+    if(document.body.contains(document.getElementsByClassName("menuWrapper")[0])){
         //if switching from contact to menu, check if element exists
         let menuWrapper = document.getElementsByClassName("menuWrapper")[0];
         //use big div to remove slideshow container
         menuWrapper.innerHTML = "";
         menuWrapper.remove();
+    }
+
+    //check if element exists, before trying to remove
+    if(document.body.contains(document.getElementsByClassName("contactWrapper")[0])){
+        //if switching from home to contact, check if element exists
+        let contactWrapper = document.getElementsByClassName("contactWrapper")[0];
+        //use big div to remove slideshow container
+        contactWrapper.innerHTML = "";
+        contactWrapper.remove();
     }
 
     setUpContact();

@@ -1,13 +1,12 @@
 /*menu container*/
-.burgerWrapper{
-    height: 100vh;   
+.burgerWrapper, .appWrapper, .dessertWrapper{
     padding: 1%;
-    background-color: #e62d2e;
-    border-radius: 10px;
+    background-color: black;
     display: grid;
-    grid-template-columns: 5% 5% 5%;
-    grid-gap: 10% 30vw;
-
+    grid-template-columns: 20% 15% 20% 15%;
+    grid-template-rows: 30% 30% 30% 30%;
+    grid-gap: 5% 7vw;
+    padding-bottom: 10%;
 }
 
 .menuWrapper{
@@ -15,14 +14,11 @@
     border-radius: 10px;
 }
 
-
-
 .box{
-    border-radius: 5px;
-    padding-right: 1vw;
-    padding-left: 1vw;
-    max-width: 500%;
-    max-height: 200%;
+    padding-right: .5vw;
+    padding-left: .5vw;
+    max-width: 20vw;
+    padding-bottom: 4vw;
 }
 
 h2{
@@ -35,7 +31,18 @@ h2{
     font-family: 'Pacifico', cursive; 
     padding-top: 3vh;
     padding-bottom: 3vh;
-       
+}
 
+h4, p{
+    color: white;
+    font-family: 'Days One', sans-serif;  
+}
+
+h4{
+    font-size: 1.2vw;
+}
+
+p{
+    font-size: 1vw;
 }
 
