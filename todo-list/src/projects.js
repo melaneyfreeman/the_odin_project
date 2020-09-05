@@ -10,9 +10,18 @@ function Project  (projectName, tasks){
 function addBtnListeners(){
     let addNewProjectLink = document.getElementsByClassName("addNewProjectLink")[0];
     addNewProjectLink.addEventListener("click", addProject);
-    
-
+   
 };
+
+
+function addTaskBtnListener(i){
+    let addNewTaskLink = document.getElementsByClassName("addNewTaskLink")[0];
+    addNewTaskLink.onclick = function(){
+        addTask(i);
+    }
+
+}
+
 
 //adds project to proj array
 function addProject(){
@@ -29,6 +38,8 @@ function addProject(){
         
     }
 
+
+
 }
 
 //adds projects to list in html
@@ -39,6 +50,7 @@ function populateProjList(){
 
     //create element for project list item
     for(let i = 0; i < projArray.length; i++){
+
         let listItem = document.createElement('h5');
         listItem.innerHTML = projArray[i].projectName;
         listItem.classList.add("projectItem")
@@ -58,11 +70,14 @@ function projLinkListeners(){
             projLinks[i].style.backgroundColor = "white";
             projLinks[i].style.opacity = ".6";
             projLinks[i].style.color = "black";
-            populateTaskList(i);
+            //passProjectIndex(i);
             addTaskBtnListener(i);
+
+
         }
+
     }
-    
+
     
     console.log("link listeners");
 }
@@ -75,10 +90,10 @@ function removeBackgroundColor(){
     }
 }
 
+function passProjectIndex(i){
+    addTaskBtnListener();
 
-function addTaskBtnListener(i){
-    let addNewTaskLink = document.getElementsByClassName("addNewTaskLink")[0];
-    addNewTaskLink.addEventListener("click", addTask(i));
+    return i;
 }
 
 function populateTaskList(i){
@@ -88,6 +103,7 @@ function populateTaskList(i){
 
 
 function addTask(i){
+    console.log("task btn clicked");
     var task = prompt("enter task:", "work on ...");
 
     if(task != null){
@@ -99,18 +115,16 @@ function addTask(i){
 
         taskWrapper.appendChild(taskItem);
 
-        projArray[i]['tasks'].push(task);
+        
+        projArray[i].tasks.push(task);
 
         console.log(projArray);
+
+
         
     }
 }
 
-function selectProject(){
-    //if project selected, turn on task button
-    //when add new task, add it to proj.tasks array inside that proj item
-    //and update header title to proj name
-    
-}
+
 
 export {addBtnListeners};
