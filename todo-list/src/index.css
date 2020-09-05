@@ -66,7 +66,7 @@ body{
 }
 
 .addNewTaskLink{
-    float: left;
+    float: right;
 }
 
 
@@ -76,6 +76,19 @@ body{
 
 .sidebarProjectTitle{
     padding: 10px;
+
+}
+
+.taskWrapper{
+    margin-top: 2vw;
+}
+button{
+    border: none;
+    cursor: pointer;
+}
+
+button:hover{
+    box-shadow: 0px 0px 5px 5px rgba(57,59,68,0.2);
 
 }
 

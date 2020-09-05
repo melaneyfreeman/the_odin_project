@@ -10,15 +10,19 @@ function Project  (projectName, tasks){
 function addBtnListeners(){
     let addNewProjectLink = document.getElementsByClassName("addNewProjectLink")[0];
     addNewProjectLink.addEventListener("click", addProject);
-   
+
+    taskLinkListeners();
 };
 
 
 function addTaskBtnListener(i){
     let addNewTaskLink = document.getElementsByClassName("addNewTaskLink")[0];
+    //need to do onclick this way because we are passing a value through addTask, otherwise it will trigger automatically
     addNewTaskLink.onclick = function(){
         addTask(i);
     }
+
+
 
 }
 
@@ -35,6 +39,7 @@ function addProject(){
         console.log(projArray);
 
         populateProjList();
+        //populateTaskList();
         
     }
 
@@ -59,6 +64,29 @@ function populateProjList(){
 
     projLinkListeners();
 
+    
+
+}
+
+function populateTaskList(i){
+    let taskWrapper = document.getElementsByClassName("taskWrapper")[0];
+    //reset html each time it repopulates
+    taskWrapper.innerHTML = "";
+
+    console.log("hereeeeee");
+
+    //create element for project list item
+    for(var task in projArray[i].tasks){
+        let listItem = document.createElement('h5');
+        listItem.innerHTML = projArray[i].tasks[task];
+        listItem.classList.add("taskItem")
+        taskWrapper.appendChild(listItem);
+        console.log("adding classlist to task item");
+        //need this for the tasks to become highlighted when clicked,
+        //passing the tasks as a variable
+        taskLinkListeners(task);
+    }
+
 }
 
 function projLinkListeners(){
@@ -70,16 +98,36 @@ function projLinkListeners(){
             projLinks[i].style.backgroundColor = "white";
             projLinks[i].style.opacity = ".6";
             projLinks[i].style.color = "black";
-            //passProjectIndex(i);
             addTaskBtnListener(i);
-
+            changeHeaderTitle(i);
+            //important, when a different project is clicked, populate the corresponding tasks
+            populateTaskList(i);
 
         }
 
     }
 
-    
     console.log("link listeners");
+}
+
+
+function taskLinkListeners(){
+    let taskLinks = document.getElementsByClassName("taskItem");
+    console.log('got here');
+
+    for(let i = 0; i < taskLinks.length; i++){
+        taskLinks[i].onclick = function(){
+            console.log('task clicked');
+            taskLinks[i].style.backgroundColor = "white";
+            console.log(taskLinks[i] + "clicked");
+        }
+    }
+}
+
+function changeHeaderTitle(i){
+    let boxHeaderTitle = document.getElementById("boxHeaderTitle");
+    boxHeaderTitle.textContent = "";
+    boxHeaderTitle.textContent = projArray[i].projectName;
 }
 
 function removeBackgroundColor(){
@@ -90,37 +138,16 @@ function removeBackgroundColor(){
     }
 }
 
-function passProjectIndex(i){
-    addTaskBtnListener();
-
-    return i;
-}
-
-function populateTaskList(i){
-
-}
-
-
-
+//adds task to the specific project array
 function addTask(i){
     console.log("task btn clicked");
     var task = prompt("enter task:", "work on ...");
-
-    if(task != null){
-        //logic for selected project
-
-        let taskWrapper = document.getElementsByClassName("taskWrapper")[0];
-        let taskItem = document.createElement('h5');
-        taskItem.innerHTML = task;
-
-        taskWrapper.appendChild(taskItem);
-
-        
+    if(task != null){   
         projArray[i].tasks.push(task);
 
         console.log(projArray);
 
-
+        populateTaskList(i);
         
     }
 }

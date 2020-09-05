@@ -15,6 +15,7 @@ function setUpUI(){
     let boxHeaderTitle = document.createElement('h2');
     //add class
     boxHeaderTitle.classList.add("boxHeaderTitle");
+    boxHeaderTitle.id = "boxHeaderTitle";
     //defaults to TODO before a project is created
     boxHeaderTitle.innerHTML = "TODO";
     
@@ -68,7 +69,7 @@ function setUpUI(){
     //append content and children to wrapper
     wrapper.appendChild(boxContent);
     boxContent.appendChild(tasksTitleWrapper);
-    boxHeaderTitle.appendChild(addNewTaskLink);
+    boxContent.appendChild(addNewTaskLink);
     boxContent.appendChild(taskWrapper);
     
     addBtnListeners();
