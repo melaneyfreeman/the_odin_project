@@ -11,7 +11,6 @@ function addBtnListeners(){
     let addNewProjectLink = document.getElementsByClassName("addNewProjectLink")[0];
     addNewProjectLink.addEventListener("click", addProject);
 
-    taskLinkListeners();
 };
 
 
@@ -33,8 +32,6 @@ function addProject(){
 
     if(name != null){
         let proj = new Project(name);
-        console.log(proj.projectName);
-
         projArray.push(proj);
         console.log(projArray);
 
@@ -73,19 +70,18 @@ function populateTaskList(i){
     //reset html each time it repopulates
     taskWrapper.innerHTML = "";
 
-    console.log("hereeeeee");
-
-    //create element for project list item
-    for(var task in projArray[i].tasks){
-        let listItem = document.createElement('h5');
-        listItem.innerHTML = projArray[i].tasks[task];
-        listItem.classList.add("taskItem")
-        taskWrapper.appendChild(listItem);
-        console.log("adding classlist to task item");
-        //need this for the tasks to become highlighted when clicked,
-        //passing the tasks as a variable
-        taskLinkListeners(task);
-    }
+        //create element for project list item
+        for(var task in projArray[i].tasks){
+            let listItem = document.createElement('h5');
+            listItem.innerHTML = projArray[i].tasks[task];
+            listItem.classList.add("taskItem")
+            taskWrapper.appendChild(listItem);
+            console.log("adding classlist to task item");
+            //need this for the tasks to become highlighted when clicked,
+            //passing the tasks as a variable
+            taskLinkListeners(i);
+        }
+    
 
 }
 
@@ -101,25 +97,48 @@ function projLinkListeners(){
             addTaskBtnListener(i);
             changeHeaderTitle(i);
             //important, when a different project is clicked, populate the corresponding tasks
+            //i = current selected project
             populateTaskList(i);
+            //click again to highlight red to show it will be deleted
+            projLinks[i].onclick = function(){
+                projLinks[i].style.backgroundColor = "red";
+                //click once more to delete
+                projLinks[i].onclick = function(){
+                    projArray.splice(i, 1);
+                    console.log(projArray);
+                    populateProjList();
+                }
+                
+            }
 
         }
 
     }
-
-    console.log("link listeners");
 }
 
 
-function taskLinkListeners(){
+function taskLinkListeners(i){
+    //i = current selected project
     let taskLinks = document.getElementsByClassName("taskItem");
-    console.log('got here');
+    for(let j = 0; j < taskLinks.length; j++){
+        taskLinks[j].onclick = function(){
+            taskLinks[j].style.backgroundColor = "white";
+            taskLinks[j].style.color = "gray";
+            taskLinks[i].style.opacity = ".6";
+            console.log(taskLinks[j] + "clicked");
+            //click again to delete task
+            taskLinks[j].onclick = function(){
+                taskLinks[j].style.backgroundColor = "red";
 
-    for(let i = 0; i < taskLinks.length; i++){
-        taskLinks[i].onclick = function(){
-            console.log('task clicked');
-            taskLinks[i].style.backgroundColor = "white";
-            console.log(taskLinks[i] + "clicked");
+                taskLinks[j].onclick = function(){
+                    projArray[i].tasks.splice(j, 1);
+                    console.log(projArray);
+                    //repopulate task list to remove deleted task
+                    //i = current selected project
+                    populateTaskList(i);
+                }
+              
+            }
         }
     }
 }
@@ -140,13 +159,11 @@ function removeBackgroundColor(){
 
 //adds task to the specific project array
 function addTask(i){
-    console.log("task btn clicked");
     var task = prompt("enter task:", "work on ...");
     if(task != null){   
         projArray[i].tasks.push(task);
 
-        console.log(projArray);
-
+        //pass the current selected project
         populateTaskList(i);
         
     }
