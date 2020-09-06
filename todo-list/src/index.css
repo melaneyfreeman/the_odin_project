@@ -75,7 +75,7 @@ body{
 }
 
 .sidebarProjectTitle{
-    padding: 10px;
+    padding: 1vw;
 
 }
 
@@ -104,8 +104,14 @@ button:hover{
 
 }
 
+.projectItem{
+    padding-left: .6vw;
+    padding-right: 3vw;
+
+}
+
 .taskItem{
-    margin-bottom: 2vw;
+    margin-bottom: 1vw;
 }
 
 .editBtn{
@@ -114,18 +120,40 @@ button:hover{
     background-color: #8d93ab;
     color: #2e313b;
     margin-bottom: 2vw;
+    font-size: 1em;
+    margin-top: 1vw;
+    color:#f1f3f8;
+
     
 }
 
 .deleteTaskBtn{
-    float:right;
     height: auto;
-    background-color: red;
+    background-color: tomato;
     color: #2e313b;
     margin-bottom: 2vw;
     padding-left: 1vw;
     padding-right: 1vw;
     margin-left: auto;
+    margin-top: 1vw;
+    font-size: 1em;
+}
+
+.deleteProjBtn{
+    background-color: transparent;
+    line-height: 0;
+    color: #8d93ab;
+    font-size: 2em;
+    margin-top: .5vw;
+    padding-top: .3vw;
+    padding-bottom: .3vw;
+    margin-right: .1vw;
+
+}
+
+.deleteProjBtn:hover{
+    color: tomato;
+    box-shadow: none;
 }
 
 h2{
