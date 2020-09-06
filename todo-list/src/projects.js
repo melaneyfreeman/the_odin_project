@@ -52,14 +52,24 @@ function populateProjList(){
 
     //create element for project list item
     for(let i = 0; i < projArray.length; i++){
-
+         //create wrapper for task, and buttons
+         let projItemWrapper = document.createElement('div');
+         projItemWrapper.classList.add("projItemWrapper");
+         projectList.appendChild(projItemWrapper);
+        //adding projects
         let listItem = document.createElement('h5');
         listItem.innerHTML = projArray[i].projectName;
         listItem.classList.add("projectItem")
-        projectList.appendChild(listItem);
+        projItemWrapper.appendChild(listItem);
+        //adding delete btns for each project
+        let deleteProjBtn = document.createElement("button");
+        deleteProjBtn.classList.add("deleteProjBtn");
+        deleteProjBtn.innerHTML = "×";
+        projItemWrapper.appendChild(deleteProjBtn);
     }
 
     projLinkListeners();
+    deleteProjBtnListeners();
 
     
 
@@ -70,49 +80,111 @@ function populateTaskList(i){
     //reset html each time it repopulates
     taskWrapper.innerHTML = "";
 
+    //need to check if i and projarray[i] have values,
+    //for after we delete a project, that object and the tasks 
+    //inside projarray is no longer there and is now undefined
+    if(i!= undefined && projArray[i] != undefined){
         //create element for project list item
         for(var task in projArray[i].tasks){
+            //create wrapper for task, and buttons
+            let taskItemWrapper = document.createElement('div');
+            taskItemWrapper.classList.add("taskItemWrapper");
+            taskWrapper.appendChild(taskItemWrapper);
+            //adding tasks
             let listItem = document.createElement('h5');
             listItem.innerHTML = projArray[i].tasks[task];
             listItem.classList.add("taskItem")
-            taskWrapper.appendChild(listItem);
-            console.log("adding classlist to task item");
+            taskItemWrapper.appendChild(listItem);
+            //adding delete btns for each task
+            let deleteTaskBtn = document.createElement("button");
+            deleteTaskBtn.classList.add("deleteTaskBtn");
+            deleteTaskBtn.innerHTML = "×  <br>";
+            taskItemWrapper.appendChild(deleteTaskBtn);
+            
+            //adding edit btns for each task
+            let editBtn = document.createElement('button');
+            editBtn.classList.add("editBtn");
+            editBtn.innerHTML = "edit";
+            taskItemWrapper.appendChild(editBtn);
+            
+            
             //need this for the tasks to become highlighted when clicked,
             //passing the tasks as a variable
             taskLinkListeners(i);
-        }
-    
+            editBtnListeners(i);
+            deleteTaskBtnListeners(i);
+            deleteProjBtnListeners();
 
+
+        }
+    }
+
+}
+
+function editBtnListeners(i){
+    let editBtns = document.getElementsByClassName("editBtn");
+    for(let k = 0; k < editBtns.length; k++){
+        editBtns[k].onclick = function(){
+            console.log("clicked edit btn" + k);
+            let projLinks = document.getElementsByClassName("projectItem");
+            projLinks[i].style.backgroundColor = "white";
+            projLinks[i].style.opacity = ".6";
+            projLinks[i].style.color = "black";
+    
+        }
+    }
+}
+
+function deleteTaskBtnListeners(i){
+    //i = current selected project
+    let deleteTaskBtns = document.getElementsByClassName("deleteTaskBtn");
+    for(let k = 0; k < deleteTaskBtns.length; k++){
+        deleteTaskBtns[k].onclick = function(){
+            console.log("clicked delete task btn" + i);
+            //k = task to be deleted
+            projArray[i].tasks.splice(k, 1);
+            populateProjList();
+            populateTaskList(i);
+            let projLinks = document.getElementsByClassName("projectItem");
+            projLinks[i].style.backgroundColor = "white";
+            projLinks[i].style.opacity = ".6";
+            projLinks[i].style.color = "black";
+        }
+    }
+}
+
+function deleteProjBtnListeners(){
+    let deleteProjBtns = document.getElementsByClassName("deleteProjBtn");
+    for(let i = 0; i <deleteProjBtns.length; i++){
+        deleteProjBtns[i].onclick = function(){
+            console.log("clicked delete proj btn" + i);
+            projArray.splice(i, 1);
+            populateProjList();
+            populateTaskList(i);
+            projLinkListeners();
+
+
+        }
+    }
 }
 
 function projLinkListeners(){
     let projLinks = document.getElementsByClassName("projectItem");
     for(let i = 0; i < projLinks.length; i++){
-        projLinks[i].onclick = function(){
-            removeBackgroundColor();
-            console.log("clicked project" + i);
-            projLinks[i].style.backgroundColor = "white";
-            projLinks[i].style.opacity = ".6";
-            projLinks[i].style.color = "black";
-            addTaskBtnListener(i);
-            changeHeaderTitle(i);
-            //important, when a different project is clicked, populate the corresponding tasks
-            //i = current selected project
-            populateTaskList(i);
-            //click again to highlight red to show it will be deleted
             projLinks[i].onclick = function(){
-                projLinks[i].style.backgroundColor = "red";
-                //click once more to delete
-                projLinks[i].onclick = function(){
-                    projArray.splice(i, 1);
-                    console.log(projArray);
-                    populateProjList();
-                }
-                
+                removeBackgroundColor();
+                console.log("clicked project" + i);
+                projLinks[i].style.backgroundColor = "white";
+                projLinks[i].style.opacity = ".6";
+                projLinks[i].style.color = "black";
+                addTaskBtnListener(i);
+                changeHeaderTitle(i);
+                //important, when a different project is clicked, populate the corresponding tasks
+                //i = current selected project
+                populateTaskList(i);
+            
             }
-
-        }
-
+        
     }
 }
 
@@ -122,22 +194,19 @@ function taskLinkListeners(i){
     let taskLinks = document.getElementsByClassName("taskItem");
     for(let j = 0; j < taskLinks.length; j++){
         taskLinks[j].onclick = function(){
-            taskLinks[j].style.backgroundColor = "white";
-            taskLinks[j].style.color = "gray";
-            taskLinks[i].style.opacity = ".6";
-            console.log(taskLinks[j] + "clicked");
-            //click again to delete task
-            taskLinks[j].onclick = function(){
-                taskLinks[j].style.backgroundColor = "red";
+            if(taskLinks[i] != undefined){
+                taskLinks[j].style.backgroundColor = "white";
+                taskLinks[j].style.color = "gray";
+                taskLinks[i].style.opacity = ".6";
+                console.log(taskLinks[j] + "clicked");
+                //repopulate task list to remove deleted task
+                //i = current selected project
+                populateTaskList(i);
 
-                taskLinks[j].onclick = function(){
-                    projArray[i].tasks.splice(j, 1);
-                    console.log(projArray);
-                    //repopulate task list to remove deleted task
-                    //i = current selected project
-                    populateTaskList(i);
-                }
-              
+                let projLinks = document.getElementsByClassName("projectItem");
+                projLinks[i].style.backgroundColor = "white";
+
+  
             }
         }
     }
