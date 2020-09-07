@@ -104,9 +104,11 @@ function populateTaskList(i){
             //adding edit btns for each task
             let editBtn = document.createElement('button');
             editBtn.classList.add("editBtn");
-            editBtn.innerHTML = "edit";
+            editBtn.innerHTML = "done";
             taskItemWrapper.appendChild(editBtn);
+            editBtn.style.display = "none";
             
+        
             
             //need this for the tasks to become highlighted when clicked,
             //passing the tasks as a variable
@@ -126,14 +128,26 @@ function editBtnListeners(i){
     for(let k = 0; k < editBtns.length; k++){
         editBtns[k].onclick = function(){
             console.log("clicked edit btn" + k);
+            //this keeps the selected project highlighted
             let projLinks = document.getElementsByClassName("projectItem");
             projLinks[i].style.backgroundColor = "white";
             projLinks[i].style.opacity = ".6";
             projLinks[i].style.color = "black";
-    
+
+            let taskItem = document.getElementsByClassName("taskItem")[k];
+            projArray[i].tasks[k] = taskItem.innerHTML;
+            console.log(projArray)
+
+        
+            editBtns[k].style.display = "none";
+            taskItem.contentEditable = "false";
+            taskItem.style.backgroundColor = "transparent";
+
         }
     }
 }
+
+
 
 function deleteTaskBtnListeners(i){
     //i = current selected project
@@ -194,15 +208,18 @@ function taskLinkListeners(i){
     let taskLinks = document.getElementsByClassName("taskItem");
     for(let j = 0; j < taskLinks.length; j++){
         taskLinks[j].onclick = function(){
-            if(taskLinks[i] != undefined){
-                taskLinks[j].style.backgroundColor = "white";
-                taskLinks[j].style.color = "gray";
-                taskLinks[i].style.opacity = ".6";
-                console.log(taskLinks[j] + "clicked");
+            if(taskLinks[j] != undefined){
+                taskLinks[j].style.backgroundColor = "tomato";
+                taskLinks[j].style.color = "white";
+                taskLinks[j].style.opacity = ".8";
+                console.log(taskLinks[j] + "clicked" + taskLinks[j].style.backgroundColor);
+                
+                let editBtn = document.getElementsByClassName("editBtn")[j];
+                editBtn.style.display = "block";
+                taskLinks[j].contentEditable = "true";
                 //repopulate task list to remove deleted task
                 //i = current selected project
-                populateTaskList(i);
-
+                //populateTaskList(i);
                 let projLinks = document.getElementsByClassName("projectItem");
                 projLinks[i].style.backgroundColor = "white";
 
