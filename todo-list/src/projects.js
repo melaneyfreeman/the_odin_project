@@ -1,3 +1,4 @@
+
 let projArray = [];
 
 function Project  (projectName, tasks){
@@ -18,6 +19,7 @@ function addTaskBtnListener(i){
     let addNewTaskLink = document.getElementsByClassName("addNewTaskLink")[0];
     //need to do onclick this way because we are passing a value through addTask, otherwise it will trigger automatically
     addNewTaskLink.onclick = function(){
+        
         addTask(i);
     }
 
@@ -39,6 +41,7 @@ function addProject(){
         //populateTaskList();
         
     }
+
 
 
 
@@ -245,6 +248,7 @@ function removeBackgroundColor(){
 
 //adds task to the specific project array
 function addTask(i){
+    openForm();
     var task = prompt("enter task:", "work on ...");
     if(task != null){   
         projArray[i].tasks.push(task);
@@ -253,8 +257,18 @@ function addTask(i){
         populateTaskList(i);
         
     }
+    
 }
 
 
+function openForm(){
+    document.getElementsByClassName("backgroundForm")[0].style.display = "block";
+
+}
+
+function closeForm(){
+    document.getElementsByClassName("backgroundForm")[0].style.display = "none";
+
+}
 
 export {addBtnListeners};

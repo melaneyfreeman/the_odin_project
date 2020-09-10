@@ -73,9 +73,90 @@ function setUpUI(){
     boxContent.appendChild(taskWrapper);
     
     addBtnListeners();
+    setupFormUI();
 
 }
 
+function setupFormUI(){
+    let backgroundForm = document.createElement('div');
+    backgroundForm.classList.add("backgroundForm")
+
+    let myFormWrapper = document.createElement('div');
+    myFormWrapper.classList.add("myFormWrapper");
+
+    let myForm = document.createElement('form');
+    myForm.setAttribute('action', '#');
+
+    myForm.classList.add("myForm");
+    let formTitle = document.createElement('h1');
+    formTitle.innerHTML = "edit task";
+
+    //task title
+    let taskTitle = document.createElement('label');
+    taskTitle.innerHTML = " <br> task <br>";
+
+    let taskInput = document.createElement('input');
+    taskInput.type = "text";
+    taskInput.placeholder = "enter brief task description or title";
+    taskInput.name = "taskName";
+    taskInput.required = true;
+
+    //task details
+    let taskDetailsTitle = document.createElement('label');
+    taskDetailsTitle.innerHTML = " <br> details  <br>";
+
+    let taskDetailsInput = document.createElement('input');
+    taskDetailsInput.type = "text";
+    taskDetailsInput.placeholder = "enter details of task";
+    taskDetailsInput.name = "taskDetails";
+    taskDetailsInput.required = false;
+
+    //task due date
+    let taskDueDateTitle = document.createElement('label');
+    taskDueDateTitle.innerHTML = "<br> task due date <br>";
+
+    let taskDueDate = document.createElement('input');
+    taskDueDate.setAttribute("type", "date");
+    
+
+    //buttons
+    let addNewTaskBtnForm = document.createElement("button");
+    addNewTaskBtnForm.innerHTML = "+";
+    addNewTaskBtnForm.type = "submit";
+    addNewTaskBtnForm.classList.add("addNewTaskBtnForm");
+
+    let closeFormBtn = document.createElement("button");
+    closeFormBtn.innerHTML = "×";
+    closeFormBtn.classList.add("closeForm");
+    closeFormBtn.addEventListener("click", closeForm);
+
+
+    let wrapper = document.getElementsByClassName("wrapper")[0];
+    wrapper.appendChild(backgroundForm);
+    backgroundForm.appendChild(myFormWrapper);
+    myFormWrapper.appendChild(myForm);
+    myForm.appendChild(closeFormBtn);
+
+    myForm.appendChild(formTitle);
+    myForm.appendChild(taskTitle);
+    myForm.appendChild(taskInput);
+    myForm.appendChild(taskDetailsTitle);
+    myForm.appendChild(taskDetailsInput);
+    myForm.appendChild(taskDueDateTitle);
+    myForm.appendChild(taskDueDate);
+    myForm.appendChild(addNewTaskBtnForm);
+
+}
+
+function openForm(){
+    document.getElementsByClassName("backgroundForm")[0].style.display = "block"
+}
+
+function closeForm(){
+    document.getElementsByClassName("backgroundForm")[0].style.display = "none";
+}
 
 setUpUI();
+
+export default {openForm};
 
