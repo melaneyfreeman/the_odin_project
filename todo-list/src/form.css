@@ -34,4 +34,27 @@
     position: fixed;
 }
 
+button{
+    display: block;
+    font-family: 'Lexend Peta', sans-serif;
+
+}
+
+.closeForm{
+    float: right;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    font-size: 1.5em;
+}
+
+.addNewTaskBtnForm{
+    margin-left: 45%;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    font-size: 1.5em;
+}
 

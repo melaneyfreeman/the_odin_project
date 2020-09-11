@@ -119,6 +119,7 @@ function setupFormUI(){
 
     let taskDueDate = document.createElement('input');
     taskDueDate.setAttribute("type", "date");
+    taskDueDate.classList.add("taskDueDate");
     
 
     //buttons

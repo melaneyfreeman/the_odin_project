@@ -4,8 +4,8 @@ let projArray = [];
 function Project  (projectName, tasks, description, dueDate){
     this.projectName = projectName;
     this.tasks = [];
-    this.description = description;
-    this.dueDate = dueDate;
+    this.description = [];
+    this.dueDate = [];
 }
 
 function addBtnListeners(){
@@ -93,29 +93,47 @@ function populateTaskList(i){
             let taskItemWrapper = document.createElement('div');
             taskItemWrapper.classList.add("taskItemWrapper");
             taskWrapper.appendChild(taskItemWrapper);
-            //adding tasks
-            let listItem = document.createElement('h5');
-            listItem.innerHTML = projArray[i].tasks[task];
-            listItem.classList.add("taskItem")
-            taskItemWrapper.appendChild(listItem);
-            //adding delete btns for each task
-            let deleteTaskBtn = document.createElement("button");
-            deleteTaskBtn.classList.add("deleteTaskBtn");
-            deleteTaskBtn.innerHTML = "×  <br>";
-            taskItemWrapper.appendChild(deleteTaskBtn);
+
             
-            //adding edit btns for each task
+
+              //adding delete btns for each task
+              let deleteTaskBtn = document.createElement("button");
+              deleteTaskBtn.classList.add("deleteTaskBtn");
+              deleteTaskBtn.innerHTML = "×  <br>";
+              taskItemWrapper.appendChild(deleteTaskBtn);
+
+              //adding edit btns for each task
             let editBtn = document.createElement('button');
             editBtn.classList.add("editBtn");
             editBtn.innerHTML = "done";
             taskItemWrapper.appendChild(editBtn);
             editBtn.style.display = "none";
-            
+              
+            //adding tasks
+            let listItem = document.createElement('h5');
+            listItem.innerHTML = projArray[i].tasks[task];
+            listItem.classList.add("taskItem")
+            taskItemWrapper.appendChild(listItem);
+
+            //add due date
+            let dueDateItem = document.createElement('h6');
+            dueDateItem.classList.add("dueDateItem");
+            taskItemWrapper.appendChild(dueDateItem);
+            dueDateItem.innerHTML = "Due date " + projArray[i].dueDate[task];
+
+            //adds task description
         
+            let des = document.createElement('h6');
+            des.classList.add("des");
+            des.innerHTML = projArray[i].description[task];
+            taskItemWrapper.appendChild(des);
+            
+
             
             //need this for the tasks to become highlighted when clicked,
             //passing the tasks as a variable
             taskLinkListeners(i);
+            descriptionLinkListeners(i);
             editBtnListeners(i);
             deleteTaskBtnListeners(i);
             deleteProjBtnListeners();
@@ -140,12 +158,19 @@ function editBtnListeners(i){
             let taskItem = document.getElementsByClassName("taskItem")[k];
             projArray[i].tasks[k] = taskItem.innerHTML;
             console.log(projArray)
-
+            
+            let des = document.getElementsByClassName("des")[k];
+            projArray[i].description[k] = des.innerHTML;
         
             editBtns[k].style.display = "none";
+
             taskItem.contentEditable = "false";
             taskItem.style.backgroundColor = "transparent";
             taskItem.style.cursor = "pointer";
+
+            des.contentEditable = "false";
+            des.style.backgroundColor = "transparent";
+            des.style.cursor = "pointer";
 
         }
     }
@@ -161,6 +186,7 @@ function deleteTaskBtnListeners(i){
             console.log("clicked delete task btn" + i);
             //k = task to be deleted
             projArray[i].tasks.splice(k, 1);
+            projArray[i].description.splice(k,1);
             populateProjList();
             populateTaskList(i);
             let projLinks = document.getElementsByClassName("projectItem");
@@ -220,8 +246,37 @@ function taskLinkListeners(i){
                 
                 let editBtn = document.getElementsByClassName("editBtn")[j];
                 editBtn.style.display = "block";
+
                 taskLinks[j].contentEditable = "true";
                 taskLinks[j].style.cursor = "text";
+                //repopulate task list to remove deleted task
+                //i = current selected project
+                //populateTaskList(i);
+                let projLinks = document.getElementsByClassName("projectItem");
+                projLinks[i].style.backgroundColor = "white";
+
+  
+            }
+        }
+    }
+}
+
+function descriptionLinkListeners(i){
+    //i = current selected project
+    let descLinks = document.getElementsByClassName("des");
+    for(let j = 0; j < descLinks.length; j++){
+        descLinks[j].onclick = function(){
+            if(descLinks[j] != undefined){
+                console.log(descLinks[j]);
+                descLinks[j].style.backgroundColor = "tomato";
+                descLinks[j].style.color = "white";
+                descLinks[j].style.opacity = ".8";
+                
+                let editBtn = document.getElementsByClassName("editBtn")[j];
+                editBtn.style.display = "block";
+
+                descLinks[j].contentEditable = "true";
+                descLinks[j].style.cursor = "text";
                 //repopulate task list to remove deleted task
                 //i = current selected project
                 //populateTaskList(i);
@@ -255,11 +310,27 @@ function addTask(i){
     submitBtn.onclick = function(){
         let task = document.getElementsByClassName("taskInput")[0].value;
         let des = document.getElementsByClassName("taskDetails")[0].value;
+        let date = document.getElementsByClassName("taskDueDate")[0].value;
         console.log(task);
         //var task = prompt("enter task:", "work on ...");
         if(task != null){   
             projArray[i].tasks.push(task);
-            projArray[i].description = des;
+            //if user entered a project description
+            if(des != null && des != undefined && des != ""){
+                projArray[i].description.push(des);
+            }
+            //if no description entered
+            else{
+                projArray[i].description.push(" ");
+            }
+
+            if(date != undefined){
+                projArray[i].dueDate.push(date);
+
+            }
+            else{
+                projArray[i].dueDate.push(" ");
+            }
             console.log(projArray[i]);
             //pass the current selected project
             populateTaskList(i);
