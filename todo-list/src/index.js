@@ -85,7 +85,7 @@ function setupFormUI(){
     myFormWrapper.classList.add("myFormWrapper");
 
     let myForm = document.createElement('form');
-    myForm.setAttribute('action', '#');
+    myForm.setAttribute('onsubmit', 'return false');
 
     myForm.classList.add("myForm");
     let formTitle = document.createElement('h1');
@@ -97,6 +97,7 @@ function setupFormUI(){
 
     let taskInput = document.createElement('input');
     taskInput.type = "text";
+    taskInput.classList.add("taskInput");
     taskInput.placeholder = "enter brief task description or title";
     taskInput.name = "taskName";
     taskInput.required = true;
@@ -107,6 +108,7 @@ function setupFormUI(){
 
     let taskDetailsInput = document.createElement('input');
     taskDetailsInput.type = "text";
+    taskDetailsInput.classList.add("taskDetails");
     taskDetailsInput.placeholder = "enter details of task";
     taskDetailsInput.name = "taskDetails";
     taskDetailsInput.required = false;

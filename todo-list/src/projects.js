@@ -1,11 +1,11 @@
 
 let projArray = [];
 
-function Project  (projectName, tasks){
+function Project  (projectName, tasks, description, dueDate){
     this.projectName = projectName;
     this.tasks = [];
-
-    //for each task in tasks array, create a div or w/e for each task
+    this.description = description;
+    this.dueDate = dueDate;
 }
 
 function addBtnListeners(){
@@ -145,6 +145,7 @@ function editBtnListeners(i){
             editBtns[k].style.display = "none";
             taskItem.contentEditable = "false";
             taskItem.style.backgroundColor = "transparent";
+            taskItem.style.cursor = "pointer";
 
         }
     }
@@ -220,6 +221,7 @@ function taskLinkListeners(i){
                 let editBtn = document.getElementsByClassName("editBtn")[j];
                 editBtn.style.display = "block";
                 taskLinks[j].contentEditable = "true";
+                taskLinks[j].style.cursor = "text";
                 //repopulate task list to remove deleted task
                 //i = current selected project
                 //populateTaskList(i);
@@ -249,14 +251,26 @@ function removeBackgroundColor(){
 //adds task to the specific project array
 function addTask(i){
     openForm();
-    var task = prompt("enter task:", "work on ...");
-    if(task != null){   
-        projArray[i].tasks.push(task);
+    let submitBtn = document.getElementsByClassName("addNewTaskBtnForm")[0];
+    submitBtn.onclick = function(){
+        let task = document.getElementsByClassName("taskInput")[0].value;
+        let des = document.getElementsByClassName("taskDetails")[0].value;
+        console.log(task);
+        //var task = prompt("enter task:", "work on ...");
+        if(task != null){   
+            projArray[i].tasks.push(task);
+            projArray[i].description = des;
+            console.log(projArray[i]);
+            //pass the current selected project
+            populateTaskList(i);
+            //after making sure its valid, close form
+            closeForm();
+        }
 
-        //pass the current selected project
-        populateTaskList(i);
-        
     }
+    
+    
+  
     
 }
 
