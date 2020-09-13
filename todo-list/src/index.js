@@ -74,6 +74,7 @@ function setUpUI(){
     
     addBtnListeners();
     setupFormUI();
+    setupProjectFormUI();
 
 }
 
@@ -151,6 +152,65 @@ function setupFormUI(){
 
 }
 
+function setupProjectFormUI(){
+    let backgroundFormProj = document.createElement('div');
+    backgroundFormProj.classList.add("backgroundFormProj")
+
+    let myFormWrapperProj = document.createElement('div');
+    myFormWrapperProj.classList.add("myFormWrapperProj");
+
+    let myFormProj = document.createElement('form');
+    myFormProj.setAttribute('onsubmit', 'return false');
+    myFormProj.classList.add("myFormProj");
+
+    let formTitleProj = document.createElement('h1');
+    formTitleProj.innerHTML = "new project";
+
+    //proj name
+    let projTitle = document.createElement('label');
+    projTitle.innerHTML = " <br> project <br>";
+
+    let projInput = document.createElement('input');
+    projInput.type = "text";
+    projInput.classList.add("projInput");
+    projInput.placeholder = "enter project name";
+    projInput.name = "projName";
+    projInput.required = true;
+
+    let projColorLabel = document.createElement('label');
+    projColorLabel.innerHTML = "<br>Color <br>"
+    let projColor = document.createElement('input');
+    projColor.classList.add("projColor")
+    projColor.type = "color";
+    projColor.name = "colorOfProj";
+    projColor.value = "#ff0000";
+
+    //buttons
+    let addNewProjBtnForm = document.createElement("button");
+    addNewProjBtnForm.innerHTML = "+";
+    addNewProjBtnForm.type = "submit";
+    addNewProjBtnForm.classList.add("addNewProjBtnForm");
+
+    let closeProjFormBtn = document.createElement("button");
+    closeProjFormBtn.innerHTML = "×";
+    closeProjFormBtn.classList.add("closeProjFormBtn");
+    closeProjFormBtn.addEventListener("click", closeProjForm);
+
+    let wrapper = document.getElementsByClassName("wrapper")[0];
+    wrapper.appendChild(backgroundFormProj);
+    backgroundFormProj.appendChild(myFormWrapperProj);
+    myFormWrapperProj.appendChild(myFormProj);
+    myFormProj.appendChild(closeProjFormBtn);
+
+    myFormProj.appendChild(formTitleProj);
+    myFormProj.appendChild(projTitle);
+    myFormProj.appendChild(projInput);
+    myFormProj.appendChild(projColorLabel);
+    myFormProj.appendChild(projColor);
+    myFormProj.appendChild(addNewProjBtnForm);
+
+}
+
 function openForm(){
     document.getElementsByClassName("backgroundForm")[0].style.display = "block"
 }
@@ -159,7 +219,15 @@ function closeForm(){
     document.getElementsByClassName("backgroundForm")[0].style.display = "none";
 }
 
+function openProjForm(){
+    document.getElementsByClassName("backgroundFormProj")[0].style.display = "block"
+}
+
+function closeProjForm(){
+    document.getElementsByClassName("backgroundFormProj")[0].style.display = "none";
+}
+
 setUpUI();
 
-export default {openForm};
+export default {openForm, openProjForm};
 

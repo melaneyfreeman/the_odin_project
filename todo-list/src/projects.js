@@ -1,11 +1,12 @@
 
 let projArray = [];
 
-function Project  (projectName, tasks, description, dueDate){
+function Project  (projectName, tasks, description, dueDate, color){
     this.projectName = projectName;
     this.tasks = [];
     this.description = [];
     this.dueDate = [];
+    this.color = color;
 }
 
 function addBtnListeners(){
@@ -30,15 +31,23 @@ function addTaskBtnListener(i){
 
 //adds project to proj array
 function addProject(){
-    var name = prompt("enter project name:", "example project");
+    openProjForm();
+    //var name = prompt("enter project name:", "example project");
 
-    if(name != null){
-        let proj = new Project(name);
-        projArray.push(proj);
-        console.log(projArray);
+    let submitBtn = document.getElementsByClassName("addNewProjBtnForm")[0];
 
-        populateProjList();
-        //populateTaskList();
+    submitBtn.onclick = function(){
+        if(name != null){
+            let name = document.getElementsByClassName("projInput")[0].value;
+            let selectedColor = document.getElementsByClassName("projColor")[0].value;
+            let proj = new Project(name);
+            projArray.push(proj);
+            proj.color = selectedColor;
+            console.log(projArray);
+
+            populateProjList();
+            closeProjForm();
+        }
         
     }
 
@@ -151,7 +160,7 @@ function editBtnListeners(i){
             console.log("clicked edit btn" + k);
             //this keeps the selected project highlighted
             let projLinks = document.getElementsByClassName("projectItem");
-            projLinks[i].style.backgroundColor = "white";
+            projLinks[i].style.backgroundColor = projArray[i].color;
             projLinks[i].style.opacity = ".6";
             projLinks[i].style.color = "black";
 
@@ -190,7 +199,7 @@ function deleteTaskBtnListeners(i){
             populateProjList();
             populateTaskList(i);
             let projLinks = document.getElementsByClassName("projectItem");
-            projLinks[i].style.backgroundColor = "white";
+            projLinks[i].style.backgroundColor = projLinks[i].color;
             projLinks[i].style.opacity = ".6";
             projLinks[i].style.color = "black";
         }
@@ -218,7 +227,7 @@ function projLinkListeners(){
             projLinks[i].onclick = function(){
                 removeBackgroundColor();
                 console.log("clicked project" + i);
-                projLinks[i].style.backgroundColor = "white";
+                projLinks[i].style.backgroundColor = projArray[i].color;
                 projLinks[i].style.opacity = ".6";
                 projLinks[i].style.color = "black";
                 addTaskBtnListener(i);
@@ -228,6 +237,7 @@ function projLinkListeners(){
                 populateTaskList(i);
             
             }
+
         
     }
 }
@@ -253,7 +263,7 @@ function taskLinkListeners(i){
                 //i = current selected project
                 //populateTaskList(i);
                 let projLinks = document.getElementsByClassName("projectItem");
-                projLinks[i].style.backgroundColor = "white";
+                projLinks[i].style.backgroundColor = projArray[i].color;
 
   
             }
@@ -281,7 +291,7 @@ function descriptionLinkListeners(i){
                 //i = current selected project
                 //populateTaskList(i);
                 let projLinks = document.getElementsByClassName("projectItem");
-                projLinks[i].style.backgroundColor = "white";
+                projLinks[i].style.backgroundColor = projArray[i].color;
 
   
             }
@@ -299,6 +309,8 @@ function removeBackgroundColor(){
     let projLinks = document.getElementsByClassName("projectItem");
     for(let i = 0; i < projLinks.length; i++){
         projLinks[i].style.backgroundColor = "transparent";
+        projLinks[i].style.color = "white";
+
 
     }
 }
@@ -353,6 +365,16 @@ function openForm(){
 
 function closeForm(){
     document.getElementsByClassName("backgroundForm")[0].style.display = "none";
+
+}
+
+function openProjForm(){
+    document.getElementsByClassName("backgroundFormProj")[0].style.display = "block"
+
+}
+
+function closeProjForm(){
+    document.getElementsByClassName("backgroundFormProj")[0].style.display = "none"
 
 }
 

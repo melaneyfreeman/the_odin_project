@@ -1,18 +1,24 @@
 .myFormWrapper{
-    
     margin-top: 10%;
     margin-left: 35%;
     margin-right: 40%;
     z-index: 9;
 }
 
-.myForm{
+.myFormWrapperProj{
+    margin-top: 10%;
+    margin-left: 40%;
+    margin-right: 40%;
+    z-index: 9;
+}
+
+.myForm, .myFormProj{
     width: 40vw;
     padding: 10px;
     background-color: tomato;
 }
 
-.myForm input[type=text]{
+.myForm input[type=text] .myFormProj input[type=text]{
     width: 80%;
     padding: 10px;
     margin: 5px 0 22px 0;
@@ -20,12 +26,21 @@
     background-color: white;
 }
 
-.myForm input[type=text]:focus{
+.myForm input[type=text]:focus .myFormProj input[type=text]:focus{
     background-color: #ddd;
     outline: none;
 }
 
 .backgroundForm{
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    height: 100%;
+    margin:-5vw;
+    display: none;
+    position: fixed;
+}
+
+.backgroundFormProj{
     background-color: rgba(255, 255, 255, 0.4);
     width: 100%;
     height: 100%;
@@ -40,7 +55,7 @@ button{
 
 }
 
-.closeForm{
+.closeForm, .closeProjFormBtn{
     float: right;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
@@ -49,7 +64,7 @@ button{
     font-size: 1.5em;
 }
 
-.addNewTaskBtnForm{
+.addNewTaskBtnForm, .addNewProjBtnForm{
     margin-left: 45%;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
