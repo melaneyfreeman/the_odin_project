@@ -1,20 +1,16 @@
-
-
 body{
     background-color: #f1f3f8;
     margin: 2vw;
 }
 
-  
 .sidebar {
     grid-area: sidebar;
-    height: 40vw;
+    min-height: 40vw;
     left: 10px;
     background-color: #393b44;
     background: rgb(57,59,68);
     background: linear-gradient(0deg, rgba(57,59,68,1) 0%, rgba(141,147,171,1) 100%);
     box-shadow: 0px 0px 2px 2px rgba(57,59,68,0.2);
-
 }
   
 .content {
@@ -22,8 +18,6 @@ body{
     background-color: #b6c1d4;
     box-shadow: 0px 0px 2px 2px rgba(57,59,68,0.2);
     padding: 10px;
-
-
 }
   
 .header {
@@ -46,14 +40,12 @@ body{
     grid-template-rows: 3.5vw;
     background-color: #f1f3f8;
     padding: 10px;
-
 }
    
 .box {
     color: #fff;
     border-radius: 2px;
-    
-  }
+}
 
 .addNewTaskLink, .addNewProjectLink{
     padding: .2vw;
@@ -61,14 +53,12 @@ body{
     margin-left: -1vw;
     background-color: #2e313b;
     border-radius: 2px;
-    color: #f1f3f8;
-    
+    color: #f1f3f8; 
 }
 
 .addNewTaskLink{
     float: right;
 }
-
 
 .boxHeaderTitle{
     font-size: 1.5vw;
@@ -76,7 +66,6 @@ body{
 
 .sidebarProjectTitle{
     padding: 1vw;
-
 }
 
 .taskWrapper{
@@ -85,18 +74,17 @@ body{
 
 .projItemWrapper{
     display: flex;
-
 }
 
 .dueDateItem{
     float: left;
     color: tomato;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lexend Peta', sans-serif;
+    font-size: 1vw;
     padding-top: 1.5vw;
     margin-bottom: 1vw;
     width: 10%;
     display: contents;
-
 }
 
 button{
@@ -106,30 +94,27 @@ button{
 
 .des{
     font-family: 'Open Sans', sans-serif;
-
+    font-size: 1.3vw;
     margin-bottom: 1vw;
     width: 75%;
+    margin-top: 0;
 }
 
 button:hover{
     box-shadow: 0px 0px 5px 5px rgba(57,59,68,0.2);
-
 }
 
 .projectItem{
     padding-left: .6vw;
     padding-right: 3vw;
-
 }
 
 .taskItem{
     margin-bottom: 1vw;
     width: 75%;
-    font-size: 1.5vw;
-    color: #2e313b;
+    font-size: 2vw;
+    color: white;
 }
-
-
 
 .editBtn{
     float: right;
@@ -142,8 +127,6 @@ button:hover{
     color:#f1f3f8;
     position: absolute;
     left: 90%;
-
-    
 }
 
 .deleteTaskBtn{
@@ -169,7 +152,6 @@ button:hover{
     padding-top: .3vw;
     padding-bottom: .3vw;
     margin-right: .1vw;
-
 }
 
 .deleteProjBtn:hover{
@@ -180,7 +162,7 @@ button:hover{
 h2{
     font-size: 2vw;
     font-family: 'Lexend Peta', sans-serif;
- }
+}
 
 h3{
     font-size: 1vw;
@@ -188,15 +170,15 @@ h3{
     padding: 0;
     font-family: 'Open Sans', sans-serif;
 }
+
 h4{
     font-size: 1vw;
     font-family: 'Open Sans', sans-serif;
 }
 
 h5{
-    font-size: 1vw;
+    font-size: 1.5vw;
     font-family: 'Open Sans', sans-serif;
-
     margin: 0;
     padding: 0;
     padding-top: 1vw;
@@ -212,7 +194,6 @@ h5:hover{
 a{
     font-size: 1vw;
     font-family: 'Lexend Peta', sans-serif;
-
 }
 
 a:hover{
@@ -220,9 +201,9 @@ a:hover{
     background-color: #f1f3f8;
     color:#2e313b;
 }
+
 button{
     font-family: 'Lexend Peta', sans-serif;
-
 }
 
   

@@ -12,30 +12,22 @@ function Project  (projectName, tasks, description, dueDate, color){
 function addBtnListeners(){
     let addNewProjectLink = document.getElementsByClassName("addNewProjectLink")[0];
     addNewProjectLink.addEventListener("click", addProject);
-
-};
-
+}
 
 function addTaskBtnListener(i){
     let addNewTaskLink = document.getElementsByClassName("addNewTaskLink")[0];
     //need to do onclick this way because we are passing a value through addTask, otherwise it will trigger automatically
-    addNewTaskLink.onclick = function(){
-        
+    addNewTaskLink.onclick = function(){ 
         addTask(i);
     }
-
-
-
 }
-
 
 //adds project to proj array
 function addProject(){
+    //open form to add new project
     openProjForm();
-    //var name = prompt("enter project name:", "example project");
 
     let submitBtn = document.getElementsByClassName("addNewProjBtnForm")[0];
-
     submitBtn.onclick = function(){
         if(name != null){
             let name = document.getElementsByClassName("projInput")[0].value;
@@ -47,13 +39,9 @@ function addProject(){
 
             populateProjList();
             closeProjForm();
-        }
-        
+
+        } 
     }
-
-
-
-
 }
 
 //adds projects to list in html
@@ -61,7 +49,7 @@ function populateProjList(){
     let projectList = document.getElementsByClassName("projectList")[0];
     //reset html each time it repopulates
     projectList.innerHTML = "";
-
+    
     //create element for project list item
     for(let i = 0; i < projArray.length; i++){
          //create wrapper for task, and buttons
@@ -82,9 +70,6 @@ function populateProjList(){
 
     projLinkListeners();
     deleteProjBtnListeners();
-
-    
-
 }
 
 function populateTaskList(i){
@@ -103,15 +88,13 @@ function populateTaskList(i){
             taskItemWrapper.classList.add("taskItemWrapper");
             taskWrapper.appendChild(taskItemWrapper);
 
-            
+            //adding delete btns for each task
+            let deleteTaskBtn = document.createElement("button");
+            deleteTaskBtn.classList.add("deleteTaskBtn");
+            deleteTaskBtn.innerHTML = "×  <br>";
+            taskItemWrapper.appendChild(deleteTaskBtn);
 
-              //adding delete btns for each task
-              let deleteTaskBtn = document.createElement("button");
-              deleteTaskBtn.classList.add("deleteTaskBtn");
-              deleteTaskBtn.innerHTML = "×  <br>";
-              taskItemWrapper.appendChild(deleteTaskBtn);
-
-              //adding edit btns for each task
+            //adding edit btns for each task
             let editBtn = document.createElement('button');
             editBtn.classList.add("editBtn");
             editBtn.innerHTML = "done";
@@ -128,29 +111,25 @@ function populateTaskList(i){
             let dueDateItem = document.createElement('h6');
             dueDateItem.classList.add("dueDateItem");
             taskItemWrapper.appendChild(dueDateItem);
-            dueDateItem.innerHTML = "Due date " + projArray[i].dueDate[task];
+            dueDateItem.innerHTML =  projArray[i].dueDate[task];
 
             //adds task description
-        
             let des = document.createElement('h6');
             des.classList.add("des");
             des.innerHTML = projArray[i].description[task];
             taskItemWrapper.appendChild(des);
             
-
-            
             //need this for the tasks to become highlighted when clicked,
             //passing the tasks as a variable
             taskLinkListeners(i);
+
             descriptionLinkListeners(i);
             editBtnListeners(i);
             deleteTaskBtnListeners(i);
             deleteProjBtnListeners();
 
-
         }
     }
-
 }
 
 function editBtnListeners(i){
@@ -185,8 +164,6 @@ function editBtnListeners(i){
     }
 }
 
-
-
 function deleteTaskBtnListeners(i){
     //i = current selected project
     let deleteTaskBtns = document.getElementsByClassName("deleteTaskBtn");
@@ -216,7 +193,6 @@ function deleteProjBtnListeners(){
             populateTaskList(i);
             projLinkListeners();
 
-
         }
     }
 }
@@ -224,24 +200,20 @@ function deleteProjBtnListeners(){
 function projLinkListeners(){
     let projLinks = document.getElementsByClassName("projectItem");
     for(let i = 0; i < projLinks.length; i++){
-            projLinks[i].onclick = function(){
-                removeBackgroundColor();
-                console.log("clicked project" + i);
-                projLinks[i].style.backgroundColor = projArray[i].color;
-                projLinks[i].style.opacity = ".6";
-                projLinks[i].style.color = "black";
-                addTaskBtnListener(i);
-                changeHeaderTitle(i);
-                //important, when a different project is clicked, populate the corresponding tasks
-                //i = current selected project
-                populateTaskList(i);
-            
-            }
-
-        
+        projLinks[i].onclick = function(){
+            removeBackgroundColor();
+            console.log("clicked project" + i);
+            projLinks[i].style.backgroundColor = projArray[i].color;
+            projLinks[i].style.opacity = ".6";
+            projLinks[i].style.color = "black";
+            addTaskBtnListener(i);
+            changeHeaderTitle(i);
+            //important, when a different project is clicked, populate the corresponding tasks
+            //i = current selected project
+            populateTaskList(i);
+        }
     }
 }
-
 
 function taskLinkListeners(i){
     //i = current selected project
@@ -259,13 +231,13 @@ function taskLinkListeners(i){
 
                 taskLinks[j].contentEditable = "true";
                 taskLinks[j].style.cursor = "text";
+
                 //repopulate task list to remove deleted task
                 //i = current selected project
                 //populateTaskList(i);
+
                 let projLinks = document.getElementsByClassName("projectItem");
                 projLinks[i].style.backgroundColor = projArray[i].color;
-
-  
             }
         }
     }
@@ -287,13 +259,13 @@ function descriptionLinkListeners(i){
 
                 descLinks[j].contentEditable = "true";
                 descLinks[j].style.cursor = "text";
+
                 //repopulate task list to remove deleted task
                 //i = current selected project
                 //populateTaskList(i);
+
                 let projLinks = document.getElementsByClassName("projectItem");
                 projLinks[i].style.backgroundColor = projArray[i].color;
-
-  
             }
         }
     }
@@ -310,8 +282,6 @@ function removeBackgroundColor(){
     for(let i = 0; i < projLinks.length; i++){
         projLinks[i].style.backgroundColor = "transparent";
         projLinks[i].style.color = "white";
-
-
     }
 }
 
@@ -324,7 +294,7 @@ function addTask(i){
         let des = document.getElementsByClassName("taskDetails")[0].value;
         let date = document.getElementsByClassName("taskDueDate")[0].value;
         console.log(task);
-        //var task = prompt("enter task:", "work on ...");
+
         if(task != null){   
             projArray[i].tasks.push(task);
             //if user entered a project description
@@ -343,39 +313,38 @@ function addTask(i){
             else{
                 projArray[i].dueDate.push(" ");
             }
+
             console.log(projArray[i]);
+
             //pass the current selected project
             populateTaskList(i);
+
             //after making sure its valid, close form
             closeForm();
         }
-
     }
-    
-    
-  
-    
 }
-
 
 function openForm(){
     document.getElementsByClassName("backgroundForm")[0].style.display = "block";
-
 }
 
 function closeForm(){
     document.getElementsByClassName("backgroundForm")[0].style.display = "none";
-
+    document.getElementsByClassName("taskInput")[0].value = "";
+    document.getElementsByClassName("taskDetails")[0].value = "";
+    document.getElementsByClassName("taskDueDate")[0].value = "";
 }
 
 function openProjForm(){
     document.getElementsByClassName("backgroundFormProj")[0].style.display = "block"
-
 }
 
 function closeProjForm(){
     document.getElementsByClassName("backgroundFormProj")[0].style.display = "none"
-
+    document.getElementsByClassName("projInput")[0].value = "";
+    document.getElementsByClassName("projColor")[0].value = "";
 }
+
 
 export {addBtnListeners};

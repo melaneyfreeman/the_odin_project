@@ -1,6 +1,5 @@
 import {addBtnListeners} from './projects.js';
 
-
 function setUpUI(){
     //set up layout
     //main wrapper
@@ -40,8 +39,6 @@ function setUpUI(){
     addNewProjectLink.innerHTML = "+ project";
     let projectList = document.createElement('div');
     projectList.classList.add("projectList");
-
-
     
     //append sidebar and children to wrapper
     wrapper.appendChild(boxSidebar);
@@ -75,7 +72,6 @@ function setUpUI(){
     addBtnListeners();
     setupFormUI();
     setupProjectFormUI();
-
 }
 
 function setupFormUI(){
@@ -121,7 +117,6 @@ function setupFormUI(){
     let taskDueDate = document.createElement('input');
     taskDueDate.setAttribute("type", "date");
     taskDueDate.classList.add("taskDueDate");
-    
 
     //buttons
     let addNewTaskBtnForm = document.createElement("button");
@@ -133,7 +128,6 @@ function setupFormUI(){
     closeFormBtn.innerHTML = "×";
     closeFormBtn.classList.add("closeForm");
     closeFormBtn.addEventListener("click", closeForm);
-
 
     let wrapper = document.getElementsByClassName("wrapper")[0];
     wrapper.appendChild(backgroundForm);
@@ -208,7 +202,6 @@ function setupProjectFormUI(){
     myFormProj.appendChild(projColorLabel);
     myFormProj.appendChild(projColor);
     myFormProj.appendChild(addNewProjBtnForm);
-
 }
 
 function openForm(){

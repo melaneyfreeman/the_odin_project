@@ -52,24 +52,62 @@
 button{
     display: block;
     font-family: 'Lexend Peta', sans-serif;
-
 }
 
 .closeForm, .closeProjFormBtn{
     float: right;
-    padding-left: 1.5vw;
-    padding-right: 1.5vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: .5vw;
+    padding-bottom: .5vw;
     font-size: 1.5em;
+}
+
+.closeForm:hover, .closeProjFormBtn:hover{
+    background-color: black;
+    color: white;
 }
 
 .addNewTaskBtnForm, .addNewProjBtnForm{
-    margin-left: 45%;
-    padding-left: 1.5vw;
-    padding-right: 1.5vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vw;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
     font-size: 1.5em;
 }
 
+.addNewTaskBtnForm:hover, .addNewProjBtnForm:hover{
+    background-color: black;
+    color: white;
+}
+
+label{
+    font-family: 'Lexend Peta', sans-serif;
+    text-align: center;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1vw;
+    color: white;
+}
+
+input{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1vw;
+}
+
+h1{
+    font-family: 'Lexend Peta', sans-serif;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.taskInput, .taskDetails{
+    height: 5vw;
+}
