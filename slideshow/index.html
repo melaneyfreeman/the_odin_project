@@ -8,17 +8,60 @@
 
   <body>
 
-    <div class="slides">
-        <img src="./images/sky1.jpeg">
-        <img src="./images/sky2.jpeg">
-        <img src="./images/sky3.jpeg">
-        <img src="./images/sky4.jpeg">
-        <img src="./images/sky5.jpeg">
-        <img src="./images/sky6.jpeg">
+    <div class="wrapper">
+        <span class="left" onclick="plusSlides(-1)"> ◖ </span>
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 6</div>
+            <img src="./images/sky1.jpeg" class="slideshowImg">
+            <div class="text">(I had a dream, too. It wasn't nice though... I dreamt I was a moron...)</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 6</div>
+            <img src="./images/sky2.jpeg" class="slideshowImg">
+            <div class="text">(I don't believe in relying on others.)</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 6</div>
+            <img src="./images/sky3.jpeg" class="slideshowImg">
+            <div class="text">(I hate having nothing to do. It gets me thinking too much.)</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 6</div>
+            <img src="./images/sky4.jpeg" class="slideshowImg">
+            <div class="text">(Rinoa...... Even if you end up as the world's enemy, I'll... I'll be your knight.)</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 6</div>
+            <img src="./images/sky5.jpeg" class="slideshowImg">
+            <div class="text">(Everything will be fine now... Because I'm not alone. If I call out... They will answer.)</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">6 / 6</div>
+            <img src="./images/sky6.jpeg" class="slideshowImg">
+            <div class="text">I'll be here. I'll be waiting for you. If you come here, you'll find me. I promise. </div>
+        </div>
+
+        <span class="right" onclick="plusSlides(1)"> ◗ </span>
 
     </div>
 
-    <script src="main.js"></script>
+
+
+    <div style="text-align:center">
+        <span class="dot">◍</span>
+        <span class="dot">◍</span>
+        <span class="dot">◍</span>
+        <span class="dot">◍</span>
+        <span class="dot">◍</span>
+        <span class="dot">◍</span>
+    </div>
+
+    <script src="index.js"></script>
 
   </body>
 </html>

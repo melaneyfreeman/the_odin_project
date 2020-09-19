@@ -1,16 +1,120 @@
-.slides{
-    display: block;
-    margin: 0 auto;
+body{
+    background-color: gainsboro;
+    opacity: .8;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 
+*{
+    box-sizing: border-box;
+}
+
+.mySlides{
+    position: relative;
+    display: none;
+    
+}
+
+
+.wrapper{
+    display: inline-flex;
+    margin: 0 auto;
+    margin-left: 15%;
+    margin-right: 25%;
+
+}
+
+
 img{
-    width: 1400px;
-    height: 800px;
+    width: 65vw;
+    height: 38vw;
+    border-radius: 1px;
+
+}
+
+span{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+span:hover{
+    cursor: pointer;
+}
+
+.text{
+    font-size: 2vw;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    border-radius: 30px;
+    bottom: 45%;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.numbertext{
+    padding: 1vw;
+    font-size: 1vw;
+    position: absolute;
+    display: inline-block;
+    z-index: 9;
+    color: white;
+    
+}
+
+.dot{
+    font-size: 4vw;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6 ease;
+    color: white;
+    align-content: center;
+    opacity: .6;
+}
+
+.active{
+    color: gray;
+}
+
+.fade{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5;
+}
+
+.left{
+    margin-top: 25%;
+    font-size: 4vw;
+    color: white;
+    opacity: .9;
+
+}
+
+.right{
+    margin-top: 25%;
+    font-size: 4vw;
+    color: white;
+    opacity: .9;
+
+}
+
+.left:hover{
+    color: gray;
+}
+
+.right:hover{
+    color: gray;
+}
+
+@-webkit-keyframes fade{
+    from{opacity: .4}
+    to{opacity: 1}
+}
+
+@keyframes fade{
+    from{opacity: .4}
+    to{opacity: 1}
+}
+
+@media only screen and (max-width: 300px){
+    .text{font-size: 11px}
 }
