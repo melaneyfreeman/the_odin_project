@@ -37,13 +37,13 @@
                 <br>
             <form>
                 <label id="formLabel" for="title">Title:</label>
-                <input type="text" id="title" name="bookTitle" placeholder="book title..." required>
+                <input type="text" id="title" name="bookTitle" placeholder="book title..." >
             <br>
                 <label id="formLabel" for="author">Author:</label>
-                <input type="text" id="author" name="bookAuthor" placeholder="author..." required>
+                <input type="text" id="author" name="bookAuthor" placeholder="author..." >
             <br>
                 <label id="formLabel" for="pages">Pages:</label>
-                <input type="number" id="pages" name="bookPages" placeholder="pages..." min="10" max="10000" required>
+                <input type="number" id="pages" name="bookPages" placeholder="pages..." min="10" max="10000" >
             <br>
                 <input type="radio" id="status" class="status" name="bookStatus" value="read" required>
                 <label id="formLabel" for="read">Read</label>
@@ -57,9 +57,36 @@
                 </div>
             </div>     
 
-<script src="../js/library.js">
-</script>
-    
+            
+        <script src="../js/library.js">
+        </script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="/__/firebase/7.16.0/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="/__/firebase/7.16.0/firebase-analytics.js"></script>
+        
+        <!-- Initialize Firebase -->
+        <script src="/__/firebase/init.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+              apiKey: "AIzaSyBARo142kCo-GhnHmHLIWkUvTzoY4TM3fk",
+              authDomain: "library-77eb0.firebaseapp.com",
+              databaseURL: "https://library-77eb0.firebaseio.com",
+              projectId: "library-77eb0",
+              storageBucket: "library-77eb0.appspot.com",
+              messagingSenderId: "358974151429",
+              appId: "1:358974151429:web:ecdd72526a47413908b56c",
+              measurementId: "G-PR32YT9PHG"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+          </script>
     </body>
     
 </html>
