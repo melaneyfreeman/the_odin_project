@@ -107,6 +107,8 @@ function setupForm(){
 
     checkEmailValidity();
     checkZipValidity();
+    checkPasswordValidity();
+    verifyMatchingPasswords();
 }
 
 setupForm();
@@ -137,6 +139,64 @@ function checkZipValidity(){
             zipInput.setCustomValidity("pls enter a valid zip");
         }
     });
+}
+
+function checkPasswordValidity(){
+    //letters and numbers
+    let basicPattern = /^([a-zA-Z0-9]{8,16})$/;
+    const pass1Input = document.getElementById("password1");
+    pass1Input.addEventListener("input", function(e){
+        let errors = [];
+
+        //if password has less than 8 chars, give error
+        if(pass1Input.value.length < 8){
+            errors.push("Must be at least 8 characters.");
+        }
+        //no characters
+        if(pass1Input.value.search(/[a-z]/i) < 0){
+            errors.push("Must have at least one character.");
+        }
+        if(pass1Input.value.search(/[0-9]/) < 0){
+            errors.push("Must have at least one number.");
+        }
+        if(errors.length > 0){
+            pass1Input.setCustomValidity(errors.join("\n"));
+        }
+        else{
+            pass1Input.setCustomValidity("");
+
+        }
+
+        return true;
+    })
+
+
+}
+
+function verifyMatchingPasswords(){
+
+    pass1Input = document.getElementById("password1");
+    pass2Input = document.getElementById("password2");
+
+    if(pass2Input.value == ""){
+        pass2Input.setCustomValidity("enter matching password");
+    }
+   
+    pass2Input.addEventListener("input", function(e){
+        console.log("here");
+        if(pass1Input.value !== pass2Input.value){
+            pass2Input.setCustomValidity("enter matching password");
+            return false;
+        }
+        else{
+            pass2Input.setCustomValidity("");
+            return true;
+        }
+       
+
+    })
+
+ 
 }
 
 
