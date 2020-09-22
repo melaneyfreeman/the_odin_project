@@ -76,6 +76,7 @@ function enterNumber(btn){
     if(btn === "enter"){
         console.log("last: " + text.textContent.charAt(text.textContent.length-1));
         //check if there is an operator at the end of the string
+        //and removes it if there is such as 9 * 9 /
         if(text.textContent.charAt(text.textContent.length-1) === "/" ||
             text.textContent.charAt(text.textContent.length-1) === "*" ||
             text.textContent.charAt(text.textContent.length-1) === "+" ||
