@@ -1,0 +1,14 @@
+@font-face {
+
+    font-family: 'ibm_plex_sansbold_italic';
+    src: url('ibmplexsans-bolditalic-webfont.woff2') format('woff2'),
+         url('ibmplexsans-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+ 
+ 
+   .hello {
+    font-family: 'ibm_plex_sansbold_italic';
+    }
