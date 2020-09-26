@@ -33,6 +33,12 @@ const path = require('path');
          ],
 
        },
+       {
+           test: /\.xml$/,
+            use: [
+                'xml-loader'
+            ],
+       },
       ],
     },
   };
