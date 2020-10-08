@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Overview from "./components/Overview";
 
 class App extends Component {
   constructor(){
@@ -26,6 +27,8 @@ class App extends Component {
     });
   };
 
+ 
+
   render(){
     const{task, tasks} = this.state;
 
@@ -33,13 +36,21 @@ class App extends Component {
     
       <div>
         <div>
-          <form>
+          <form onSubmit={this.onSubmitTask}>
             <label htmlFor="taskInput">Enter a task:</label>
-            <input type="text" id="taskInput"></input>
+            <input 
+              type="text" 
+              id="taskInput"
+              onChange={this.handleChange}
+              value={task}  
+            />
+
+            <button type="submit">Add task</button>
           </form>
         </div>
 
-        <button type="submit">Add task</button>
+
+        <Overview tasks={tasks}/>
       </div>
 
     );
