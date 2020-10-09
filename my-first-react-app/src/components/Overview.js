@@ -1,29 +1,35 @@
 import React from 'react';
+import uniqid from 'uniqid'
 
-const Overview = (props) => {
-    const {tasks} = props;
 
-    /*handleRemove(id){
-        this.setState({
-          tasks: this.state.tasks.filter((task) => task.id !== id),
-          task: "",
-        })
+
+    class Overview extends React.Component{
+
+        //delete function
+        delete(id){
+          this.props.delete(id)
+          //id is the array element, or the name of the task
+          console.log(id);
+        }
+      
+        render(){
+          return(
+            <div>
+                <ul>
+                {this.props.tasks.map(task => 
+                   //using map to create a li element for each submitted task
+                        <li key={uniqid}>
+                            {task}
+                            <button onClick={this.delete.bind(this, task)}>delete</button>
+                        </li>
+                    
+                )}
+               </ul>
+            </div>
+          )
+        }
       }
-      */
 
-    return (
-        <ul>
-            {tasks.map((task, i) => {
-                return (
-                    <div>                
-                        <ul key={i}><span>{i + ": " + task}</span><button key={i}>delete</button></ul>
-                        
-                    </div>
-                
-                )
-            })}
-        </ul>
-    );
-};
+    
 
 export default Overview;

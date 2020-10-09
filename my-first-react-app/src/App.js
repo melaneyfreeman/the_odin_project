@@ -9,6 +9,9 @@ class App extends Component {
       task: "",
       tasks: [],
     };
+
+    //bind the delete
+    this.delete = this.delete.bind(this);
   }
 
   handleChange = (e) => {
@@ -27,10 +30,19 @@ class App extends Component {
     });
   };
 
+  //checking prev state to compare what needs to be removed
+  //from tasks, and setting the state's tasks as an updated one
+  //id = the specific task, what is submitted
+  delete(id){
+    this.setState(
+      prevState => ({
+        tasks: prevState.tasks.filter(task => task !== id) 
+    }));
+  }
  
 
   render(){
-    const{task, tasks} = this.state;
+    const{task} = this.state;
 
     return (
     
@@ -49,13 +61,16 @@ class App extends Component {
           </form>
         </div>
 
+        <Overview delete={this.delete} tasks={this.state.tasks}/>
 
-        <Overview tasks={tasks}/>
+
       </div>
 
     );
   }
 
 }
+
+
 
 export default App;
