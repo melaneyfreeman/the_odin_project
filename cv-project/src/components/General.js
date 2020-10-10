@@ -6,13 +6,19 @@ class General extends React.Component{
 
         this.state = {
             isEditing: props.isEditing,
-            firstName: "name"
+            firstName: "first name",
+            lastName: "last name",
+            email: "email@email.com",
+            phone: "222-222-2222"
         }
     }
 
-    onHandleChange(event){
+    
+
+    handleInputChange = ({
+        target: {name, value}}) => {
         this.setState({
-            firstName: event.target.value
+            [name]: value
         });
     }
 
@@ -25,20 +31,38 @@ class General extends React.Component{
             return(
                 <div>
                 <label>first name:</label>
-                <input className="firstName" type="text"
-                defaultValue={this.state.firstName}
-                onChange={(event) => this.onHandleChange(event)}></input> 
+                <input  className="firstName" 
+                        name="firstName"
+                        type="text"
+                        value={this.state.firstName}
+                        onChange={this.handleInputChange}>
+                </input> 
 
                 <label>last name:</label>
-                <input className="lastName" type="text"></input>
+                <input  className="lastName" 
+                        name="lastName"
+                        type="text"
+                        value={this.state.lastName}
+                        onChange={this.handleInputChange}></input>
 
                 <br></br>
+                <br></br>
+
                 <label>email:</label>
-                <input className="email" type="email"></input> 
+                <input  className="email" 
+                        name="email"
+                        type="email"
+                        value={this.state.email}
+                        onChange={this.handleInputChange}></input> 
 
                 <label>phone number:</label>
-                <input className="phoneNumber" type="phone"></input>
-
+                <input  className="phoneNumber" 
+                        name="phone"
+                        type="tel"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        value={this.state.phone}
+                        onChange={this.handleInputChange}></input>
+                <br></br>
                 <br></br>
 
                 </div>
@@ -47,12 +71,11 @@ class General extends React.Component{
         else{
             return(
                 <div>
-                <h1>{this.state.firstName}</h1>
-                <h3>Email</h3>
-                <p>email@email.com</p>
-                <h3>Phone Number</h3>
-                <p>222-222-2222</p>
-            </div>
+                    <h1 className="firstLast">{this.state.firstName + " "}</h1>
+                    <h1 className="firstLast">{this.state.lastName}</h1>
+                    <p>{this.state.email}</p>
+                    <p>{this.state.phone}</p>
+                </div>
             )
         }
     }

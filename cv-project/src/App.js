@@ -12,13 +12,7 @@ class App extends Component {
     };
   
   }
-
-  onChangeValuesProp(newValue){
-    this.setState({
-      firstName: newValue
-    })
-  }
-
+  
   onGeneralEdit(){
     this.setState({
       isEditingGen: !this.state.isEditingGen
@@ -32,7 +26,7 @@ class App extends Component {
     if(this.state.isEditingGen){
       general = (
         <div>
-          <General isEditing={true} first={this.onChangeValuesProp.bind(this)}/>
+          <General isEditing={true}/>
           <button onClick={this.onGeneralEdit.bind(this)}>submit</button>
         </div>
       );
@@ -41,7 +35,7 @@ class App extends Component {
     else{
       general = (
         <div>
-          <General isEditing={false} first={this.onChangeValuesProp.bind(this)}/>
+          <General isEditing={false}/>
           <button onClick={this.onGeneralEdit.bind(this)}>edit</button>
       </div>
       );
