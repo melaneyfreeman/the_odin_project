@@ -67,9 +67,8 @@ class Education extends React.Component{
                 return(
                     <div>
                         <h2>Education</h2>
-                        <h3>school</h3>
                         <p>{this.state.school}</p>
-                        <h3>Degree/Area of Study</h3>
+                        <h3>Area of Study</h3>
                         <p>{this.state.degree}</p>
                         <h3>Minor</h3>
                         <p>{this.state.minor}</p>
@@ -83,9 +82,8 @@ class Education extends React.Component{
             return(
                     <div>
                         <h2>Education</h2>
-                        <h3>school</h3>
                         <p>{this.state.school}</p>
-                        <h3>Degree/Area of Study</h3>
+                        <h3>Area of Study</h3>
                         <p>{this.state.degree}</p>
                         <h3>Graduation</h3>
                         <p>{this.state.graduationYear}</p>
