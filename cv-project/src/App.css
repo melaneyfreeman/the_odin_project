@@ -37,7 +37,51 @@
   }
 }
 
-.firstLast{
-  color:red;
-  display: inline;
+.general{
+  background-color: red;
+  padding: 1vw;
 }
+
+.educations{
+  display: flex;
+  justify-content: center;
+  padding: 1vw;
+
+}
+
+.education1{
+  display: inline-block;
+  background-color: yellow;
+  width: 30%;
+
+}
+.education2{
+  display: inline-block;
+  background-color: orange;
+  width: 30%;
+}
+
+.experiences{
+  display: flex;
+  justify-content: center;
+  padding: 1vw;
+
+}
+
+.experience1{
+  display: inline-block;
+  background-color: greenyellow;
+  width: 30%;
+}
+
+.experience2{
+  display: inline-block;
+  background-color: teal;
+  width: 30%;
+}
+
+button{
+  margin: 1vw;
+
+}
+
