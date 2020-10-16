@@ -23,73 +23,63 @@ class Education extends React.Component{
     render(){
         if(this.props.isEditing){
             return(
-                <div>
-                <label>school:</label>
-                <input  className="school" 
-                        name="school"
-                        type="text"
-                        value={this.state.school}
-                        onChange={this.handleInputChange}>
-                </input> 
+                <div className="form-group">
+                    <label>school</label>
+                    <br></br>
+                    <div className="labelInputs">
+                        <input className="school form-control singleLineInput" 
+                            name="school"
+                            type="text"
+                            value={this.state.school}
+                            onChange={this.handleInputChange}>
+                        </input> 
+                    </div>
 
-                <label>degree:</label>
-                <input  className="degree" 
-                        name="degree"
-                        type="text"
-                        value={this.state.degree}
-                        onChange={this.handleInputChange}></input>
 
-                <br></br>
-                <br></br>
+                    <div className="labelInputs">
+                        <label>degree</label>
+                        <label>date</label>
+                    </div>
 
-                <label>(optional) minor:</label>
-                <input  className="minor" 
-                        name="minor"
-                        type="text"
-                        value={this.state.minor}
-                        onChange={this.handleInputChange}></input> 
+                    <div className="labelInputs">
+                        <input className="degree form-control" 
+                            name="degree"
+                            type="text"
+                            value={this.state.degree}
+                            onChange={this.handleInputChange}>   
+                        </input>
 
-                <label>graduation year:</label>
-                <input  className="graduationYear" 
-                        name="graduationYear"
-                        type="number"
-                        max="3000"
-                        value={this.state.graduationYear}
-                        onChange={this.handleInputChange}></input>
-                <br></br>
-                <br></br>
+
+                        <input className="graduationYear form-control" 
+                            name="graduationYear"
+                            type="number"
+                            max="3000"
+                            value={this.state.graduationYear}
+                            onChange={this.handleInputChange}>
+                        </input>
+                    </div>
+               
+
+                    
 
                 </div>
             )
         }
         else{
-            if(this.state.minor) {
-                return(
-                    <div>
-                        <h2>Education</h2>
-                        <p>{this.state.school}</p>
-                        <h3>Area of Study</h3>
-                        <p>{this.state.degree}</p>
-                        <h3>Minor</h3>
-                        <p>{this.state.minor}</p>
-                        <h3>Graduation</h3>
-                        <p>{this.state.graduationYear}</p>
-                    </div>                
-                )
-            }
+            
 
-            else{
+  
             return(
                     <div>
                         <h2>Education</h2>
                         <p>{this.state.school}</p>
-                        <h3>Area of Study</h3>
+                        <h5>Area of Study</h5>
                         <p>{this.state.degree}</p>
-                        <h3>Graduation</h3>
+                        <h5>Graduation</h5>
                         <p>{this.state.graduationYear}</p>
                     </div>                
                 )
-            }
+            
         }
 
      

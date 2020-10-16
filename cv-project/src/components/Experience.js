@@ -26,6 +26,7 @@ class Experience extends React.Component{
             return(
                 <div>
                 <label>company:</label>
+                <br></br>
                 <input  className="company" 
                         name="company"
                         type="text"
@@ -56,13 +57,16 @@ class Experience extends React.Component{
                 <br></br>
 
                 <label>position:</label>
+                <br></br>
                 <input  className="position" 
                         name="position"
                         type="text"
                         value={this.state.position}
                         onChange={this.handleInputChange}></input> 
-
+                        
+                <br></br>
                 <label>tasks:</label>
+                <br></br>
                 <input  className="tasks" 
                         name="tasks"
                         type="text"
@@ -79,7 +83,7 @@ class Experience extends React.Component{
                     <div>
                         <h2>Experience</h2>
                         <p>{this.state.company}</p>
-                        <h3>State and End dates</h3>
+                        <h3>Start and End dates</h3>
                         <p>{this.state.startDate + " through " + this.state.endDate}</p>
                         <h3>Position</h3>
                         <p>{this.state.position}</p>

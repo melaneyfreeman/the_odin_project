@@ -6,8 +6,8 @@ class General extends React.Component{
 
         this.state = {
             isEditing: props.isEditing,
-            firstName: "first name",
-            lastName: "last name",
+            firstName: "first",
+            lastName: "last",
             email: "email@email.com",
             phone: "222-222-2222"
         }
@@ -29,50 +29,73 @@ class General extends React.Component{
         //elements properly, whether editing or not
         if(this.props.isEditing){
             return(
-                <div>
-                <label>first name:</label>
-                <input  className="firstName" 
-                        name="firstName"
-                        type="text"
-                        value={this.state.firstName}
-                        onChange={this.handleInputChange}>
-                </input> 
+                <div className="form-group">
+                    {/*below is the div for the labels on row 1*/}
+                    <div className="labelInputs">
+                        <label>first name</label>
+                        <label>last name</label>
+                    </div>  
 
-                <label>last name:</label>
-                <input  className="lastName" 
-                        name="lastName"
-                        type="text"
-                        value={this.state.lastName}
-                        onChange={this.handleInputChange}></input>
+                    {/*seperating the labels/inputs into divs so that the labels for each
+                    input can be directly above the input for each row*/}
 
-                <br></br>
-                <br></br>
+                    <br></br>
 
-                <label>email:</label>
-                <input  className="email" 
-                        name="email"
-                        type="email"
-                        value={this.state.email}
-                        onChange={this.handleInputChange}></input> 
+                    {/*below is the div for the inputs on row 2*/}  
+                    <div className="labelInputs">
+                        <input  className="firstName form-control" 
+                            name="firstName"
+                            type="text"
+                            value={this.state.firstName}
+                            placeholder="first name"
+                            onChange={this.handleInputChange}>
+                        </input> 
 
-                <label>phone number:</label>
-                <input  className="phoneNumber" 
-                        name="phone"
-                        type="tel"
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                        value={this.state.phone}
-                        onChange={this.handleInputChange}></input>
-                <br></br>
-                <br></br>
+                        <input className="lastName form-control" 
+                            name="lastName"
+                            type="text"
+                            value={this.state.lastName}
+                            placeholder="last name"
+                            onChange={this.handleInputChange}>
+                        </input>
+                    </div>
 
+                    <br></br>
+                
+                    {/*below is the div for the labels on row 3*/}
+                    <div className="form-group labelInputs">
+                        <label>email</label>
+                        <label>phone number</label>
+                    </div>
+
+                    <br></br>
+
+                    {/*below is the div for the inputs on row 4*/}
+                    <div className="form-group labelInputs">
+                        <input  className="email form-control" 
+                            name="email"
+                            type="email"
+                            value={this.state.email}
+                            placeholder="email address"
+                            onChange={this.handleInputChange}>
+                        </input> 
+
+                        <input  className="phoneNumber form-control" 
+                            name="phone"
+                            type="tel"
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                            value={this.state.phone}
+                            placeholder="telephone number"
+                            onChange={this.handleInputChange}>
+                        </input>
+                    </div>
                 </div>
             )
         }
         else{
             return(
                 <div>
-                    <h1 className="firstLast">{this.state.firstName + " "}</h1>
-                    <h1 className="firstLast">{this.state.lastName}</h1>
+                    <h1 className="firstLast">{this.state.firstName + " " + this.state.lastName}</h1>
                     <p>{this.state.email}</p>
                     <p>{this.state.phone}</p>
                 </div>

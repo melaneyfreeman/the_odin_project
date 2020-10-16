@@ -38,27 +38,37 @@
 }
 
 .general{
-  background-color: red;
   padding: 1vw;
 }
+
+.general label{
+
+  text-align: center;
+}
+
 
 .educations{
   display: flex;
   justify-content: center;
   padding: 1vw;
 
+
 }
 
 .education1{
   display: inline-block;
   background-color: yellow;
-  width: 30%;
 
 }
 .education2{
   display: inline-block;
   background-color: orange;
-  width: 30%;
+}
+
+.education1, .education2{
+  padding-left: 5vw;
+  padding-right: 5vw;
+  width: 50%;
 }
 
 .experiences{
@@ -85,3 +95,59 @@ button{
 
 }
 
+.editing{
+  padding: 3vw;
+}
+
+input{
+  margin-top: 5px;
+  margin-bottom: 1vw;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: middle;
+  margin-left: 20px;
+  
+}
+
+label{
+  display:flex;
+  margin: 0px;
+  font-size: larger;
+  width: 20vw;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: left;
+  margin-left: 1.5vw;
+
+} 
+
+.form-control{
+  width: 20vw;
+ margin-left: auto;
+ margin-right: auto;
+ border: none;
+ border-bottom: 1px solid gray;
+ -webkit-transition: border 500ms ease-out;
+ -moz-transition: border 500ms ease-out;
+ -o-transition: border 500ms ease-out;
+ transition: border 500ms ease-out;
+ font-size: large;
+ margin-left: 1.2vw;
+
+}
+
+.form-control:focus{
+  box-shadow: none;
+  border-bottom: 2px solid red;
+
+}
+
+.labelInputs{
+  display: inline-flex;
+}
+
+.singleLineInput{
+  width: 41vw;
+  display: block;
+}
