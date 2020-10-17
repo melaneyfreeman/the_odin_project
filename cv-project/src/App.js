@@ -114,7 +114,7 @@ class App extends Component {
       general = (
         <div className="general editing">
           <General isEditing={true}/>
-          <button onClick={this.onGeneralEdit.bind(this)}>submit</button>
+          <button onClick={this.onGeneralEdit.bind(this)} className="btn btn-primary">submit</button>
         </div>
       );
     }
@@ -123,8 +123,8 @@ class App extends Component {
     else{
       general = (
         <div className="general">
+          <button onClick={this.onGeneralEdit.bind(this)} className="btn btn-light edit">edit</button>
           <General isEditing={false}/>
-          <button onClick={this.onGeneralEdit.bind(this)}>edit general</button>
 
       </div>
       );
@@ -143,8 +143,8 @@ class App extends Component {
         education1 = (
           <div className="education1 editing">
             <Education isEditing={true} />
-            <button key={1} onClick={this.onEducationEdit.bind(this, 1)}>submit</button>
-            <button onClick={this.onEducationAdd.bind(this)}>add secondary education</button>
+            <button key={1} onClick={this.onEducationEdit.bind(this, 1)} className="btn btn-primary">submit</button>
+            <button onClick={this.onEducationAdd.bind(this)} className="btn btn-success">+</button>
           </div>
         )
       }
@@ -156,7 +156,7 @@ class App extends Component {
         education1 = (
           <div className="education1 editing">
             <Education isEditing={true} />
-            <button key={1} onClick={this.onEducationEdit.bind(this, 1)}>submit</button>
+            <button key={1} onClick={this.onEducationEdit.bind(this, 1)} className="btn btn-primary">submit</button>
           </div>
         )
       }
@@ -171,9 +171,9 @@ class App extends Component {
       if(this.state.educationCount === 1){
         education1 = (
           <div className="education1">
+            <button key={1} onClick={this.onEducationEdit.bind(this, 1)} className="btn btn-light edit">edit</button>
             <Education isEditing={false} />
-            <button key={1} onClick={this.onEducationEdit.bind(this, 1)}>edit education</button>
-            <button onClick={this.onEducationAdd.bind(this)}>add secondary education</button>
+            <button onClick={this.onEducationAdd.bind(this)} className="btn btn-success">+</button>
           </div>
         )
       }
@@ -184,8 +184,8 @@ class App extends Component {
       else{
         education1 = (
           <div className="education1">
+            <button key={1} onClick={this.onEducationEdit.bind(this, 1)} className="btn btn-light edit">edit</button>
             <Education isEditing={false} />
-            <button key={1} onClick={this.onEducationEdit.bind(this, 1)}>edit education</button>
           </div>
         )
       }
@@ -196,8 +196,8 @@ class App extends Component {
       education2 = (
         <div className="education2 editing">
           <Education isEditing={true}/>
-          <button key={2} onClick={this.onEducationEdit.bind(this, 2)}>submit</button>
-          <button onClick={this.onEducationRemove.bind(this)}>remove secondary education</button>
+          <button key={2} onClick={this.onEducationEdit.bind(this, 2)} className="btn btn-primary">submit</button>
+          <button onClick={this.onEducationRemove.bind(this)} className="btn btn-danger">x</button>
 
         </div>
       )
@@ -206,9 +206,9 @@ class App extends Component {
     else{
       education2 = (
         <div className="education2">
+          <button key={2} onClick={this.onEducationEdit.bind(this, 2)} className="btn btn-light edit">edit</button>
           <Education isEditing={false}/>
-          <button key={2} onClick={this.onEducationEdit.bind(this, 2)}>edit education</button>
-          <button onClick={this.onEducationRemove.bind(this)}>remove secondary education</button>
+          <button onClick={this.onEducationRemove.bind(this)} className="btn btn-danger">x</button>
         </div>
       )
     }
@@ -226,8 +226,8 @@ class App extends Component {
         experience1 = (
           <div className="experience1 editing">
             <Experience isEditing={true}/>
-            <button key={3} onClick={this.onExperienceEdit.bind(this, 3)}>submit</button>
-            <button onClick={this.onExperienceAdd.bind(this)}>add secondary experience</button>
+            <button key={3} onClick={this.onExperienceEdit.bind(this, 3)} className="btn btn-primary">submit</button>
+            <button onClick={this.onExperienceAdd.bind(this)} className="btn btn-success">+</button>
           </div>
         )
       }
@@ -238,7 +238,7 @@ class App extends Component {
         experience1 = (
           <div className="experience1 editing">
             <Experience isEditing={true}/>
-            <button key={3} onClick={this.onExperienceEdit.bind(this, 3)}>submit</button>
+            <button key={3} onClick={this.onExperienceEdit.bind(this, 3)} className="btn btn-primary">submit</button>
           </div>
         )
       }
@@ -252,9 +252,9 @@ class App extends Component {
       if(this.state.experienceCount === 1){
         experience1 = (
           <div className="experience1">
+            <button key={3} onClick={this.onExperienceEdit.bind(this, 3)} className="btn btn-light edit">edit</button>
             <Experience isEditing={false}/>
-            <button key={3} onClick={this.onExperienceEdit.bind(this, 3)}>edit experience</button>
-            <button onClick={this.onExperienceAdd.bind(this)}>add secondary experience</button>
+            <button onClick={this.onExperienceAdd.bind(this)} className="btn btn-success">+</button>
           </div>
         )
       }
@@ -264,8 +264,8 @@ class App extends Component {
       else{
         experience1 = (
           <div className="experience1">
+            <button key={3} onClick={this.onExperienceEdit.bind(this, 3)} className="btn btn-light edit">edit</button>
             <Experience isEditing={false}/>
-            <button key={3} onClick={this.onExperienceEdit.bind(this, 3)}>edit experience</button>
           </div>
         )
       }
@@ -277,8 +277,8 @@ class App extends Component {
       experience2 = (
         <div className="experience2 editing">
           <Experience isEditing={true}/>
-          <button key={4} onClick={this.onExperienceEdit.bind(this, 4)}>submit</button>
-          <button onClick={this.onExperienceRemove.bind(this)}>remove secondary experience</button>
+          <button key={4} onClick={this.onExperienceEdit.bind(this, 4)} className="btn btn-primary">submit</button>
+          <button onClick={this.onExperienceRemove.bind(this)} className="btn btn-danger">x</button>
         </div>
       )
     }
@@ -287,9 +287,9 @@ class App extends Component {
     else{
       experience2 = (
         <div className="experience2">
-          <Experience isEditing={false}/>
-          <button key={4} onClick={this.onExperienceEdit.bind(this, 4)}>edit experience</button>
-          <button onClick={this.onExperienceRemove.bind(this)}>remove secondary experience</button>
+            <button key={4} onClick={this.onExperienceEdit.bind(this, 4)} className="btn btn-light edit">edit</button>
+            <Experience isEditing={false}/>
+            <button onClick={this.onExperienceRemove.bind(this)} className="btn btn-danger">x</button>
         </div>
       )
     }
@@ -305,12 +305,14 @@ class App extends Component {
     return(
       <div className="App">
         {general}
-       
+
+        <h2>Education</h2>
         <div className="educations">
           {education1}
           {education2}
         </div>
 
+        <h2>Experience</h2>
         <div className="experiences">
           {experience1}
           {experience2}

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: gray;
 }
 
 .App-logo {
@@ -38,11 +39,13 @@
 }
 
 .general{
-  padding: 1vw;
+  display: inline-block;
+  background-color: orangered;
+  width: 40%;
+
 }
 
 .general label{
-
   text-align: center;
 }
 
@@ -50,7 +53,9 @@
 .educations{
   display: flex;
   justify-content: center;
-  padding: 1vw;
+  padding: .4vw;
+  margin-bottom: .5vw;
+
 
 
 }
@@ -65,38 +70,44 @@
   background-color: orange;
 }
 
-.education1, .education2{
-  padding-left: 5vw;
-  padding-right: 5vw;
+.general, .education1, .education2, .experience1, .experience2{
+  padding-left: .5vw;
+  padding-right: .5vw;
+  padding-top: .5vw;
+  padding-bottom: .5vw;
   width: 50%;
 }
 
 .experiences{
   display: flex;
   justify-content: center;
-  padding: 1vw;
+  padding-bottom: 1vw;
+  padding-top: 1vw;
 
 }
 
 .experience1{
   display: inline-block;
   background-color: greenyellow;
-  width: 30%;
 }
 
 .experience2{
   display: inline-block;
   background-color: teal;
-  width: 30%;
 }
 
 button{
   margin: 1vw;
+}
+
+.edit{
+  margin-left: 90%;
+  display: inline;
 
 }
 
 .editing{
-  padding: 3vw;
+  padding-top: 2vw;
 }
 
 input{
@@ -106,19 +117,15 @@ input{
   *display: inline;
   zoom: 1;
   vertical-align: middle;
-  margin-left: 20px;
   
 }
 
 label{
   display:flex;
   margin: 0px;
-  font-size: larger;
-  width: 20vw;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: left;
-  margin-left: 1.5vw;
+  font-size: 150%;
+  width: 19.8vw;
+  margin-left: 4vw;
 
 } 
 
@@ -148,6 +155,56 @@ label{
 }
 
 .singleLineInput{
-  width: 41vw;
+  width: 42vw;
   display: block;
+}
+
+.singleLineLabel{
+  width: 20vw;
+}
+
+.school{
+  width: 41vw;
+}
+
+.degree{
+  width: 30vw;
+}
+
+.graduationYear{
+  width: 10vw;
+}
+
+.company{
+  width: 19.5vw;
+}
+.startDate, .endDate{
+  width: 10vw;
+}
+
+.dateLabel{
+  width: 10vw;
+  margin-left: 1vw;
+}
+
+.companyLabel{
+  width: 19.5vw;
+  margin-left: 1.5vw;
+}
+
+p{
+  font-size: 150%;
+}
+
+.generalInput{
+  width: 15vw;
+}
+
+.generalLabels{
+  width: 15vw;
+  margin-left: 1.2vw;
+}
+
+.degreeDateLabel{
+  margin-left: 11.4vw;
 }

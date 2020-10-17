@@ -32,18 +32,16 @@ class General extends React.Component{
                 <div className="form-group">
                     {/*below is the div for the labels on row 1*/}
                     <div className="labelInputs">
-                        <label>first name</label>
-                        <label>last name</label>
+                        <label className="generalLabels">first name</label>
+                        <label className="generalLabels">last name</label>
                     </div>  
 
                     {/*seperating the labels/inputs into divs so that the labels for each
                     input can be directly above the input for each row*/}
 
-                    <br></br>
-
                     {/*below is the div for the inputs on row 2*/}  
                     <div className="labelInputs">
-                        <input  className="firstName form-control" 
+                        <input className="firstName form-control generalInput" 
                             name="firstName"
                             type="text"
                             value={this.state.firstName}
@@ -51,7 +49,7 @@ class General extends React.Component{
                             onChange={this.handleInputChange}>
                         </input> 
 
-                        <input className="lastName form-control" 
+                        <input className="lastName form-control generalInput" 
                             name="lastName"
                             type="text"
                             value={this.state.lastName}
@@ -59,20 +57,16 @@ class General extends React.Component{
                             onChange={this.handleInputChange}>
                         </input>
                     </div>
-
-                    <br></br>
                 
                     {/*below is the div for the labels on row 3*/}
-                    <div className="form-group labelInputs">
-                        <label>email</label>
-                        <label>phone number</label>
+                    <div className="labelInputs">
+                        <label className="generalLabels">email</label>
+                        <label className="generalLabels">phone number</label>
                     </div>
-
-                    <br></br>
 
                     {/*below is the div for the inputs on row 4*/}
                     <div className="form-group labelInputs">
-                        <input  className="email form-control" 
+                        <input  className="email form-control generalInput" 
                             name="email"
                             type="email"
                             value={this.state.email}
@@ -80,7 +74,7 @@ class General extends React.Component{
                             onChange={this.handleInputChange}>
                         </input> 
 
-                        <input  className="phoneNumber form-control" 
+                        <input  className="phoneNumber form-control generalInput" 
                             name="phone"
                             type="tel"
                             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"

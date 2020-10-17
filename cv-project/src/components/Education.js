@@ -24,8 +24,8 @@ class Education extends React.Component{
         if(this.props.isEditing){
             return(
                 <div className="form-group">
-                    <label>school</label>
-                    <br></br>
+                    <label className="singleLineLabel">school</label>
+                    
                     <div className="labelInputs">
                         <input className="school form-control singleLineInput" 
                             name="school"
@@ -38,7 +38,7 @@ class Education extends React.Component{
 
                     <div className="labelInputs">
                         <label>degree</label>
-                        <label>date</label>
+                        <label className="degreeDateLabel">date</label>
                     </div>
 
                     <div className="labelInputs">
@@ -71,11 +71,11 @@ class Education extends React.Component{
   
             return(
                     <div>
-                        <h2>Education</h2>
+                        <h3>School</h3>
                         <p>{this.state.school}</p>
-                        <h5>Area of Study</h5>
+                        <h3>Area of Study</h3>
                         <p>{this.state.degree}</p>
-                        <h5>Graduation</h5>
+                        <h3>Graduation</h3>
                         <p>{this.state.graduationYear}</p>
                     </div>                
                 )

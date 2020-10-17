@@ -24,56 +24,60 @@ class Experience extends React.Component{
     render(){
         if(this.props.isEditing){
             return(
-                <div>
-                <label>company:</label>
-                <br></br>
-                <input  className="company" 
-                        name="company"
-                        type="text"
-                        value={this.state.company}
-                        onChange={this.handleInputChange}>
-                </input> 
+                <div className="form-group">
 
-                <br></br>
-                <br></br>
+                    <div className="labelInputs">
+                        <label className="companyLabel">company</label>
+                        <label class="dateLabel">start date</label>
+                        <label class="dateLabel">end date</label>
+                    </div>
 
-                <label>start date:</label>
-                <input  className="startDate" 
-                        name="startDate"
-                        type="date"
-                        value={this.state.startDate}
-                        onChange={this.handleInputChange}>
-                </input>
+                    <div className="labelInputs">
+                        <input  className="company form-control" 
+                            name="company"
+                            type="text"
+                            value={this.state.company}
+                            onChange={this.handleInputChange}>
+                        </input> 
 
-                <label>end date:</label>
-                <input  className="endDate" 
-                        name="endDate"
-                        type="date"
-                        value={this.state.endDate}
-                        onChange={this.handleInputChange}>
-                </input>
+                        <input  className="startDate form-control" 
+                            name="startDate"
+                            type="date"
+                            value={this.state.startDate}
+                            onChange={this.handleInputChange}>
+                        </input>
 
-                <br></br>
-                <br></br>
+                        <input  className="endDate form-control" 
+                            name="endDate"
+                            type="date"
+                            value={this.state.endDate}
+                            onChange={this.handleInputChange}>
+                        </input>
+                    </div>
 
-                <label>position:</label>
-                <br></br>
-                <input  className="position" 
-                        name="position"
-                        type="text"
-                        value={this.state.position}
-                        onChange={this.handleInputChange}></input> 
-                        
-                <br></br>
-                <label>tasks:</label>
-                <br></br>
-                <input  className="tasks" 
+
+            
+                <label className="singleLineLabel">position</label>
+
+                <div className="labelInputs"> 
+                    <input  className="position form-control singleLineInput" 
+                    name="position"
+                    type="text"
+                    value={this.state.position}
+                    onChange={this.handleInputChange}>
+                    </input> 
+                </div>
+
+                <label className="singleLineLabel">tasks</label>
+
+                <div className="labelInputs">
+                    <input  className="tasks form-control singleLineInput" 
                         name="tasks"
                         type="text"
                         value={this.state.tasks}
-                        onChange={this.handleInputChange}></input>
-                <br></br>
-                <br></br>
+                        onChange={this.handleInputChange}>
+                    </input>
+                </div>
 
                 </div>
             )
@@ -81,10 +85,10 @@ class Experience extends React.Component{
         else{
                 return(
                     <div>
-                        <h2>Experience</h2>
+                        <h3>Employer</h3>
                         <p>{this.state.company}</p>
-                        <h3>Start and End dates</h3>
-                        <p>{this.state.startDate + " through " + this.state.endDate}</p>
+                        <h4>Start and End dates</h4>
+                        <h6>{this.state.startDate + " through " + this.state.endDate}</h6>
                         <h3>Position</h3>
                         <p>{this.state.position}</p>
                         <h3>Tasks</h3>
