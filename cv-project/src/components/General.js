@@ -6,20 +6,19 @@ class General extends React.Component{
 
         this.state = {
             isEditing: props.isEditing,
-            firstName: "first",
-            lastName: "last",
-            email: "email@email.com",
-            phone: "222-222-2222"
+            firstName: "Yugiri",
+            lastName: "Mistwalker",
+            email: "hiensretainer@stormblood.com",
+            phone: "208-555-1234"
         }
     }
-
-    
 
     handleInputChange = ({
         target: {name, value}}) => {
         this.setState({
             [name]: value
         });
+        console.log(this.state.firstName)
     }
 
     render(){
@@ -38,8 +37,8 @@ class General extends React.Component{
 
                     {/*seperating the labels/inputs into divs so that the labels for each
                     input can be directly above the input for each row*/}
-
                     {/*below is the div for the inputs on row 2*/}  
+                    
                     <div className="labelInputs">
                         <input className="firstName form-control generalInput" 
                             name="firstName"

@@ -6,10 +6,10 @@ class Education extends React.Component{
 
         this.state = {
             isEditing: props.isEditing,
-            school: "school",
-            degree: "bachelors of school",
+            school: "University of Eorzea",
+            degree: "Bachelors of Combat",
             minor: "minor study",
-            graduationYear: "2019"
+            graduationYear: "2020"
         }
     }
 
@@ -35,7 +35,6 @@ class Education extends React.Component{
                         </input> 
                     </div>
 
-
                     <div className="labelInputs">
                         <label>degree</label>
                         <label className="degreeDateLabel">date</label>
@@ -49,7 +48,6 @@ class Education extends React.Component{
                             onChange={this.handleInputChange}>   
                         </input>
 
-
                         <input className="graduationYear form-control" 
                             name="graduationYear"
                             type="number"
@@ -58,33 +56,22 @@ class Education extends React.Component{
                             onChange={this.handleInputChange}>
                         </input>
                     </div>
-               
-
-                    
-
                 </div>
             )
         }
+
         else{
-            
-
-  
             return(
-                    <div>
-                        <h3>School</h3>
-                        <p>{this.state.school}</p>
-                        <h3>Area of Study</h3>
-                        <p>{this.state.degree}</p>
-                        <h3>Graduation</h3>
-                        <p>{this.state.graduationYear}</p>
-                    </div>                
-                )
-            
-        }
-
-     
-
-       
+                <div>
+                    <h3>School</h3>
+                    <p>{this.state.school}</p>
+                    <h3>Area of Study</h3>
+                    <p>{this.state.degree}</p>
+                    <h3>Graduation</h3>
+                    <p>{this.state.graduationYear}</p>
+                </div>                
+            )       
+        }   
     }
 }
 

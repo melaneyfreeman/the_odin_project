@@ -6,11 +6,11 @@ class Experience extends React.Component{
 
         this.state = {
             isEditing: props.isEditing,
-            company: "company",
+            company: "Hien Inc",
             startDate: "01/01/1999",
             endDate: "01/01/2020",
-            position: "developer",
-            tasks: "example tasks doing these duties"
+            position: "Retainer",
+            tasks: "Saving Eorzea as a Scion by participating in meetings with regional leaders while also protecting Lord Hien"
         }
     }
 
@@ -25,11 +25,10 @@ class Experience extends React.Component{
         if(this.props.isEditing){
             return(
                 <div className="form-group">
-
                     <div className="labelInputs">
                         <label className="companyLabel">company</label>
-                        <label class="dateLabel">start date</label>
-                        <label class="dateLabel">end date</label>
+                        <label className="dateLabel">start date</label>
+                        <label className="dateLabel">end date</label>
                     </div>
 
                     <div className="labelInputs">
@@ -55,16 +54,14 @@ class Experience extends React.Component{
                         </input>
                     </div>
 
-
-            
                 <label className="singleLineLabel">position</label>
 
                 <div className="labelInputs"> 
                     <input  className="position form-control singleLineInput" 
-                    name="position"
-                    type="text"
-                    value={this.state.position}
-                    onChange={this.handleInputChange}>
+                        name="position"
+                        type="text"
+                        value={this.state.position}
+                        onChange={this.handleInputChange}>
                     </input> 
                 </div>
 
@@ -78,31 +75,24 @@ class Experience extends React.Component{
                         onChange={this.handleInputChange}>
                     </input>
                 </div>
-
-                </div>
+            </div>
             )
         }
+
         else{
-                return(
-                    <div>
-                        <h3>Employer</h3>
-                        <p>{this.state.company}</p>
-                        <h4>Start and End dates</h4>
-                        <h6>{this.state.startDate + " through " + this.state.endDate}</h6>
-                        <h3>Position</h3>
-                        <p>{this.state.position}</p>
-                        <h3>Tasks</h3>
-                        <p>{this.state.tasks}</p>
-                    </div>                
-                )
-            
-
-    
+            return(
+                <div>
+                    <h3>Employer</h3>
+                    <p>{this.state.company}</p>
+                    <h4>Start and End dates</h4>
+                    <h6>{this.state.startDate + " through " + this.state.endDate}</h6>
+                    <h3>Position</h3>
+                    <p>{this.state.position}</p>
+                    <h3>Tasks</h3>
+                    <p>{this.state.tasks}</p>
+                </div>                
+            )
         }
-
-     
-
-       
     }
 }
 

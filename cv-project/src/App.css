@@ -1,73 +1,32 @@
 .App {
   text-align: center;
-  background-color: gray;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: #02C39A;
 }
 
 .general{
   display: inline-block;
-  background-color: orangered;
-  width: 40%;
-
+  width: 25%;
+  border-radius: 5px;
+  padding-top: 2vw !important;
 }
 
 .general label{
   text-align: center;
 }
 
-
 .educations{
   display: flex;
   justify-content: center;
-  padding: .4vw;
-  margin-bottom: .5vw;
-
-
-
 }
 
 .education1{
   display: inline-block;
-  background-color: yellow;
+  margin-right: .1vw;
 
 }
 .education2{
   display: inline-block;
-  background-color: orange;
+  margin-left: .1vw;
 }
 
 .general, .education1, .education2, .experience1, .experience2{
@@ -76,34 +35,45 @@
   padding-top: .5vw;
   padding-bottom: .5vw;
   width: 50%;
+  background-color: gainsboro;
+  margin-top: -1vw;
+  margin-bottom: 1vw;
+  border-radius: 5px;
 }
 
 .experiences{
   display: flex;
   justify-content: center;
-  padding-bottom: 1vw;
-  padding-top: 1vw;
-
 }
 
 .experience1{
   display: inline-block;
-  background-color: greenyellow;
+  margin-right: .1vw;
 }
 
 .experience2{
   display: inline-block;
-  background-color: teal;
+  margin-left: .1vw;
 }
 
 button{
-  margin: 1vw;
+  margin: .2vw;
+  margin-top: 1vw;
+}
+
+.btn{
+  padding-left: 1vw;
+  padding-right: 1vw;
+  border-radius: 20px;
+}
+
+.btn-light:hover{
+  background-color: #05668d;
+  color: white;
 }
 
 .edit{
-  margin-left: 90%;
   display: inline;
-
 }
 
 .editing{
@@ -117,7 +87,6 @@ input{
   *display: inline;
   zoom: 1;
   vertical-align: middle;
-  
 }
 
 label{
@@ -126,28 +95,37 @@ label{
   font-size: 150%;
   width: 19.8vw;
   margin-left: 4vw;
-
 } 
+
+h2{
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  background-color: #00a896;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius:20px;
+}
 
 .form-control{
   width: 20vw;
- margin-left: auto;
- margin-right: auto;
- border: none;
- border-bottom: 1px solid gray;
- -webkit-transition: border 500ms ease-out;
- -moz-transition: border 500ms ease-out;
- -o-transition: border 500ms ease-out;
- transition: border 500ms ease-out;
- font-size: large;
- margin-left: 1.2vw;
-
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-bottom: 5px solid #00a896;
+  -webkit-transition: border 500ms ease-out;
+  -moz-transition: border 500ms ease-out;
+  -o-transition: border 500ms ease-out;
+  transition: border 500ms ease-out;
+  font-size: large;
+  margin-left: 1.2vw;
+  height: 3.5vw;
+  font-size: larger;
 }
 
 .form-control:focus{
-  box-shadow: none;
-  border-bottom: 2px solid red;
-
+  box-shadow: 3px 3px 3px 3px #888888;
+  border-bottom: 5px solid tomato;
 }
 
 .labelInputs{
@@ -160,7 +138,8 @@ label{
 }
 
 .singleLineLabel{
-  width: 20vw;
+  width: 19vw;
+  padding-left: .1vw;
 }
 
 .school{
