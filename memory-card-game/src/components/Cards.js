@@ -1,0 +1,1 @@
+// create object of each individual card and their image links

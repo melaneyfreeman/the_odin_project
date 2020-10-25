@@ -1,0 +1,1 @@
+//component that structures the imgs into a useable div
