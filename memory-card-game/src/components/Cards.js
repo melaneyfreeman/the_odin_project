@@ -1,39 +1,39 @@
 // create object of each individual card and their image links
 const Cards = [
     {
-        id: 1,
+        id: "x",
         img: "x",
-        clicked: false
+        isClicked: false
     },
     {
-        id: 2,
+        id: "y",
         img: "y",
 
-        clicked: false
+        isClicked: false
     },
     {
-        id: 3,
+        id: "z",
         img: "z",
 
-        clicked: false
+        isClicked: false
     },
     {
-        id: 4,
+        id: "a",
         img: "a",
 
-        clicked: false
+        isClicked: false
     },
     {
-        id: 5,
+        id: "b",
         img: "b",
 
-        clicked: false
+        isClicked: false
     },
     {
-        id: 6,
+        id: "c",
         img: "c",
 
-        clicked: false
+        isClicked: false
     }
 ]
 
