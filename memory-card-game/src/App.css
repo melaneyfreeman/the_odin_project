@@ -1,10 +1,55 @@
 
 .App {
   text-align: center;
-  background-color: darkolivegreen;
+  background-color: black;
+  height: 65vw;
+}
 
+body{ 
+  background-color: black;
 }
 
 .cardDiv{
-  font-size: 120px;
+  font-size: 100px;
+  background-color: palegoldenrod;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.cardDiv:hover{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* .Main{
+  display: grid;
+  grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
+  row-gap: 2px;
+  justify-content: space-evenly;
+} */
+
+h1{
+  color: white;
+  padding: 2px;
+  font-size: 320%;
+  margin-top: 0;
+  line-height: 50px;
+}
+
+h2{
+  line-height: 1px;
+}
+
+.scores{
+  background-color: darkred;
+  color: white;
+  padding-bottom: 5px;
+  margin-bottom: 2vw;
+}
+
+img{
+  width: 16vw;
+  height: 25vw;
 }

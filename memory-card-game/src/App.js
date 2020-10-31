@@ -7,6 +7,9 @@ import Cards from './components/Cards'
 import cards from './components/Cards'
 import Main from './components/Main'
 
+import ewer from './images/ewer.png'
+
+
 /* you only want to click cards once, if you click the same card again
    you lose. it is NOT a matching game but a memory game to see if you
    can remember which cards you have clicked previously
@@ -16,6 +19,7 @@ function App() {
   //states / hooks
   const [cardList, setCardList] = useState(Cards)
   const [score, setScore] = useState(0)
+  const [highScore, setHighScore] = useState(0)
 
   console.log(cardList)
 
@@ -43,6 +47,11 @@ function App() {
       console.log("resetting card list... ")
       resetIsClicked(cardList);
       setScore(0);
+      
+      /* ---> set high score */
+      if(score > highScore){
+        setHighScore(score)
+      }
     }
   }
 
@@ -61,8 +70,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{score}</h1>
-      <Main cardList={cardList} handleClick={handleClick}></Main>
+      <div className="scores">
+      <h1>Score: {score}</h1>
+      <h2>High Score: {highScore}</h2>
+      </div>
+      
+        <Main cardList={cardList} handleClick={handleClick}/>
+      
     </div>
   );
 }

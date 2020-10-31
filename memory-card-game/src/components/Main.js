@@ -6,17 +6,18 @@ const Main = ({cardList, handleClick}) => {
 
     return(
         <div className="Main">
-            <div>
+            
                 {cardList.map((card) => (
                     <Card
                         key={card.id}
                         id={card.id}
                         handleClick={handleClick}
                         img={card.img}
+                        alt={card.alt}
                     />
                 ))}
                
-            </div>
+          
         </div>
     )
 
