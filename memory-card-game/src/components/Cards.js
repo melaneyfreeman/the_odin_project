@@ -42,12 +42,6 @@ const Cards = [
         isClicked: false
     },
     {
-        id: "5",
-        img: rydia,
-        alt: "Rydia",
-        isClicked: false
-    },
-    {
         id: "6",
         img: snake,
         alt: "Snake",

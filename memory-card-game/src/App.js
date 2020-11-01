@@ -29,7 +29,7 @@ function App() {
 
     /*check if card has been clicked already to determine score */
     /* ---> if card has not been clicked yet, change isClicked to true
-            and increment score */
+    and increment score */
     if(!clickedCard.isClicked){
       clickedCard.isClicked = true;
       console.log(event.target.id + " has been clicked")
@@ -38,7 +38,7 @@ function App() {
     }
 
     /* ---> if card has been clicked, reset isClicked for all cards in cardList
-            and reset score */
+    and reset score */
     else{
       clickedCard.isClicked = null;
       setCardList(cards)
@@ -69,10 +69,21 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App" id="game">
       <div className="scores">
       <h1>Score: {score}</h1>
       <h2>High Score: {highScore}</h2>
+      <a href="#rules" className="rules">RULES</a>
+      <p className="expand" id="rules">
+        This is a memory game. To reach the highest possible score (14) you can only click
+        a card once. If the card has not been clicked on previously, you will gain a point.
+        If you click the same card twice, you will lose and the score will reset.
+        Enjoy the stunning artwork of Yoshitaka Amano (天野 喜孝), who created concept art for many
+        of the FINAL FANTASY games. Visit his website <a href="https://www.yoshitakaamano.com/" target="_blank" rel="noreferrer">here</a>.
+       <br></br>
+        <a href="#game" className="close">×</a>
+
+        </p>
       </div>
       
         <Main cardList={cardList} handleClick={handleClick}/>

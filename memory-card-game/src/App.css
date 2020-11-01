@@ -2,7 +2,6 @@
 .App {
   text-align: center;
   background-color: black;
-  height: 65vw;
 }
 
 body{ 
@@ -11,7 +10,6 @@ body{
 
 .cardDiv{
   font-size: 100px;
-  background-color: palegoldenrod;
   margin: 10px;
   border-radius: 10px;
   padding: 5px;
@@ -35,11 +33,12 @@ h1{
   padding: 2px;
   font-size: 320%;
   margin-top: 0;
-  line-height: 50px;
+  line-height: 30px;
 }
 
 h2{
   line-height: 1px;
+  margin-bottom: 30px;
 }
 
 .scores{
@@ -47,9 +46,50 @@ h2{
   color: white;
   padding-bottom: 5px;
   margin-bottom: 2vw;
+  padding-top: 10px;
 }
 
 img{
-  width: 16vw;
-  height: 25vw;
+  width: 11vw;
+  height: 16vw;
 }
+
+.expand{
+  background: #fff;
+  overflow: hidden;
+
+  transition: all .5s ease-in-out;
+  line-height: 0;
+  padding: 0 1em;
+  color: transparent;
+}
+
+.expand:target {
+  line-height: 1.5;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: black;
+}
+
+.rules{ 
+  color: white;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.rules:hover{
+  background-color: gainsboro;
+  color: gray;
+}
+
+.close{
+  color: darkred;
+  text-decoration: none;
+}
+
+.close:hover{
+  color: gray;
+}
+ 
