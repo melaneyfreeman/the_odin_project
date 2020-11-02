@@ -1,10 +1,17 @@
 import React from 'react';
 import Card from './Card'
-import Cards from './Cards'
 
 const Main = ({cardList, handleClick}) => {
 
     const shuffle = (array) => {
+        for(let i = 0; i < array.length; i++){
+                setTimeout(function(){
+                    array[i].isFlashing = false;
+                 }, Math.random() * .3);
+                 array[i].isFlashing = true;
+
+        }
+
         let currentIndex = array.length
         let temporaryValue
         let randomIndex
@@ -21,10 +28,15 @@ const Main = ({cardList, handleClick}) => {
             array[randomIndex] = temporaryValue
         }
 
+    
+
         return array;
     }
 
-    shuffle(cardList)
+        shuffle(cardList)
+
+  
+
     return(
         <div className="Main">     
                 {cardList.map((card) => (
@@ -34,6 +46,7 @@ const Main = ({cardList, handleClick}) => {
                         handleClick={handleClick}
                         img={card.img}
                         alt={card.alt}
+                        isFlashing={card.isFlashing}
                     />
                 ))}
         </div>

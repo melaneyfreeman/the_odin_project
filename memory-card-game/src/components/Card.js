@@ -1,10 +1,12 @@
 import React from 'react';
 
 //component that structures the imgs into a useable div
-const Card = ({img, id, handleClick, alt}) => {
+const Card = ({img, id, handleClick, alt, isFlashing}) => {
+
+
     return (
      
-            <img className="cardDiv" id={id} onClick={(e) => handleClick(e)} src={img} alt={alt}/>
+            <img className={"cardDiv " + isFlashing} id={id} onClick={(e) => handleClick(e)} src={img} alt={alt}/>
 
     )
 }

@@ -2,7 +2,6 @@ import goddess from '../images/goddess.jpg'
 import kain from '../images/kain.jpg'
 import gilgamesh from '../images/gilgamesh.jpg'
 import lightning from '../images/lightning.jpg'
-import rydia from '../images/rydia.jpg'
 import snake from '../images/snake.jpg'
 import tidus from '../images/tidus.jpg'
 import warriors from '../images/warriors.jpg'
@@ -21,94 +20,108 @@ const Cards = [
         id: "1",
         img: goddess,
         alt: "Goddess",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     },
     {
         id: "2",
         img: kain,
         alt: "Kain",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     },
     {
         id: "3",
         img: gilgamesh,
         alt: "Gilgamesh",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     },
     {
         id: "4",
         img: lightning,
         alt: "Lightning",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     },
     {
         id: "6",
         img: snake,
         alt: "Snake",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     }
     ,
     {
         id: "7",
         img: tidus,
         alt: "Tidus",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     }
     ,
     {
         id: "8",
         img: warriors,
         alt: "Warriors",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     }
     ,
     {
         id: "9",
         img: rider,
         alt: "Rider",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     }
     ,
     {
         id: "10",
         img: dream,
         alt: "Dream",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     }
     ,
     {
         id: "11",
         img: guin,
         alt: "Guin",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     }
     ,
     {
         id: "12",
         img: night,
         alt: "Night",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     }
     ,
     {
         id: "13",
         img: lovers,
         alt: "Lovers",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     }
     ,
     {
         id: "14",
         img: lion,
         alt: "Lion",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     }
     ,
     {
         id: "15",
         img: pearl,
         alt: "Pearl",
-        isClicked: false
+        isClicked: false,
+        isFlashing: false
     }
 
 ]
