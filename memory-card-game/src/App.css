@@ -40,6 +40,7 @@ h2{
   line-height: 1px;
   margin-bottom: 30px;
   font-size: large;
+  color: white;
 }
 
 .scores{
@@ -139,13 +140,14 @@ opacity: 1;
   opacity: 1;
 }
 
-.scrollText{
+.blinking{
   height: 50px;	
   overflow: hidden;
   position: relative;
+  padding: 20px;
 }
 
-.scrollText h1{
+.blinking h1{
   font-family: 'Press Start 2P', cursive;
   font-size: 3em;
   color: red;
@@ -155,4 +157,23 @@ opacity: 1;
   margin: 0;
   line-height: 50px;
   text-align: center;
+  animation:blinkingText .75s infinite;
+}
+
+.info{
+  padding-top:45px !important;
+  margin-left: 10%;
+  margin-right: 5%;
+  font-family: 'Press Start 2P', cursive;
+  font-size: x-small;
+
+}
+
+
+@keyframes blinkingText{
+  0%{     color: red;    }
+  49%{    color: red; }
+  60%{    color: transparent; }
+  99%{    color:transparent;  }
+  100%{   color: red;    }
 }

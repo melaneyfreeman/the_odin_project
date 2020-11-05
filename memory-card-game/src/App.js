@@ -16,12 +16,10 @@ function App() {
   const [cardList, setCardList] = useState(Cards)
   const [score, setScore] = useState(0)
   const [highScore, setHighScore] = useState(0)
-
-  let didLose = false;
-  let didWin = false;
+  const [didLose, setDidLose] = useState(false)
+  const [didWin, setDidWin] = useState(false)
 
   console.log(cardList)
-  console.log(didLose, didWin)
   const handleClick = (event) => {
     const clickedCard = cards.find((card) => card.id === event.target.id)
     console.log("clicked this card: " + event.target.id)
@@ -34,7 +32,7 @@ function App() {
       console.log(event.target.id + " has been clicked")
       setCardList(cards)
       incrementScore();
-      didLose = false;
+      setDidLose(false)
     }
 
     /* ---> if card has been clicked, reset isClicked for all cards in cardList
@@ -47,7 +45,7 @@ function App() {
       console.log("resetting card list... ")
       resetIsClicked(cardList);
       setScore(0);
-      didLose = true;
+      setDidLose(true)
 
       
       /* ---> set high score */
@@ -56,6 +54,8 @@ function App() {
 
       }
     }
+
+
   }
 
   const resetIsClicked = (array) => {
@@ -71,8 +71,8 @@ function App() {
   }
 
   const checkWin = () => {
-    if(score === 14){
-      didWin = true;
+    if(score === cardList.length - 1){
+      setDidWin(true)
       console.log(score)
     }
   }
