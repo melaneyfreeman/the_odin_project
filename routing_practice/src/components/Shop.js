@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
-function Shop(){
+function Shop() {
 
     useEffect(() => {
         fetchItems()
@@ -15,14 +16,18 @@ function Shop(){
         setItems(items.data)
     }
 
-  
 
 
-    return(
+
+    return (
         <div>
             <h1>Shop</h1>
             {items.map(item => (
-                <h2>{item.item.name}</h2>
+                <h2 key={item.itemId}>
+                    <Link to={`/shop/${item.itemId}`}>
+                        {item.item.name}
+                    </Link>
+                </h2>
             ))}
         </div>
     )
