@@ -2,19 +2,47 @@
   text-align: center;
 }
 
-nav{
+nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
   background-color: tomato;
   color: white;
+  margin-left: 0px;
+  border-radius: 50px 0 0 0;
 }
 
-.nav-links{
+.nav-links {
   width: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   list-style: none;
+}
+
+.shopItem-div {
+  background-color: gold;
+  display: inline-block;
+  width: 100%;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  display: flex;
+}
+
+.shopItem-info {
+  text-align: start;
+  font-size: 150%;
+  vertical-align: middle;
+  padding-left: 4vw;
+}
+
+.shopItem-img {
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: teal;
+}
+
+h3{
+  font-style: italic;
 }

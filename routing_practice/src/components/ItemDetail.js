@@ -8,9 +8,14 @@ function ItemDetail({ match }) {
 
     const [shopItem, setItem] = useState({
         data: {
-            item: {}
+            item: {
+
+                images: {
+
+                }
+            }
         },
-        
+
     })
 
     const fetchItem = async () => {
@@ -24,8 +29,14 @@ function ItemDetail({ match }) {
 
 
     return (
-        <div>
-            <h2>{shopItem.data.item.name}</h2>
+        <div className="shopItem-div">
+            <img src={shopItem.data.item.images.background} alt="" className="shopItem-img"></img>
+            <div className="shopItem-info">
+                <h2>{shopItem.data.item.name}</h2>
+                <h3>{shopItem.data.item.description}</h3>
+                <h4>{shopItem.data.item.cost} {shopItem.data.item.obtained_type}</h4>
+                <h5>{shopItem.data.item.rarity}</h5>
+            </div>
         </div>
     )
 }
