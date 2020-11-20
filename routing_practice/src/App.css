@@ -35,12 +35,14 @@ nav {
   font-size: 150%;
   vertical-align: middle;
   padding-left: 4vw;
+  padding-right: 10vw;
 }
 
 .shopItem-img {
   vertical-align: middle;
   border-radius: 50%;
   background-color: teal;
+  max-width: 30vw;
 }
 
 h3{
