@@ -25,3 +25,14 @@ a{
   color: white;
 }
 
+.minion-links{
+  color: rgb(80, 67, 112);
+}
+
+.shop-div{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.shop-img{
+}

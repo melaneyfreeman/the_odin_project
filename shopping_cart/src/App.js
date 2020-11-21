@@ -18,10 +18,10 @@ function App() {
 
         <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path="/about" component={About}/>
-          <Route path="/shop" component={Shop}/>
-          <Route path="/shop/:id" component={ShopItem}/>
-          <Route path="/cart" component={Cart}/>
+          <Route path="/about" exact component={About}/>
+          <Route path="/shop" exact component={Shop}/>
+          <Route path="/shop/:id" exact component={ShopItem}/>
+          <Route path="/cart" exact component={Cart}/>
 
         </Switch>
       </div>
