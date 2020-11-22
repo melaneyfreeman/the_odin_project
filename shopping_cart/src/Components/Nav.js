@@ -1,8 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import Shop from './Shop'
 
-function Nav() {
-    return(
+function Nav(props) {
+    return (
         <nav>
             <ul className="nav-links">
                 <Link to="/">
@@ -15,9 +16,9 @@ function Nav() {
                     <li>Shop</li>
                 </Link>
                 <Link to="/cart">
-                    <li>Cart</li>
+                    <li>Cart { }</li>
                 </Link>
-                
+
             </ul>
         </nav>
     )

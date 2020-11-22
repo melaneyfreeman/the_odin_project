@@ -1,9 +1,11 @@
 import React from 'react'
 
 function Cart(){
+    let cart = []
+    console.log("CART:  " + cart)
     return(
-        <div>
-            <h1>Shoppinh Cart</h1>
+        <div className="cart">
+            <h3>Cart</h3>
         </div>
     )
 }

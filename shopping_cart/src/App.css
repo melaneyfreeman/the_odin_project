@@ -32,7 +32,21 @@ a{
 .shop-div{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-right: 20vw;
 }
 
-.shop-img{
+.shop-item{
+  margin-right: 20vw;
+}
+
+.cart{
+  float: right;
+  background-color: rgb(44, 41, 75);
+  height: 80vh;
+  position: fixed;
+  right:1vw;
+  width: 15vw;
+  margin-left: 5vw;
+  color: white;
+
 }
