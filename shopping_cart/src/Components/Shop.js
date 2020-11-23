@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
+import Cart from './Cart'
 
 function Shop() {
 
@@ -19,7 +19,7 @@ function Shop() {
 
     return (
         <div>
-
+        <Cart/>
             <h1>Shop</h1>
             <div className="shop-div">
                 {items.map(item => (

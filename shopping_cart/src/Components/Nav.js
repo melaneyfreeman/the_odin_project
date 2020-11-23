@@ -15,9 +15,7 @@ function Nav(props) {
                 <Link to="/shop">
                     <li>Shop</li>
                 </Link>
-                <Link to="/cart">
-                    <li>Cart { }</li>
-                </Link>
+                
 
             </ul>
         </nav>
