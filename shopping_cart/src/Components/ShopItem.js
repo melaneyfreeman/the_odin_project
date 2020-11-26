@@ -6,13 +6,15 @@ import Cart from './Cart'
 class ShopItem extends Component {
     constructor(props) {
         super(props)
+        let match = props.match;
+        console.log(match.params)
         this.state = {
             results: {
                 name:{
 
                 }
             },
-            itemId: props.match.params.itemId,
+            itemId: match.params.id,
             itemDetail: ""
         }
     }
@@ -29,7 +31,7 @@ class ShopItem extends Component {
         this.setState({
             itemDetail: itemDetail.results[0]
         })
-        console.log(itemDetail.results[0])
+        console.log(this.state.itemDetail)
     }
 
     addToCart(id) {
@@ -48,6 +50,7 @@ class ShopItem extends Component {
                     <h5>{this.state.itemDetail.tooltip}</h5>
                     <h4>Price: {this.state.itemDetail.patch}</h4>
                     <button id={this.state.itemDetail.id} onClick={e => this.addToCart(e.target.id)}>add to cart</button>
+                    
                 </div>
             </div>
         )

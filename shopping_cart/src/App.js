@@ -27,13 +27,14 @@ class App extends Component {
       <Router>
         <div className="App">
           <Nav />
+          <Cart/>
+
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/about" exact component={About} />
             <Route path="/shop" exact component={Shop} />
             <Route path="/shop/:id" exact component={ShopItem} />
           </Switch>
-          <Cart />
         </div>
       </Router>
     )
