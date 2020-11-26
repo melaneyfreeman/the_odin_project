@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react'
+import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Nav from './Components/Nav'
@@ -10,23 +10,35 @@ import ShopItem from './Components/ShopItem'
 import Cart from './Components/Cart'
 
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Nav/>
-        
+class App extends Component {
+  constructor() {
+    super()
 
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/about" exact component={About}/>
-          <Route path="/shop" exact component={Shop}/>
-          <Route path="/shop/:id" exact component={ShopItem}/>
+    this.state = {
+      showCart: true,
+      cartCount: 0,
+      cartItems: []
 
-        </Switch>
-      </div>
-    </Router>
-  );
+    }
+  }
+
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Nav />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/about" exact component={About} />
+            <Route path="/shop" exact component={Shop} />
+            <Route path="/shop/:id" exact component={ShopItem} />
+          </Switch>
+          <Cart />
+        </div>
+      </Router>
+    )
+  }
 }
+
 
 export default App;
