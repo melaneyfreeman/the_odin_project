@@ -8,27 +8,21 @@ import About from './Components/About'
 import Shop from './Components/Shop'
 import ShopItem from './Components/ShopItem'
 import Cart from './Components/Cart'
+import { ItemProvider } from './ItemContext'
+import {CartProvider} from './CartContext'
+
+function App() {
 
 
-class App extends Component {
-  constructor() {
-    super()
 
-    this.state = {
-      showCart: true,
-      cartCount: 0,
-      cartItems: []
+  return (
 
-    }
-  }
-
-  render() {
-    return (
-      <Router>
+    <Router>
+      <ItemProvider>
+        <CartProvider>
         <div className="App">
           <Nav />
-          <Cart/>
-
+          <Cart />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/about" exact component={About} />
@@ -36,9 +30,11 @@ class App extends Component {
             <Route path="/shop/:id" exact component={ShopItem} />
           </Switch>
         </div>
-      </Router>
-    )
-  }
+        </CartProvider>
+      </ItemProvider>
+    </Router>
+  )
+
 }
 
 

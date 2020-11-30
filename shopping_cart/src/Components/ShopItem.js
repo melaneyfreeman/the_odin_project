@@ -1,60 +1,56 @@
 
-import {React, Component } from 'react'
-import Cart from './Cart'
+import { React, Component, useContext, useEffect, useState } from 'react'
+import Item from './Item'
+import {ItemContext} from '../ItemContext'
+import {CartContext} from '../CartContext'
 
 
-class ShopItem extends Component {
-    constructor(props) {
-        super(props)
-        let match = props.match;
-        console.log(match.params)
-        this.state = {
-            results: {
-                name:{
+function ShopItem ({match}) {
+    useEffect(() => {
+        fetchItem()
+    }, [])
+    
+    const [itemDetail, setItemDetail] = useState({
+        results:{
+            name:{
 
-                }
-            },
-            itemId: match.params.id,
-            itemDetail: ""
+            }
         }
-    }
+    })
 
-    //when the page loads, immediately fetch the data
-    componentDidMount(){
-        this.fetchItem()
-    }
-
-
-    fetchItem = async () => {
-        const fetchItem = await fetch(`https://ffxivcollect.com/api/minions?id_in=${this.state.itemId}`)
+    const fetchItem = async () => {
+        const fetchItem = await fetch(`https://ffxivcollect.com/api/minions?id_in=${match.params.id}`)
         const itemDetail = await fetchItem.json()
-        this.setState({
-            itemDetail: itemDetail.results[0]
-        })
-        console.log(this.state.itemDetail)
+        setItemDetail(itemDetail.results[0])
+        console.log(itemDetail.results[0])
     }
 
-    addToCart(id) {
+    const [cartItems, setCartItems] = useContext(CartContext)
+
+    function updateCart(id) {
         console.log("button clicked" + id)
-       
+        let updatedCart = cartItems + id
+        setCartItems(updatedCart)
+
     }
 
-    render() {
+
         return (
             <div>
                 <div className="shop-item">
-                    <h1>{this.state.itemDetail.name}</h1>
-                    <h2>{this.state.itemDetail.description}</h2>
-                    <h2>{this.state.itemDetail.enhanced_description}</h2>
-                    <img src={this.state.itemDetail.image} alt={this.state.itemDetail.name}></img>
-                    <h5>{this.state.itemDetail.tooltip}</h5>
-                    <h4>Price: {this.state.itemDetail.patch}</h4>
-                    <button id={this.state.itemDetail.id} onClick={e => this.addToCart(e.target.id)}>add to cart</button>
-                    
+                    <Item name={itemDetail.name}
+                        description={itemDetail.description}
+                        enhanced_description={itemDetail.enhanced_description}
+                        imageSrc={itemDetail.image}
+                        imageAlt={itemDetail.name}
+                        tooltip={itemDetail.tooltip}
+                        price={itemDetail.patch}
+                    />
+                    <button id={itemDetail.id} onClick={e => updateCart(e.target.id)}>add to cart</button>
                 </div>
             </div>
         )
-    }
+    
 }
 
 export default ShopItem

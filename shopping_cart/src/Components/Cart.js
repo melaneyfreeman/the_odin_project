@@ -1,18 +1,25 @@
-import React from 'react'
+import {React, useContext, useEffect, useState} from 'react'
+import {CartContext} from '../CartContext'
 
-class Cart extends React.Component{
-    
+function Cart(props){
 
+    const [cartItems, setCartItems] = useContext(CartContext)
 
-    render(){
+    console.log(cartItems)
+
         return(
             <div className="cart">
                 <h3>Cart</h3>
-                <h4>{this.props.currentItem}</h4>
+                <h4>{cartItems}</h4>
+
+                <button onClick={emptyCart}>empty cart</button>
             </div>
         )
-    }
-        
+    
+        function emptyCart(){
+            let emptiedCart = ""
+            setCartItems(emptiedCart)
+        }
     
     
 }
