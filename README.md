@@ -3,4 +3,4 @@ Projects from The Odin Project
 
 Currently working on...
 
-~* routing in react js *~
+~* shopping cart project, learning about context and providers on my own *~
