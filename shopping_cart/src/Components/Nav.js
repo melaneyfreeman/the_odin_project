@@ -4,7 +4,8 @@ import { CartContext } from '../CartContext'
 
 const Nav = () => {
     const [cartItems, setCartItems] = useContext(CartContext)
-
+    let items = cartItems.props
+    console.log(items)
     return (
         <nav>
             <ul className="nav-links">

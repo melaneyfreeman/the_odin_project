@@ -25,13 +25,11 @@ function ShopItem ({match}) {
         console.log(itemDetail.results[0])
     }
 
+    let updatedCart = []
     const [cartItems, setCartItems] = useContext(CartContext)
 
     function updateCart(id) {
-        console.log("button clicked" + id)
-        let updatedCart = cartItems + id
-        setCartItems(updatedCart)
-
+        setCartItems(prevItems => [...prevItems, id])
     }
 
 

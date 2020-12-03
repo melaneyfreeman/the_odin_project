@@ -4,9 +4,7 @@ import {CartContext} from '../CartContext'
 function Cart(props){
 
     const [cartItems, setCartItems] = useContext(CartContext)
-
-    console.log(cartItems)
-
+    console.log("cart items to be in cart: " + cartItems)
         return(
             <div className="cart">
                 <h3>Cart</h3>
@@ -17,7 +15,7 @@ function Cart(props){
         )
     
         function emptyCart(){
-            let emptiedCart = ""
+            let emptiedCart = []
             setCartItems(emptiedCart)
         }
     

@@ -8,10 +8,11 @@ export const CartProvider = (props) => {
     const [items, setItems] = useContext(ItemContext)
 
     const [cartItems, setCartItems] = useState([
-        "there is nothing in your cart"
+        
     ])
 
-
+    console.log("cart items from cart context")
+    console.log(cartItems)
 
     return (
         <CartContext.Provider value={[cartItems, setCartItems]}>
