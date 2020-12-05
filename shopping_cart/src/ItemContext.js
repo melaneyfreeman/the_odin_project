@@ -8,7 +8,8 @@ export const ItemProvider = (props, match) => {
         fetchItems()
     }, [])
 
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState([
+    ])
 
     const fetchItems = async () => {
         const fetchItem = await fetch(`https://ffxivcollect.com/api/minions?id_in=80..110`)

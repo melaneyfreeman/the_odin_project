@@ -4,11 +4,13 @@ import {CartContext} from '../CartContext'
 function Cart(props){
 
     const [cartItems, setCartItems] = useContext(CartContext)
-    console.log("cart items to be in cart: " + cartItems)
+    console.log(cartItems)
         return(
             <div className="cart">
                 <h3>Cart</h3>
-                <h4>{cartItems}</h4>
+                <h4>{(cartItems.map(item => (
+                    <div>{item}</div>
+                )))}</h4>
 
                 <button onClick={emptyCart}>empty cart</button>
             </div>

@@ -15,7 +15,9 @@ function ShopItem ({match}) {
             name:{
 
             }
-        }
+        
+        },
+        verminion:{}
     })
 
     const fetchItem = async () => {
@@ -25,13 +27,14 @@ function ShopItem ({match}) {
         console.log(itemDetail.results[0])
     }
 
-    let updatedCart = []
     const [cartItems, setCartItems] = useContext(CartContext)
 
-    function updateCart(id) {
-        setCartItems(prevItems => [...prevItems, id])
-    }
 
+
+    function updateCart(itemDetail) {
+        setCartItems(prevItems => [...prevItems, itemDetail])
+        console.log(itemDetail.name)
+    }
 
         return (
             <div>
@@ -42,9 +45,11 @@ function ShopItem ({match}) {
                         imageSrc={itemDetail.image}
                         imageAlt={itemDetail.name}
                         tooltip={itemDetail.tooltip}
-                        price={itemDetail.patch}
+                        price={itemDetail.verminion.speed + "." + itemDetail.verminion.attack}
+                    
                     />
-                    <button id={itemDetail.id} onClick={e => updateCart(e.target.id)}>add to cart</button>
+                    {/*<button id={itemDetail.id} onClick={e => updateCart(e.target.i, itemDetail.name)}>add to cart</button>*/}
+                    <button id={itemDetail.id} onClick={e => updateCart(itemDetail.name)}>add to cart</button>
                 </div>
             </div>
         )

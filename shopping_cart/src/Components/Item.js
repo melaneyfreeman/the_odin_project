@@ -8,9 +8,11 @@ const Item = (props) => {
             <h2>{props.enhanced_description}</h2>
             <img src={props.imageSrc} alt={props.name} />
             <h5>{props.tooltip}</h5>
-            <h4>{props.price}</h4>
+            <h4>${props.price}</h4>
         </div>
     )
+
+    
 }
 
 export default Item
