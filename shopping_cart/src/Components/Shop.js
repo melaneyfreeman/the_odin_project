@@ -21,6 +21,9 @@ function Shop() {
                         </h2>
 
                 <h4>${item.verminion.speed + "." + item.verminion.attack}</h4>
+                <button>-</button>0<button>+</button>
+                <br></br>
+                <button>add</button>
 
                     </div>
                 ))}

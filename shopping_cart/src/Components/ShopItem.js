@@ -49,7 +49,7 @@ function ShopItem ({match}) {
                     
                     />
                     {/*<button id={itemDetail.id} onClick={e => updateCart(e.target.i, itemDetail.name)}>add to cart</button>*/}
-                    <button id={itemDetail.id} onClick={e => updateCart(itemDetail.name)}>add to cart</button>
+                    <button id={itemDetail.id} onClick={e => updateCart(itemDetail)}>add to cart</button>
                 </div>
             </div>
         )
