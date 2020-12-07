@@ -1,10 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import {ItemContext} from '../ItemContext'
+import {CartContext} from '../CartContext'
 
 function Shop() {
 
     const [items, setItems] = useContext(ItemContext)
+    const [cartItems, setCartItems] = useContext(CartContext)
+
+    function updateCart(itemDetail) {
+        setCartItems(prevItems => [...prevItems, itemDetail])
+        console.log(itemDetail.name)
+    }
 
     return (
         <div>
@@ -23,8 +30,7 @@ function Shop() {
                 <h4>${item.verminion.speed + "." + item.verminion.attack}</h4>
                 <button>-</button>0<button>+</button>
                 <br></br>
-                <button>add</button>
-
+                <button id={item.id} onClick={e => updateCart(item)}>add</button>
                     </div>
                 ))}
 

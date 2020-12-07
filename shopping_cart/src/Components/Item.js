@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Item = (props) => {
+    const [price, setPrice] = useState(props.price)
+    
+
     return (
         <div>
             <h1>{props.name}</h1>
@@ -8,7 +11,7 @@ const Item = (props) => {
             <h2>{props.enhanced_description}</h2>
             <img src={props.imageSrc} alt={props.name} />
             <h5>{props.tooltip}</h5>
-            <h4>${props.price}</h4>
+            <h4>${Number(props.price).toFixed(2)}</h4>
         </div>
     )
 
