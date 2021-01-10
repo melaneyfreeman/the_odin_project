@@ -28,9 +28,7 @@ function ShopItem ({match}) {
     }
 
     const [cartItems, setCartItems] = useContext(CartContext)
-
-
-
+    
     function updateCart(itemDetail) {
         setCartItems(prevItems => [...prevItems, itemDetail])
         console.log(itemDetail.name)
@@ -50,6 +48,7 @@ function ShopItem ({match}) {
                     />
                     {/*<button id={itemDetail.id} onClick={e => updateCart(e.target.i, itemDetail.name)}>add to cart</button>*/}
                     <button id={itemDetail.id} onClick={e => updateCart(itemDetail)}>add to cart</button>
+                   
                 </div>
             </div>
         )

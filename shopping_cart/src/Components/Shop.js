@@ -1,17 +1,25 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import {ItemContext} from '../ItemContext'
-import {CartContext} from '../CartContext'
+import { ItemContext } from '../ItemContext'
+import { CartContext } from '../CartContext'
+import Item from './Item'
 
 function Shop() {
 
     const [items, setItems] = useContext(ItemContext)
     const [cartItems, setCartItems] = useContext(CartContext)
 
+    const [count, setCount] = useState(1)
+
     function updateCart(itemDetail) {
         setCartItems(prevItems => [...prevItems, itemDetail])
         console.log(itemDetail.name)
     }
+
+    function updateQuantity(id, num){
+
+    }
+
 
     return (
         <div>
@@ -20,17 +28,15 @@ function Shop() {
                 {items.map(item => (
                     <div key={item.id}>
                         <h2>
-                            <Link to={`/shop/${item.id}`} className="minion-links">
-                                <img src={item.image} alt={item.name + ' minion'} className="shop-img" />
-                                <br></br>
-                                {item.name}
-                            </Link>
+                        <Link to={`/shop/${item.id}`} className="minion-links">
+                            <Item name={item.name}
+                                imageSrc={item.image}
+                                imageAlt={item.name}
+                                price={item.verminion.speed + "." + item.verminion.attack} />
+                        </Link>
                         </h2>
-
-                <h4>${item.verminion.speed + "." + item.verminion.attack}</h4>
-                <button>-</button>0<button>+</button>
-                <br></br>
-                <button id={item.id} onClick={e => updateCart(item)}>add</button>
+                        <button id={item.id} onClick={e => updateCart(item)}>add</button>
+                        
                     </div>
                 ))}
 
