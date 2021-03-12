@@ -10,6 +10,9 @@ const CartItem = (props) => {
     function updateCount(num){
         setCount(count + num)
         updatePrice(count, num)
+        if(count < 1){
+            
+        }
     }
 
     function updatePrice(count, num){

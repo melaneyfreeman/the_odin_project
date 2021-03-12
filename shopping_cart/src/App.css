@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 nav {
@@ -7,7 +8,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background-color: rgb(98, 88, 160);
+  background-color: rgb(88, 160, 129);
   color: white;
   margin-left: 0px;
 }
@@ -26,7 +27,7 @@ a{
 }
 
 .minion-links{
-  color: rgb(80, 67, 112);
+  color: rgb(55, 70, 68);
 }
 
 .shop-div{
@@ -37,11 +38,18 @@ a{
 
 .shop-item{
   margin-right: 20vw;
+
+}
+
+.shopItem{
+  background-color: rgb(151, 174, 161);
+  padding: 10px;
+  margin-right: 5px;
 }
 
 .cart{
   float: right;
-  background-color: rgb(44, 41, 75);
+  background-color: rgb(20, 95, 66);
   height: 80vh;
   position: fixed;
   right:1vw;

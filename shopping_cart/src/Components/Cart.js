@@ -10,15 +10,15 @@ function Cart(props) {
         <div className="cart" >
             <h3>Cart</h3>
             {(cartItems.map(item => (
-                <div key={item.id}>
-                    <CartItem name={item.name}
-                        imageSrc={item.icon}
-                        imageAlt={item.name}
-                        price={item.verminion.speed + "." + item.verminion.attack}
+            <div key={item.id}>
+                <CartItem name={item.name}
+                    imageSrc={item.icon}
+                    imageAlt={item.name}
+                    price={item.verminion.speed + "." + item.verminion.attack}
 
-                    />
-                </div>
-            )))}
+                />
+            </div>
+              )))}
 
             <button onClick={emptyCart}>empty cart</button>
         </div>
