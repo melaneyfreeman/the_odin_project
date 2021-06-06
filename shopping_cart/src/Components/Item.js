@@ -19,9 +19,11 @@ const Item = (props) => {
             <img src={props.imageSrc} alt={props.name} />
             <h5>{props.tooltip}</h5>
             <h4>${Number(props.price).toFixed(2)}</h4>
-            <button id={props.id} onClick={e => updateCart(props)}>add to cart</button>
+            
         
         </div>
+
+        /* <button id={props.id} onClick={e => updateCart(props)}>add to cart</button> */
     )
 
     

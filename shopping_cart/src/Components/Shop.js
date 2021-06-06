@@ -8,18 +8,45 @@ function Shop() {
 
     const [items, setItems] = useContext(ItemContext)
     const [cartItems, setCartItems] = useContext(CartContext)
+    
 
     const [count, setCount] = useState(1)
 
+    function removeDupes(arr){
+        //v = value, i = index, a = array
+        if(arr.length > 1){
+            arr = arr.slice().reverse().filter((v, i, a) => a.findIndex(t => (t.id === v.id))===i).reverse()
+            return arr;
+
+        }
+    }
+
+   
+    
+    
+
     function updateCart(itemDetail) {
-        setCartItems(prevItems => [...prevItems, itemDetail])
-        console.log(itemDetail.name)
+        //if there is anything in the cart, check for dupes
+        if(cartItems.length > 0){
+            let newArr = cartItems
+            newArr.push(itemDetail)
+            newArr = removeDupes(newArr)
+            //setCartItems(prevItems => [...prevItems, itemDetail])
+            setCartItems(newArr)
+            console.log(itemDetail.name)
+            console.log("removed dupes!!!!:")
+            console.log(cartItems)
+            
+     
+        }
+        //if cart if empty, no need to check for dupes
+        else{
+            setCartItems(prevItems => [...prevItems, itemDetail])
+            console.log(itemDetail.name)
+        }
+      
+
     }
-
-    function updateQuantity(id, num){
-
-    }
-
 
     return (
         <div>

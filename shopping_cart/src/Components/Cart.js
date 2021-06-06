@@ -5,9 +5,11 @@ import CartItem from './CartItem'
 function Cart(props) {
     const [cartItems, setCartItems] = useContext(CartContext)
 
+
     console.log(cartItems)
     return (
         <div className="cart" >
+             <button onClick={emptyCart}>empty cart</button>
             <h3>Cart</h3>
             {(cartItems.map(item => (
             <div key={item.id}>
@@ -31,7 +33,7 @@ function Cart(props) {
                     </div>
                 )))}</h4> */}
 
-            <button onClick={emptyCart}>empty cart</button>
+           
         </div>
     )
 
