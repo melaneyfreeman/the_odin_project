@@ -29,33 +29,9 @@ function ShopItem ({match}) {
 
     const [cartItems, setCartItems] = useContext(CartContext)
 
-      //check if there are duplicate items trying to be added to the cart, so it does not
-      //add another item with the same ID, instead just removes the extra from the cart
-      function getUnique(arr, index){
-        const unique = arr
-            .map(e=> e[index])
-
-            //store the keys of the unique objects
-            .map((e, i, final) => final.indexOf(e) === i && i)
-
-            //eliminate the dead keys & store unique objects
-            .filter(e => arr[e]).map(e => arr[e]);
-
-            return unique
-    }
-    
-
-
-    
     function updateCart(itemDetail) {
         setCartItems(prevItems => [...prevItems, itemDetail])
         console.log(itemDetail.name)
-        console.log(getUnique(cartItems))
-        console.log("above is removing dulplicates?")
-        if(cartItems.length > 0){
-            setCartItems(getUnique(cartItems))
-        }
-        
         
     }
 

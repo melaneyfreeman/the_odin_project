@@ -12,6 +12,7 @@ function Shop() {
 
     const [count, setCount] = useState(1)
 
+    //check for duplicates in the cart array, before updating cartItems
     function removeDupes(arr){
         //v = value, i = index, a = array
         if(arr.length > 1){
@@ -20,10 +21,6 @@ function Shop() {
 
         }
     }
-
-   
-    
-    
 
     function updateCart(itemDetail) {
         //if there is anything in the cart, check for dupes
