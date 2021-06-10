@@ -6,7 +6,6 @@ function Cart(props) {
     const [cartItems, setCartItems] = useContext(CartContext)
 
 
-    console.log(cartItems)
     return (
         <div className="cart" >
              <button onClick={emptyCart}>empty cart</button>

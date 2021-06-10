@@ -7,29 +7,44 @@ const CartItem = (props) => {
     const [price, setPrice] = useState(startPrice)
     const [cartItems, setCartItems] = useContext(CartContext)
 
+    function updateCart(cart){
+        console.log('updating cart receiving cart:')
+        setCartItems(cart)
+        console.log(cartItems)
+    }
 
-    function removeItem(array, id){
-        return array.filter(obj => obj.id !== id)
+    function removeItem(id){
+            console.log("removing item:" + id)
+            //setCartItems(cartItems.filter(obj => obj.id !== id))
+            for(var i = cartItems.length -1; i > -1; i--){
+                if(cartItems[i].name === id){
+                    let newCart = cartItems.splice(i, 1)
+                    console.log("below is array after removed")
+                    updateCart(newCart)
+                    
+                }
+            }
+   
     }
 
     //num is the increment or decrement value (+1 or -1)
     function updateCount(num){
         setCount(count + num)
         updatePrice(count, num)
-        return
+        console.log(count)
+        //return
        
     }
 
     function decreaseCount(id){
-        console.log("hereee")
-        if(count < 1){
-            let itemId = id
-            console.log(id)
-            console.log("this is the id above")
-            updatePrice(0, 0)
-        }
-        else{
+
+        console.log('THIS IS WHAT THE ID IS:' + id)
+        if(count > 0){
             updateCount(-1)
+        }
+        //if count is 0 
+        else if(count ===0 || count <= 0){
+            removeItem(...arguments)
         }
     }
 
@@ -47,8 +62,11 @@ const CartItem = (props) => {
         let formValue = parseInt(event.target.value)
         setCount(formValue)
     }
+
     
-    if(count >= 1){
+    if(count > 0){
+        
+
         return (
        
             <div>
@@ -57,13 +75,13 @@ const CartItem = (props) => {
                 <h5>${price.toFixed(2)}</h5>
                 <button onClick={() => updateCount(1)}>+</button>
                 <input value={count} onChange={handleChange}/>
-                <button onClick={() => decreaseCount(props.id)}>-</button>
+                <button onClick={() => decreaseCount(props.name)}>-</button>
             </div>
         )
     }
     else{
         return(
-            <div>cart is empty</div>
+            <div></div>
         )
         
     }
