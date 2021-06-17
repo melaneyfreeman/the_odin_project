@@ -37,7 +37,9 @@ a{
 }
 
 .shop-item{
-  margin-right: 20vw;
+  
+  background-color: white;
+  position: absolute;
 
 }
 
@@ -53,8 +55,16 @@ a{
   height: 80vh;
   position: fixed;
   right:1vw;
-  width: 15vw;
+  width: 20vw;
   margin-left: 5vw;
   color: white;
 
+
+}
+
+.shop_item_popup{
+ width: 75%;
+  position: fixed;
+  z-index: 1;
+  background-color: teal;
 }

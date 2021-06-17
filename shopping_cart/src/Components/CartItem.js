@@ -27,8 +27,7 @@ const CartItem = (props) => {
                     //now we will update the count for the removed item
                     //so it will not pass the render check and instead render an empty div
                     updateCount(-1)
-                    
-                    
+  
                 }
             }
    

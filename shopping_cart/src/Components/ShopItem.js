@@ -29,14 +29,8 @@ function ShopItem ({match}) {
 
     const [cartItems, setCartItems] = useContext(CartContext)
 
-    function updateCart(itemDetail) {
-        setCartItems(prevItems => [...prevItems, itemDetail])
-        console.log(itemDetail.name)
-        
-    }
-
         return (
-            <div>
+            <div className="shop_item_popup">
                 <div className="shop-item">
                     <Item name={itemDetail.name}
                         description={itemDetail.description}
@@ -44,12 +38,8 @@ function ShopItem ({match}) {
                         imageSrc={itemDetail.image}
                         imageAlt={itemDetail.name}
                         tooltip={itemDetail.tooltip}
-                        price={itemDetail.verminion.speed + "." + itemDetail.verminion.attack}
-                    
-                    />
-                    {/*<button id={itemDetail.id} onClick={e => updateCart(e.target.i, itemDetail.name)}>add to cart</button>*/}
-                    <button id={itemDetail.id} onClick={e => updateCart(itemDetail)}>add to cart</button>
-                   
+                        price={itemDetail.verminion.speed + "." + itemDetail.verminion.attack}                 
+                    />           
                 </div>
             </div>
         )
