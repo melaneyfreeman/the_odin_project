@@ -10,6 +10,7 @@ import ShopItem from './Components/ShopItem'
 import Cart from './Components/Cart'
 import { ItemProvider } from './ItemContext'
 import {CartProvider} from './CartContext'
+import ShopItemPopup from './Components/ShopItemPopup';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/about" exact component={About} />
             <Route path="/shop" exact component={Shop} />
             <Route path="/shop/:id" exact component={ShopItem} />
+            <Route path="/" exact component={ShopItemPopup}/>
           </Switch>
         </div>
         </CartProvider>

@@ -13,7 +13,7 @@ export const ItemProvider = (props, match) => {
     ])
 
     const fetchItems = async () => {
-        const fetchItem = await fetch(`https://ffxivcollect.com/api/minions?id_in=80..110`)
+        const fetchItem = await fetch(`https://ffxivcollect.com/api/minions?id_in=120..137`)
         const items = await fetchItem.json()
         setItems(items.results)
         console.log(items.results)

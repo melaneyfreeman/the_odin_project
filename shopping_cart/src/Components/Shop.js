@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom'
 import { ItemContext } from '../ItemContext'
 import { CartContext } from '../CartContext'
 import Item from './Item'
+import ShopItemPopup from './ShopItemPopup'
 
 function Shop() {
 
     const [items, setItems] = useContext(ItemContext)
     const [cartItems, setCartItems] = useContext(CartContext)
-    
-    const [count, setCount] = useState(1)
 
+    let showPopupWindow = false
+    
     //check for duplicates in the cart array, before updating cartItems
     function removeDupes(arr){
         //v = value, i = index, a = array
@@ -40,12 +41,23 @@ function Shop() {
         }
     }
 
+    function showPopup(item){
+        //return (<div>this is the item {item}</div>)
+        showPopupWindow = true
+        console.log(item)
+        console.log(showPopupWindow)
+    }
+
+
+if(!showPopupWindow){
     return (
-        <div>
+        <div> 
             <h1>Shop</h1>
             <div className="shop-div">
+             
                 {items.map(item => (
                     <div key={item.id}>
+                          
                         <h2>
                         <Link to={`/shop/${item.id}`} className="minion-links">
                             <Item name={item.name}
@@ -54,13 +66,42 @@ function Shop() {
                                 price={item.verminion.speed + "." + item.verminion.attack} />
                         </Link>
                         </h2>
-                        <button>quick view</button>
-                        <button id={item.id} onClick={e => updateCart(item)}>add</button>                        
+                        <button id={item.id} onClick={e => showPopup(item.name)}>quick view</button>
+                        <button id={item.name} onClick={e => updateCart(item)}>add</button>                      
                     </div>
                 ))}
             </div>
+           
         </div>
     )
+}
+else{
+    return (
+        <div> 
+            
+            <h1>Shop</h1>
+            <div className="shop-div">
+             
+                {items.map(item => (
+                    <div key={item.id}>
+                         
+                        <h2>
+                        <Link to={`/shop/${item.id}`} className="minion-links">
+                            <Item name={item.name}
+                                imageSrc={item.image}
+                                imageAlt={item.name}
+                                price={item.verminion.speed + "." + item.verminion.attack} />
+                        </Link>
+                        </h2>
+                        <button id={item.id} onClick={e => showPopup(item.name)}>quick view</button>
+                        <button id={item.name} onClick={e => updateCart(item)}>add</button>                      
+                    </div>
+                ))}
+            </div>
+           
+        </div>
+    )
+}
 }
 
 export default Shop

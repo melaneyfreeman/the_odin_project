@@ -23,7 +23,6 @@ const Item = (props) => {
         
         </div>
 
-        /* <button id={props.id} onClick={e => updateCart(props)}>add to cart</button> */
     )
 
     

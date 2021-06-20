@@ -87,9 +87,10 @@ const CartItem = (props) => {
                 <h4>{props.name}</h4>
                 <img src={props.imageSrc} alt={props.name} />
                 <h5>${price.toFixed(2)}</h5>
-                <button onClick={() => updateCount(1)}>+</button>
-                <input value={count} onChange={handleChange}/>
                 <button onClick={() => decreaseCount(props.name)}>-</button>
+                <input value={count} onChange={handleChange}/>
+                <button onClick={() => updateCount(1)}>+</button>
+                
             </div>
         )
     }
