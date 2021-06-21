@@ -5,12 +5,14 @@ import { CartContext } from '../CartContext'
 import Item from './Item'
 import ShopItemPopup from './ShopItemPopup'
 
-function Shop() {
 
+function Shop() {
+    //creating a state for isPopup
+    //to create a re-render for when the popup needs to be closed/opened
+    const [isPopup, setIsPopup] = useState(false)
     const [items, setItems] = useContext(ItemContext)
     const [cartItems, setCartItems] = useContext(CartContext)
 
-    let showPopupWindow = false
     
     //check for duplicates in the cart array, before updating cartItems
     function removeDupes(arr){
@@ -42,14 +44,18 @@ function Shop() {
     }
 
     function showPopup(item){
-        //return (<div>this is the item {item}</div>)
-        showPopupWindow = true
+        //check boolean value and reverse it
+        if(isPopup || !isPopup){
+            setIsPopup(!isPopup)
+          
+        }
+        
         console.log(item)
-        console.log(showPopupWindow)
+        console.log(isPopup)
     }
 
 
-if(!showPopupWindow){
+if(isPopup === false){
     return (
         <div> 
             <h1>Shop</h1>
@@ -75,13 +81,15 @@ if(!showPopupWindow){
         </div>
     )
 }
-else{
+else if(isPopup === true){
+
     return (
         <div> 
             
-            <h1>Shop</h1>
+            <h1>Shop!</h1>
+            <div>popup</div>
+<ShopItemPopup></ShopItemPopup>
             <div className="shop-div">
-             
                 {items.map(item => (
                     <div key={item.id}>
                          
