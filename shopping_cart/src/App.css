@@ -62,9 +62,11 @@ a{
 
 }
 
-.shop_item_popup{
- width: 75%;
+
+.popup{
+  width: 65%;
+  background-color: orange;
+  margin:auto;
   position: fixed;
   z-index: 1;
-  background-color: teal;
 }

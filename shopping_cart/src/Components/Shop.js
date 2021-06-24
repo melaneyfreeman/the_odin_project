@@ -12,6 +12,7 @@ function Shop() {
     const [isPopup, setIsPopup] = useState(false)
     const [items, setItems] = useContext(ItemContext)
     const [cartItems, setCartItems] = useContext(CartContext)
+    const [popupItem, setPopupItem] = useState("")
 
     
     //check for duplicates in the cart array, before updating cartItems
@@ -50,9 +51,15 @@ function Shop() {
           
         }
         
-        console.log(item)
         console.log(isPopup)
+        //create a new variable for the item value passed to this function
+        //so we can send that same value off to setPopupItem()
+        let popupItem = item;
+        setPopupItem(popupItem)
+        
     }
+
+
 
 
 if(isPopup === false){
@@ -72,7 +79,7 @@ if(isPopup === false){
                                 price={item.verminion.speed + "." + item.verminion.attack} />
                         </Link>
                         </h2>
-                        <button id={item.id} onClick={e => showPopup(item.name)}>quick view</button>
+                        <button id={item.id} onClick={e => showPopup(item.id)}>quick view</button>
                         <button id={item.name} onClick={e => updateCart(item)}>add</button>                      
                     </div>
                 ))}
@@ -86,9 +93,11 @@ else if(isPopup === true){
     return (
         <div> 
             
-            <h1>Shop!</h1>
-            <div>popup</div>
-<ShopItemPopup></ShopItemPopup>
+            <h1>Shop</h1>
+            <div className="popup">
+                <ShopItemPopup id={popupItem}/>
+            </div>
+            
             <div className="shop-div">
                 {items.map(item => (
                     <div key={item.id}>
