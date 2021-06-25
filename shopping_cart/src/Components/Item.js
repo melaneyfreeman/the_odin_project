@@ -13,12 +13,12 @@ const Item = (props) => {
 
     return (
         <div className="shopItem">
-            <h3>{props.name}</h3>
+            <h3 className="itemName">{props.name}</h3>
             <h4>{props.description}</h4>
             <h4>{props.enhanced_description}</h4>
             <img src={props.imageSrc} alt={props.name} />
             <h5>{props.tooltip}</h5>
-            <h4>${Number(props.price).toFixed(2)}</h4>
+            <h4 className="itemPrice">${Number(props.price).toFixed(2)}</h4>
             
         
         </div>

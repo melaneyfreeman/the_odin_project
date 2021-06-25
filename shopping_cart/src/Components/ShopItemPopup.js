@@ -29,7 +29,8 @@ const ShopItemPopup = (props) => {
     return (
         <div>
             <h2>{itemDetail.name}</h2>
-            <h3>{itemDetail.description}</h3>
+            <h3>{itemDetail.description}  {itemDetail.enhanced_description}</h3>
+    
             
 
 
