@@ -38,39 +38,37 @@ a{
 }
 
 .shop-item{
-  
-  background-color: white;
+  width: 81%;
+  height: 500px;
   position: absolute;
 
 }
 
 .shopItem{
   background-color: rgb(151, 174, 161);
-  padding: 4%;
+  padding-top: 5%;
   margin-right: 4%;
-  height: 50vh;
-  padding-bottom: 0px;
+  padding-bottom: 5%;
+  border-radius: 10px 10px 1px 1px;
 
 }
 
 .buttonDiv{
   background-color: rgb(151, 174, 161);
-  margin-top: -7%;
+  margin-top: -15%;
   width: 96%;
   margin-left: 0%;
   padding-bottom: 5%;
-  
-
+  border-radius: 1px 1px 10px 10px;
 }
+
 
 .itemName{
 
 }
 
 .itemPrice{
-  padding:0px;
-  margin-bottom: 0px;
-  background: red;
+
   
 }
 
@@ -83,8 +81,6 @@ a{
   width: 20vw;
   margin-left: 5vw;
   color: white;
-
-
 }
 
 
@@ -95,7 +91,7 @@ a{
   margin-left: 7%;
   position: fixed;
   z-index: 1;
-  display:none;
+  display: none;
 }
 
 .popup:hover{

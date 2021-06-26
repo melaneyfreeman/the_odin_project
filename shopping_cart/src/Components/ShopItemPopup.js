@@ -11,29 +11,31 @@ const ShopItemPopup = (props) => {
     }, [])
 
     const [itemDetail, setItemDetail] = useState({
-        results: {
-            name: {
+        results:{
+            name:{
 
             }
-
+        
         },
-        verminion: {}
+        verminion:{}
     })
 
     const fetchItem = async () => {
         const fetchItem = await fetch(`https://ffxivcollect.com/api/minions?id_in=${props.id}`)
         const itemDetail = await fetchItem.json()
         setItemDetail(itemDetail.results[0])
+        console.log("from popup component:")
+        console.log(itemDetail.results[0])
     }
 
-    return (
+    const [cartItems, setCartItems] = useContext(CartContext)
+
+        return (
         <div>
+            <h2>{props.id}</h2>
             <h2>{itemDetail.name}</h2>
-            <h3>{itemDetail.description}  {itemDetail.enhanced_description}</h3>
-    
-            
-
-
+           
+           
         </div>
     )
 

@@ -12,7 +12,9 @@ function Shop() {
     const [isPopup, setIsPopup] = useState(false)
     const [items, setItems] = useContext(ItemContext)
     const [cartItems, setCartItems] = useContext(CartContext)
-    const [popupItem, setPopupItem] = useState("")
+    const [popupItem, setPopupItem] = useState(0)
+
+    const defaultPopup = 0
 
 
     //check for duplicates in the cart array, before updating cartItems
@@ -52,24 +54,29 @@ function Shop() {
         //so we can send that same value off to setPopupItem()
         let popupItem = item;
         setPopupItem(popupItem)
+        document.getElementById("popup").style.display = "block"
 
 
 
     }
 
     function hidePopup(item) {
+        document.getElementById("popup").style.display = "none"
         console.log("mouse out " + item)
+        console.log("hiding popupitem: " + popupItem + defaultPopup)
+
     }
 
-
-
-
-    if (isPopup === false) {
         return (
-            <div>
-                <h1>Shopiiii</h1>
-                <div className="shop-div">
+            <div className="parent">
 
+                <h1>Shop</h1>
+                <div className="popup" id="popup">
+                    <ShopItemPopup id={popupItem} />
+                    {console.log("this is the item being sent: " + popupItem)}
+                </div>
+
+                <div className="shop-div">
                     {items.map(item => (
                         <div key={item.id}>
 
@@ -81,40 +88,8 @@ function Shop() {
                                         price={item.verminion.speed + "." + item.verminion.attack} />
                                 </Link>
                             </h2>
-                            {/* <button id={item.id} onMouseOver={e => showPopup(item.id)} onMouseOut={e=> hidePopup(item.id)}>quick view</button> }*/}
                             <div className="buttonDiv">
-                                <button id={item.name} onClick={e => updateCart(item)}>add</button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-            </div>
-        )
-    }
-    else {
-
-        return (
-            <div className="parent">
-
-                <h1>Shop</h1>
-                <div className="popup">
-                    <ShopItemPopup id={popupItem} />
-                </div>
-
-                <div className="shop-div">
-                    {items.map(item => (
-                        <div key={item.id}>
-
-                            <h2 onMouseEnter={this.showPopup.bind(this)} value={item.id}>
-                                <Link to={`/shop/${item.id}`} className="minion-links">
-                                    <Item name={item.name}
-                                        imageSrc={item.image}
-                                        imageAlt={item.name}
-                                        price={item.verminion.speed + "." + item.verminion.attack} />
-                                </Link>
-                            </h2>
-                            <div className="buttonDiv">
+                                <button id={item.id} onMouseOver={e => showPopup(item.id)} onMouseOut={e => hidePopup(item.id)}>quick view</button>
                                 <button id={item.name} onClick={e => updateCart(item)}>add</button>
                             </div>
 
@@ -125,6 +100,6 @@ function Shop() {
             </div>
         )
     }
-}
+
 
 export default Shop
