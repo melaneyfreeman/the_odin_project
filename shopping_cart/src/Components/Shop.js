@@ -47,7 +47,7 @@ function Shop() {
     }
 
     function showPopup(item) {
-        setIsPopup(!isPopup)
+        setIsPopup(true)
         console.log("mouse in " + item)
         console.log(isPopup)
         //create a new variable for the item value passed to this function
@@ -64,42 +64,54 @@ function Shop() {
         document.getElementById("popup").style.display = "none"
         console.log("mouse out " + item)
         console.log("hiding popupitem: " + popupItem + defaultPopup)
+        //be sure to change to false when mouse leaves
+        setIsPopup(false)
 
     }
 
-        return (
-            <div className="parent">
+    return (
+        <div className="parent">
 
-                <h1>Shop</h1>
+            <h1>Shop</h1>
+            {/* only return the shop item component if isPopup is true 
+                otherwise return an empty div */ }
+            {isPopup ? (
                 <div className="popup" id="popup">
                     <ShopItemPopup id={popupItem} />
                     {console.log("this is the item being sent: " + popupItem)}
+                    {console.log(isPopup)}
+
                 </div>
+            ) : (
+                    <div className="popup" id="popup">
+                        {console.log(isPopup)}
+                    </div>
+                )}
 
-                <div className="shop-div">
-                    {items.map(item => (
-                        <div key={item.id}>
+            <div className="shop-div">
+                {items.map(item => (
+                    <div key={item.id}>
 
-                            <h2>
-                                <Link to={`/shop/${item.id}`} className="minion-links">
-                                    <Item name={item.name}
-                                        imageSrc={item.image}
-                                        imageAlt={item.name}
-                                        price={item.verminion.speed + "." + item.verminion.attack} />
-                                </Link>
-                            </h2>
-                            <div className="buttonDiv">
-                                <button id={item.id} onMouseOver={e => showPopup(item.id)} onMouseOut={e => hidePopup(item.id)}>quick view</button>
-                                <button id={item.name} onClick={e => updateCart(item)}>add</button>
-                            </div>
-
+                        <h2>
+                            <Link to={`/shop/${item.id}`} className="minion-links">
+                                <Item name={item.name}
+                                    imageSrc={item.image}
+                                    imageAlt={item.name}
+                                    price={item.verminion.speed + "." + item.verminion.attack} />
+                            </Link>
+                        </h2>
+                        <div className="buttonDiv">
+                            <button id={item.id} onMouseOver={e => showPopup(item.id)} onMouseOut={e => hidePopup(item.id)}>quick view</button>
+                            <button id={item.name} onClick={e => updateCart(item)}>add</button>
                         </div>
-                    ))}
-                </div>
 
+                    </div>
+                ))}
             </div>
-        )
-    }
+
+        </div>
+    )
+}
 
 
 export default Shop
