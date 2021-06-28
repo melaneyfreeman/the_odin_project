@@ -9,6 +9,8 @@ function ShopItem ({match}) {
     useEffect(() => {
         fetchItem()
     }, [])
+
+    // passing empty [] -> run effect and clean it up only once on mount/unmount
     
     const [itemDetail, setItemDetail] = useState({
         results:{

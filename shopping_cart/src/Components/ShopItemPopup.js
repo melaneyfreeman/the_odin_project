@@ -27,13 +27,13 @@ const ShopItemPopup = (props) => {
         const itemDetail = await fetchItem.json()
         setItemDetail(itemDetail.results[0])
         console.log("from popup component:")
-        //console.log(itemDetail.results[0])
+        console.log(itemDetail.results[0])
     }
 
 
 
     //check if itemDetail is defined before trying to use it in the component
-    if (itemDetail !== undefined) {
+    if (itemDetail !== undefined && props.id !== 0) {
         return (
             <div>
                 <h2>{props.id}</h2>
@@ -48,7 +48,7 @@ const ShopItemPopup = (props) => {
 
     else {
         return (
-            <div></div>
+            <div>{console.log("popup item is undefined")}</div>
         )
     }
 

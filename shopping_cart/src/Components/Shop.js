@@ -61,11 +61,13 @@ function Shop() {
     }
 
     function hidePopup(item) {
+        setPopupItem(0)
+        setIsPopup(false)
         document.getElementById("popup").style.display = "none"
         console.log("mouse out " + item)
         console.log("hiding popupitem: " + popupItem + defaultPopup)
         //be sure to change to false when mouse leaves
-        setIsPopup(false)
+        
 
     }
 
@@ -84,6 +86,8 @@ function Shop() {
                 </div>
             ) : (
                     <div className="popup" id="popup">
+                    <ShopItemPopup id={popupItem} />
+
                         {console.log(isPopup)}
                     </div>
                 )}
