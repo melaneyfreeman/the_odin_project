@@ -14,8 +14,6 @@ function Shop() {
     const [cartItems, setCartItems] = useContext(CartContext)
     const [popupItem, setPopupItem] = useState(0)
 
-    const defaultPopup = 0
-
 
     //check for duplicates in the cart array, before updating cartItems
     function removeDupes(arr) {
@@ -54,6 +52,7 @@ function Shop() {
         //so we can send that same value off to setPopupItem()
         let popupItem = item;
         setPopupItem(popupItem)
+        console.log("popupitem: "+ popupItem)
         document.getElementById("popup").style.display = "block"
 
 
@@ -61,11 +60,11 @@ function Shop() {
     }
 
     function hidePopup(item) {
-        setPopupItem(0)
+        //setPopupItem(0)
         setIsPopup(false)
         document.getElementById("popup").style.display = "none"
         console.log("mouse out " + item)
-        console.log("hiding popupitem: " + popupItem + defaultPopup)
+        console.log("hiding popupitem: " + popupItem)
         //be sure to change to false when mouse leaves
         
 
@@ -86,8 +85,6 @@ function Shop() {
                 </div>
             ) : (
                     <div className="popup" id="popup">
-                    <ShopItemPopup id={popupItem} />
-
                         {console.log(isPopup)}
                     </div>
                 )}

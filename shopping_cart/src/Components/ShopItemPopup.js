@@ -7,9 +7,11 @@ import { CartContext } from '../CartContext'
 
 
 const ShopItemPopup = (props) => {
+    const [isLoading, setLoading] = useState(true)
+
     useEffect(() => {
         fetchItem()
-    }, [])
+    })
 
     const [itemDetail, setItemDetail] = useState({
         results: {
@@ -21,19 +23,23 @@ const ShopItemPopup = (props) => {
         verminion: {}
     })
 
-
     const fetchItem = async () => {
         const fetchItem = await fetch(`https://ffxivcollect.com/api/minions?id_in=${props.id}`)
         const itemDetail = await fetchItem.json()
         setItemDetail(itemDetail.results[0])
-        console.log("from popup component:")
-        console.log(itemDetail.results[0])
+        setLoading(false)
+    
     }
 
 
+    if(isLoading){
+       return(
+        <h2>loading...</h2>
+       )
+    }
 
     //check if itemDetail is defined before trying to use it in the component
-    if (itemDetail !== undefined && props.id !== 0) {
+    else if (itemDetail !== undefined) {
         return (
             <div>
                 <h2>{props.id}</h2>
@@ -48,7 +54,7 @@ const ShopItemPopup = (props) => {
 
     else {
         return (
-            <div>{console.log("popup item is undefined")}</div>
+            <div>{console.log("popup item is: " + itemDetail)}</div>
         )
     }
 
