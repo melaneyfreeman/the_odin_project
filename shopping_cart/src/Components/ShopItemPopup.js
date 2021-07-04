@@ -8,11 +8,6 @@ import { CartContext } from '../CartContext'
 
 const ShopItemPopup = (props) => {
     const [isLoading, setLoading] = useState(true)
-
-    useEffect(() => {
-        fetchItem()
-    })
-
     const [itemDetail, setItemDetail] = useState({
         results: {
             name: {
@@ -22,14 +17,38 @@ const ShopItemPopup = (props) => {
         },
         verminion: {}
     })
-
-    const fetchItem = async () => {
-        const fetchItem = await fetch(`https://ffxivcollect.com/api/minions?id_in=${props.id}`)
-        const itemDetail = await fetchItem.json()
-        setItemDetail(itemDetail.results[0])
-        setLoading(false)
     
-    }
+    useEffect(() => {
+        const fetchItem = async () => {
+            try {
+                const fetchItem = await fetch(`https://ffxivcollect.com/api/minions?id_in=${props.id}`)
+
+                if(isLoading){
+                    const itemDetail = await fetchItem.json()
+                    setItemDetail(itemDetail.results[0])
+                    setLoading(false)
+                }
+
+                
+            }
+            catch{
+                setLoading(true)
+            }
+          
+        
+        }
+
+        fetchItem()
+
+        return() => {
+            
+        }
+        
+    }, [])
+
+  
+
+  
 
 
     if(isLoading){
@@ -52,11 +71,7 @@ const ShopItemPopup = (props) => {
 
     }
 
-    else {
-        return (
-            <div>{console.log("popup item is: " + itemDetail)}</div>
-        )
-    }
+
 
 
 }
