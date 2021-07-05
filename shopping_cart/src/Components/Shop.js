@@ -85,6 +85,7 @@ function Shop() {
                 </div>
             ) : (
                     <div className="popup" id="popup">
+
                         {console.log(isPopup)}
                     </div>
                 )}

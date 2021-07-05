@@ -17,63 +17,55 @@ const ShopItemPopup = (props) => {
         },
         verminion: {}
     })
-    
+
     useEffect(() => {
+
         const fetchItem = async () => {
+
             try {
                 const fetchItem = await fetch(`https://ffxivcollect.com/api/minions?id_in=${props.id}`)
 
-                if(isLoading){
+                if (isLoading) {
                     const itemDetail = await fetchItem.json()
                     setItemDetail(itemDetail.results[0])
-                    setLoading(false)
+                    if (itemDetail !== undefined) {
+                        setLoading(false)
+
+                    }
                 }
 
-                
+
             }
-            catch{
+            catch {
                 setLoading(true)
             }
-          
-        
+
+
         }
+
+    
 
         fetchItem()
 
-        return() => {
-            
-        }
-        
     }, [])
 
-  
 
-  
+    return (
 
+        <div>
+            {isLoading ? (
+                <h2>loading...</h2>
+            ) : (
+                    <div>
+                        <h2>{props.id}</h2>
+                        <h2>{itemDetail.name}</h2>
+                        <h2>{itemDetail.description + " " + itemDetail.enhanced_description}</h2>
+                    </div>
+                )}
+        </div>
 
-    if(isLoading){
-       return(
-        <h2>loading...</h2>
-       )
-    }
-
-    //check if itemDetail is defined before trying to use it in the component
-    else if (itemDetail !== undefined) {
-        return (
-            <div>
-                <h2>{props.id}</h2>
-                <h2>{itemDetail.name}</h2>
-                <h2>{itemDetail.description + " " + itemDetail.enhanced_description}</h2>
-                
-
-            </div>
-        )
-
-    }
-
-
-
-
+    )
 }
+
 
 export default ShopItemPopup
