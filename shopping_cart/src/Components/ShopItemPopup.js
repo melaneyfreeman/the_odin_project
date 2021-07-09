@@ -43,6 +43,7 @@ const ShopItemPopup = (props) => {
 
         }
 
+       
     
 
         fetchItem()

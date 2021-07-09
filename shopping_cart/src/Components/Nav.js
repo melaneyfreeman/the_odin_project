@@ -17,7 +17,7 @@ const Nav = () => {
                 <Link to="/shop">
                     <li>Shop</li>
                 </Link>
-                <Link to="/">
+                <Link to="/cart">
                     <li>Cart ({cartItems.length})</li>
                 </Link>
             </ul>

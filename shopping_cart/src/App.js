@@ -8,6 +8,7 @@ import About from './Components/About'
 import Shop from './Components/Shop'
 import ShopItem from './Components/ShopItem'
 import Cart from './Components/Cart'
+import FullCart from './Components/FullCart'
 import { ItemProvider } from './ItemContext'
 import {CartProvider} from './CartContext'
 import ShopItemPopup from './Components/ShopItemPopup';
@@ -29,6 +30,7 @@ function App() {
             <Route path="/about" exact component={About} />
             <Route path="/shop" exact component={Shop} />
             <Route path="/shop/:id" exact component={ShopItem} />
+            <Route path="/cart" exact component={FullCart}/>
             
           </Switch>
         </div>
