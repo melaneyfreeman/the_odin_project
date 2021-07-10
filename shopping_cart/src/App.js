@@ -10,33 +10,35 @@ import ShopItem from './Components/ShopItem'
 import Cart from './Components/Cart'
 import FullCart from './Components/FullCart'
 import { ItemProvider } from './ItemContext'
-import {CartProvider} from './CartContext'
+import { CartProvider } from './CartContext'
 import ShopItemPopup from './Components/ShopItemPopup';
 
 function App() {
 
-
-
   return (
+    <div className="App">
 
-    <Router>
-      <ItemProvider>
-        <CartProvider>
-        <div className="App">
-          <Nav />
-          <Cart />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/about" exact component={About} />
-            <Route path="/shop" exact component={Shop} />
-            <Route path="/shop/:id" exact component={ShopItem} />
-            <Route path="/cart" exact component={FullCart}/>
-            
-          </Switch>
-        </div>
-        </CartProvider>
-      </ItemProvider>
-    </Router>
+      <Router>
+        <Switch>
+
+          <ItemProvider>
+            <CartProvider>
+              <Nav />
+              <Route path="/cart" exact component={FullCart} />
+
+              <Cart />
+              <Route path="/" exact component={Home} />
+              <Route path="/about" exact component={About} />
+              <Route path="/shop" exact component={Shop} />
+              <Route path="/shop/:id" exact component={ShopItem} />
+
+            </CartProvider>
+          </ItemProvider>
+        </Switch>
+
+      </Router>
+    </div>
+
   )
 
 }

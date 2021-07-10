@@ -97,3 +97,7 @@ a{
 .popup:hover{
   background-color: orangered;
 }
+
+#fullcart{
+  background-color: red;
+}

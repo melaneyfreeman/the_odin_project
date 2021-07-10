@@ -5,12 +5,10 @@ import CartItem from './CartItem'
 function Cart(props) {
     const [cartItems, setCartItems] = useContext(CartContext)
 
-    if(window.location.pathname === "/cart"){
-        return null
-    }
-    else{
+   
+   
          return (
-        <div className="cart" >
+        <div className="cart" id="cart" >
              <button onClick={emptyCart}>empty cart</button>
             <h3>Cart</h3>
             {(cartItems.map(item => (
@@ -25,7 +23,7 @@ function Cart(props) {
               )))}  
         </div>
     )
-    }
+    
    
 
     function emptyCart() {
