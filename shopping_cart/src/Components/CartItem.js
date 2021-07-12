@@ -8,8 +8,7 @@ const CartItem = (props) => {
     const [cartItems, setCartItems] = useContext(CartContext)
 
     function updateCart(cart){
-        console.log('updating cart, receiving this cart array and sending it to cart context:')
-        console.log(cart)
+    
         setCartItems(cart)
  
     }
@@ -21,12 +20,11 @@ const CartItem = (props) => {
                 if(cartItems[i].name === id){
                     let newCart = cartItems
                     newCart.splice(i, 1)
-                    console.log("below is array after removed")
-                    console.log(newCart)
                     updateCart(newCart)
+                    console.log(newCart)
                     //now we will update the count for the removed item
-                    //so it will not pass the render check and instead render an empty div
-                    updateCount(-1)
+                    //so it will not pass the render check and not render anything
+                    setCount(count - 1)
   
                 }
             }
@@ -35,30 +33,38 @@ const CartItem = (props) => {
 
     //num is the increment or decrement value (+1 or -1)
     function updateCount(num){
+        console.log(count + "adding")
         setCount(count + num)
         updatePrice(count, num)
-        console.log(count)       
     }
 
     function decreaseCount(id){
 
-        console.log('name of item being decreased:' + id)
         if(count > 0){
             //check if count is able to be decreased without removing the item
             if(count - 1 > 0){
                 updateCount(-1)
-                console.log("decreasing count...")
-                console.log(cartItems)
+                console.log(count + "not removing")
+               
             }
             //if it will be automatically removed if its decreased
             //we want to remove the item first, and then decrease it once it has been removed
             //so it does not pass the render check before its removed (count > 0)
             //AKA, it will render it if you don't remove it before the render condition
             else if(count -1 <= 0){
+                console.log(count + "removing")
+                updateCount(-1)
                 console.log("removing item..." + id)
                 removeItem(...arguments)
             }
 
+        }
+
+        if(count < 0){
+            console.log(count + "removing")
+            updateCount(-1)
+
+            removeItem(...arguments)
         }
         
     }
@@ -96,7 +102,7 @@ const CartItem = (props) => {
     }
     else{
         return(
-        <div></div>
+        <> </>
         )
         
     }

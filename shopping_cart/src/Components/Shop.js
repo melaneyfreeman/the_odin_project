@@ -28,31 +28,31 @@ function Shop() {
     function updateCart(itemDetail) {
         //if there is anything in the cart, check for dupes
         if (cartItems.length > 0) {
+            console.log("cart:")
+            console.log(cartItems)
             let newArr = cartItems
             newArr.push(itemDetail)
             newArr = removeDupes(newArr)
             //setCartItems(prevItems => [...prevItems, itemDetail])
             setCartItems(newArr)
-            console.log(itemDetail.name)
             console.log("removed dupes:")
-            console.log(cartItems)
+            console.log(newArr)
         }
         //if cart is empty, no need to check for dupes
         else {
             setCartItems(prevItems => [...prevItems, itemDetail])
-            console.log(itemDetail.name)
+            console.log("cart:")
+            console.log(cartItems)
         }
     }
 
     function showPopup(item) {
         setIsPopup(true)
-        console.log("mouse in " + item)
         console.log(isPopup)
         //create a new variable for the item value passed to this function
         //so we can send that same value off to setPopupItem()
         let popupItem = item;
         setPopupItem(popupItem)
-        console.log("popupitem: "+ popupItem)
         document.getElementById("popup").style.display = "block"
 
 
@@ -63,8 +63,6 @@ function Shop() {
         //setPopupItem(0)
         setIsPopup(false)
         document.getElementById("popup").style.display = "none"
-        console.log("mouse out " + item)
-        console.log("hiding popupitem: " + popupItem)
         //be sure to change to false when mouse leaves
         
 
@@ -79,14 +77,12 @@ function Shop() {
             {isPopup ? (
                 <div className="popup" id="popup">
                     <ShopItemPopup id={popupItem} />
-                    {console.log("this is the item being sent: " + popupItem)}
-                    {console.log(isPopup)}
+                    
 
                 </div>
             ) : (
                     <div className="popup" id="popup">
 
-                        {console.log(isPopup)}
                     </div>
                 )}
 

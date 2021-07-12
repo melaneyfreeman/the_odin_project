@@ -5,9 +5,10 @@ import CartItem from './CartItem'
 function Cart(props) {
     const [cartItems, setCartItems] = useContext(CartContext)
 
-   
-   
-         return (
+    //check if we are on the shop page or not to decide whether we should render the
+    //sidebar cart component
+    if(window.location.pathname !== "/cart"){
+    return (
         <div className="cart" id="cart" >
              <button onClick={emptyCart}>empty cart</button>
             <h3>Cart</h3>
@@ -23,7 +24,12 @@ function Cart(props) {
               )))}  
         </div>
     )
-    
+   }
+
+   //if not 
+   else{
+       return <> </>
+   }
    
 
     function emptyCart() {
