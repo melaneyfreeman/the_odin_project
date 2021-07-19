@@ -12,8 +12,8 @@ export const CartProvider = (props) => {
         
     ])
 
-    //console.log("cart items from cart context")
-    //console.log(cartItems)
+    console.log("cart items from cart context")
+    console.log(cartItems)
 
     return (
         <CartContext.Provider value={[cartItems, setCartItems]}>
