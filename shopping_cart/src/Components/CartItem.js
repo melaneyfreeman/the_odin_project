@@ -8,9 +8,6 @@ const CartItem = (props) => {
     const [cartItems, setCartItems] = useContext(CartContext)
     const [itemId, setItemId] = useState(0)
 
-    setItemId(props.name)
-
-
     function updateCart(cart){
     
         setCartItems(cart)
@@ -45,6 +42,7 @@ const CartItem = (props) => {
     }
 
     function decreaseCount(id){
+        setItemId(id)
         if(count > 0){
             //check if count is able to be decreased without removing the item
             if(count - 1 > 0){
@@ -57,17 +55,18 @@ const CartItem = (props) => {
             //so it does not pass the render check before its removed (count > 0)
             //AKA, it will render it if you don't remove it before the render condition
             else if(count -1 <= 0){
-                console.log(count + "removing")
-                updateCount(1)
                 console.log("removing item..." + id)
                 removeItem(...arguments)
+                console.log(count + "removing")
+                updateCount(-1)
+               
             }
 
         }
 
         if(count < 0){
             console.log(count + "removing")
-            updateCount(1)
+            updateCount(-1)
 
             removeItem(...arguments)
         }
@@ -92,35 +91,30 @@ const CartItem = (props) => {
 
     //instead check if item exists in the cart array
     //**** */
+    let found = cartItems.some(el => el.name === itemId)
+    console.log("is it found?" + found)
+    if(count > 0 && found){
+        
 
-    for(var i = cartItems.length -1; i > -1; i--){
-        if(cartItems[i].name === itemId){
-            return (
+        return (
        
-                <div>
-                    <h4>{props.name}</h4>
-                    <img src={props.imageSrc} alt={props.name} />
-                    <h5>${price.toFixed(2)}</h5>
-                    <button onClick={() => decreaseCount(props.name)}>-</button>
-                    <input value={count} onChange={handleChange}/>
-                    <button onClick={() => updateCount(1)}>+</button>
-                    
-                </div>
-            )
-
-        }
-
-        else{
+            <div>
+                <h4>{props.name}</h4>
+                <img src={props.imageSrc} alt={props.name} />
+                <h5>${price.toFixed(2)}</h5>
+                <button onClick={() => decreaseCount(props.name)}>-</button>
+                <input value={count} onChange={handleChange}/>
+                <button onClick={() => updateCount(1)}>+</button>
+                
+            </div>
+        )
+    }
+    else{
         return(
             <div id="deleted"></div>
         )
         
     }
-    }
-
-    
-    
-    
     
 
     
