@@ -8,27 +8,38 @@ const CartItem = (props) => {
     const [cartItems, setCartItems] = useContext(CartContext)
     const [itemId, setItemId] = useState(0)
 
+    const[foundItem, setFoundItem] = useState(undefined)
+
     function updateCart(cart){
     
         setCartItems(cart)
+        console.log("cart from update")
+        console.log(cartItems)
  
     }
 
     function removeItem(id){
             console.log("removing item:" + id)
             //setCartItems(cartItems.filter(obj => obj.id !== id))
-            for(var i = cartItems.length -1; i > -1; i--){
-                if(cartItems[i].name === id){
-                    let newCart = cartItems
-                    newCart.splice(i, 1)
-                    updateCart(newCart)
-                    console.log(newCart)
-                    //now we will update the count for the removed item
-                    //so it will not pass the render check and not render anything
-                    setCount(1)
-  
+            if(cartItems.length -1 < 1){
+                for(var i = cartItems.length -1; i > -1; i--){
+                    if(cartItems[i].name === id){
+                        resetCount()
+
+                        let newCart = cartItems
+                        newCart.splice(i, 1)
+                        updateCart(newCart)
+                        console.log(newCart)
+                     
+      
+                    }
                 }
             }
+            else if(cartItems.length -1 <= 0){
+                resetCount()
+                setCartItems([])
+            }
+          
    
     }
 
@@ -39,6 +50,12 @@ const CartItem = (props) => {
         updatePrice(count, num)
         
         
+    }
+
+    function resetCount(){
+        console.log("resetting count")
+        setCount(1)
+        updatePrice(1, 0)
     }
 
     function decreaseCount(id){
@@ -58,17 +75,18 @@ const CartItem = (props) => {
                 console.log("removing item..." + id)
                 removeItem(...arguments)
                 console.log(count + "removing")
-                updateCount(-1)
+                resetCount()
                
             }
 
         }
 
         if(count < 0){
-            console.log(count + "removing")
-            updateCount(-1)
-
             removeItem(...arguments)
+
+            console.log(count + "removing")
+            resetCount()
+
         }
         
     }
@@ -91,9 +109,11 @@ const CartItem = (props) => {
 
     //instead check if item exists in the cart array
     //**** */
-    let found = cartItems.some(el => el.name === itemId)
+    let found = (cartItems.find(foundItem => foundItem.name === props.name))
     console.log("is it found?" + found)
-    if(count > 0 && found){
+
+
+    if(found){
         
 
         return (
@@ -111,7 +131,7 @@ const CartItem = (props) => {
     }
     else{
         return(
-            <div id="deleted"></div>
+            <div id="deleted">deleted</div>
         )
         
     }
