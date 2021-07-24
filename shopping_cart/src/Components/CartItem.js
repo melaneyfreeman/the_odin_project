@@ -43,9 +43,9 @@ const CartItem = (props) => {
    
     }
 
-    //num is the increment or decrement value (+1 or -1)
+    //num is the amount to increment by
     function updateCount(num){
-        console.log(count + "adding")
+        console.log(count + "addingggg")
         setCount(count + num)
         updatePrice(count, num)
         
@@ -83,7 +83,7 @@ const CartItem = (props) => {
 
         if(count < 0){
             removeItem(...arguments)
-
+            
             console.log(count + "removing")
             resetCount()
 
@@ -113,7 +113,7 @@ const CartItem = (props) => {
     console.log("is it found?" + found)
 
 
-    if(found){
+    if(found && count > 0){
         
 
         return (
