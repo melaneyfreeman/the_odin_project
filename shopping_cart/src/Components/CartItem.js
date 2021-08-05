@@ -28,8 +28,10 @@ const CartItem = (props) => {
 
                         let newCart = cartItems
                         newCart.splice(i, 1)
-                        updateCart(newCart)
+                        setCartItems([])
+                        setCartItems(newCart)
                         console.log(newCart)
+                        updateCart(newCart)
                      
       
                     }
@@ -45,6 +47,7 @@ const CartItem = (props) => {
 
     //num is the amount to increment by
     function updateCount(num){
+        
         console.log(count + "addingggg")
         setCount(count + num)
         updatePrice(count, num)
@@ -54,8 +57,8 @@ const CartItem = (props) => {
 
     function resetCount(){
         console.log("resetting count")
-        setCount(1)
-        updatePrice(1, 0)
+        setCount(0)
+        updatePrice(0, 0)
     }
 
     function decreaseCount(id){
@@ -67,25 +70,23 @@ const CartItem = (props) => {
                 console.log(count + "not removing")
                
             }
-            //if it will be automatically removed if its decreased
-            //we want to remove the item first, and then decrease it once it has been removed
-            //so it does not pass the render check before its removed (count > 0)
-            //AKA, it will render it if you don't remove it before the render condition
+         
             else if(count -1 <= 0){
+
                 console.log("removing item..." + id)
                 removeItem(...arguments)
                 console.log(count + "removing")
-                resetCount()
-               
+                //resetCount()
+
             }
 
         }
 
         if(count < 0){
             removeItem(...arguments)
-            
             console.log(count + "removing")
-            resetCount()
+
+            //resetCount()
 
         }
         
@@ -111,9 +112,12 @@ const CartItem = (props) => {
     //**** */
     let found = (cartItems.find(foundItem => foundItem.name === props.name))
     console.log("is it found?" + found)
+    if(found && count === 0){
+        setCount(1)
+    }
 
 
-    if(found && count > 0){
+    if(found){
         
 
         return (
