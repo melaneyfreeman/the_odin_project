@@ -12,6 +12,7 @@ const CartItem = (props) => {
 
     function updateCart(cart){
     
+        setCartItems([])
         setCartItems(cart)
         console.log("cart from update")
         console.log(cartItems)
@@ -19,9 +20,10 @@ const CartItem = (props) => {
     }
 
     function removeItem(id){
-            console.log("removing item:" + id)
+            console.log("removing this item: " + id)
             //setCartItems(cartItems.filter(obj => obj.id !== id))
-            if(cartItems.length -1 < 1){
+      
+                console.log("here 1")
                 for(var i = cartItems.length -1; i > -1; i--){
                     if(cartItems[i].name === id){
                         resetCount()
@@ -30,6 +32,7 @@ const CartItem = (props) => {
                         newCart.splice(i, 1)
                         setCartItems([])
                         setCartItems(newCart)
+                        console.log("new cart:")
                         console.log(newCart)
                         updateCart(newCart)
                      
@@ -37,13 +40,10 @@ const CartItem = (props) => {
                     }
                 }
             }
-            else if(cartItems.length -1 <= 0){
-                resetCount()
-                setCartItems([])
-            }
+      
           
    
-    }
+    
 
     //num is the amount to increment by
     function updateCount(num){
@@ -73,10 +73,15 @@ const CartItem = (props) => {
          
             else if(count -1 <= 0){
 
-                console.log("removing item..." + id)
+                console.log("removing item... " + id)
                 removeItem(...arguments)
-                console.log(count + "removing")
+                console.log(count + " removing " + id )
                 //resetCount()
+
+            }
+
+            else if(count === 0){
+                removeItem(...arguments)
 
             }
 
@@ -84,10 +89,12 @@ const CartItem = (props) => {
 
         if(count < 0){
             removeItem(...arguments)
-            console.log(count + "removing")
-
+            console.log(count + " removing " + id)
             //resetCount()
 
+        }
+        if(count === 0){
+            removeItem(...arguments)
         }
         
     }
@@ -116,8 +123,14 @@ const CartItem = (props) => {
         setCount(1)
     }
 
+    for(let i = 0; i < cartItems.length; i++){
+        let totalPrice = 0
+        totalPrice += price.toFixed(2)
+        console.log("total " + totalPrice)
+    }
 
-    if(found){
+
+    if(found && count !== 0){
         
 
         return (
@@ -135,7 +148,7 @@ const CartItem = (props) => {
     }
     else{
         return(
-            <div id="deleted">deleted</div>
+            <></>
         )
         
     }

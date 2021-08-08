@@ -20,10 +20,15 @@ function Cart(props) {
                     price={item.verminion.speed + "." + item.verminion.attack}
 
                 />
-                {item.name}
+                
             </div>
+    
+           
               )))}  
+
+
         </div>
+        
     )
    }
 
